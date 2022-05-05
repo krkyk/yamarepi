@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   }
 
   #会員用
-  scope module: :customers do
+  scope module: :public do
     root :to => "homes#top"
     get "about" => "homes#about"
 
