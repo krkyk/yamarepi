@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   #管理者用
   namespace :admin do
-    get 'admin' => 'homes#top'
+    root :to => 'homes#top'
     resources :recipes, only:[:index,:show,:destroy]
     resources :customers, only:[:show,:edit,:update]
     resources :comments, only:[:destroy]

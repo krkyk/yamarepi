@@ -1,2 +1,59 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
+.midashi {
+  display: inline-block;
+  position: relative;
+  line-height: 50px;
+  text-align: center;
+  background-color: #ffd700;
+  color: #2f4f4f;
+  box-sizing: border-box;
+}
+
+.midashi:before, .midashi:after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+}
+
+.midashi:before {
+  /*左の山形*/
+  top: 0;
+  left: 0;
+  border-width: 25px 0px 25px 15px;
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+}
+
+.midashi:after {
+  /*右の山形*/
+  top: 0;
+  right: 0;
+  border-width: 25px 15px 25px 0px;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+main {
+  flex: 1;
+  background-color: #fffff0;
+}
+
+footer{
+  background-color: #3cb371;
+}
+
+.footer-text {
+  color: #2f4f4f;
+}
