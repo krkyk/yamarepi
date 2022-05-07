@@ -45,15 +45,20 @@
                     <tr>
                       <td>材料</td>
                     </tr>
-                    <%#= f.fields_for :cooking_materials do |m| %>
-                      <tr>
-                        <%#=  render partial: "users/recipes/cooking_materials_fields", locals: { f: m } %>
-                      </tr>
+                    <%= f.fields_for :recipe_ingredients do |t| %>
+                    <tr>
+                      <%= render "post_ingredients",f: t %>
+                    </tr>
+                    <% end%>
                   </tbody>
                 </table>
-              <%# end %>
-              <div class="links">
-                <%#= link_to_add_association "追加", f, :cooking_materials , partial: "users/recipes/cooking_materials_fields" %>
+              <div class="add-form">
+                <%= link_to_add_association "材料を追加", f, :recipe_ingredients,
+                  class: "btn btn-secondary btn-block",
+                  data: {
+                  association_insertion_node: '#detail-association-insertion-point',
+                  association_insertion_method: 'after'
+                }%>
               </div>
             </div>
           </div>
