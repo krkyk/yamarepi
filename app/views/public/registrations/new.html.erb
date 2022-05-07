@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <h5 class="midashi pl-3 pr-4 my-5">
+          新規会員登録
+        </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto pb-5">
+      <%= form_with model: @customer, url: customer_registration_path do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :ニックネーム %>
+          </div>
+          <div class="col-7">
+            <%= f.text_field :name, autofocus: true, :placeholder=>"ニックネーム", size:40%>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :メールアドレス %>
+          </div>
+          <div class="col-7">
+            <%= f.email_field :email,autocomplete: "email", :placeholder=>"sample@example.com", size:40%>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :パスワード %>
+              <% if @minimum_password_length %>
+              <span>(<%= @minimum_password_length %> 文字以上)</span>
+              <% end %>
+          </div>
+          <div class="col-7">
+            <%= f.password_field :password, autocomplete: "new-password", size:40%>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-5">
+            <%= f.label :パスワード（確認用） %>
+          </div>
+          <div class="col-md-7">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", size:40 %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-5"></div>
+          <div class="col-7">
+            <%= f.submit "  新規会員登録  ",class:"btn btn-primary"%>
+          </div>
+        </div>
+      <% end %>
+      <div class="ml-5 mt-5">
+        登録済みの方は<%=link_to"こちら",new_customer_session_path,class:"kochira-link"%>
+      </div>
+    </div>
+  </div>
+</div>
