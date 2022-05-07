@@ -13,11 +13,12 @@
         <h6 class="text-center">再度ご利用をいただく場合は、新規会員登録のお手続きが必要になります。</h6>
         <h6 class="text-center">退会される場合は「退会する」をクリックしてください。</h6>
       </div>
-      <div class="col-md-3 offset-md-4 offset-lg-4 my-5">
-        <%= link_to "退会しない", customer_path(current_customer.id), class: "btn btn-primary" %>
-      </div>
-      <div class="col-md-3 my-5">
-        <%= link_to "退会する", withdraw_path(current_customer.id), method: :patch, "data-confirm"=>"本当に退会しますか？", class: "btn btn-danger" %>
+    </div>
+    <div class="row py-5 form-group">
+      <div class="col-8 mx-auto d-flex justify-content-center align-items-center">
+        <%= link_to "退会しない", customer_path(current_customer.id), class: "btn btn-primary mr-5 w-50" %>
+        <%= link_to "退会する", withdraw_path(current_customer.id), method: :patch, "data-confirm"=>"本当に退会しますか？", class: "btn btn-danger ml-5 w-50" %>
       </div>
     </div>
+
 </div>

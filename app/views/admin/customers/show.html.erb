@@ -1,2 +1,48 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        会員情報詳細
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3 col-md-10 col-lg-3 offset-md-1 my-3">
+      <%=image_tag @customer.get_customer_image(250,250),class:"rounded-circle"%>
+      <h5 class="text-center customer-name"><i class="far fa-user"></i><%=@customer.name%></h5>
+    </div>
+    <div class="col-sm-6 offset-sm-4 col-md-8 col-lg-6 offset-md-1 my-5 pt-lg-3">
+      <table class="table table-borderless mb-5">
+        <tbody>
+          <tr>
+            <td>会員ID</td>
+            <td><%=@customer.id%></td>
+          </tr>
+          <tr>
+            <td>ニックネーム</td>
+            <td><%=@customer.name%></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%=@customer.email%></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <%if @customer.is_deleted==false%>
+              <td class="text-success font-weight-bold">有効</td>
+            <%else%>
+              <td class="text-muted font-weight-bold">退会</td>
+            <%end%>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <%=link_to"編集する",edit_admin_customer_path(@customer.id),class:"btn btn-success mr-5"%>
+              <%=link_to"レシピ一覧",admin_recipes_path,class:"btn btn-primary"%>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
