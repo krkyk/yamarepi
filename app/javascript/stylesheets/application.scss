@@ -1,0 +1,87 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+// @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  // font-family: 'Yusei Magic', sans-serif;
+  // font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: 'M PLUS 1p', sans-serif;
+}
+
+main {
+  flex: 1;
+  background-color: #fffff0;
+}
+
+.flash{
+  .notice {
+   background-color: #ff8c00;
+   color: #fff;
+   text-align: center;
+ }
+}
+
+.nav-link {
+  color: #006400;
+  background-color: #fffff0;
+}
+
+.midashi {
+  display: inline-block;
+  position: relative;
+  line-height: 50px;
+  text-align: center;
+  background-color: #ffd700;
+  color: #2f4f4f;
+  box-sizing: border-box;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.midashi:after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+  /*山形*/
+  top: 0;
+  right: 0;
+  border-width: 25px 15px 25px 0px;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+}
+
+.kochira-link {
+  text-decoration: underline;
+}
+.customer-name {
+  font-weight: bold;
+  color: #2f4f4f;
+}
+.btn-customer {
+  background-color: #fff;
+  color: #006400;
+  border-color: #006400;
+  border-width: 4px;
+}
+
+.btn-customer:hover {
+  background-color: #8fbc8f;
+}
+
+.my-recipe {
+  background-color: #ffe4e1;
+}
+
+header, footer{
+  background-color: #3cb371;
+}
+
+.footer-text {
+  color: #2f4f4f;
+}
