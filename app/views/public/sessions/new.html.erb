@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col my-3">
-      <h5 class="midashi px-5 mb-5">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 my-5">
         ログイン
       </h5>
     </div>
@@ -9,35 +9,35 @@
 
   <div class="row">
     <div class="mx-auto pb-5">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="form-group row">
-                <div class="col-5">
-                  <%= f.label :メールアドレス %>
-                </div>
-                <div class="col-7">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:placeholder=>"sample@example.com",size:40%>
-                </div>
-              </div>
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :メールアドレス %>
+          </div>
+          <div class="col-7">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:placeholder=>"sample@example.com",size:40%>
+          </div>
+        </div>
 
-              <div class="form-group row">
-                <div class="col-5">
-                  <%= f.label :パスワード %>
-                </div>
-                <div class="col-7">
-                  <%= f.password_field :password, autocomplete: "current-password" ,size:40%>
-                </div>
-              </div>
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :パスワード %>
+          </div>
+          <div class="col-7">
+            <%= f.password_field :password, autocomplete: "current-password" ,size:40%>
+          </div>
+        </div>
 
-              <div class="form-group row">
-                <div class="col-5"></div>
-                <div class="col-7">
-                  <%= f.submit "  ログイン  ",class:"btn btn-primary"%>
-                </div>
-              </div>
-            <% end %>
-            <div class="ml-5">
-              会員登録がお済みでない方は<%=link_to"こちら",new_customer_registration_path%>
-            </div>
+        <div class="form-group row">
+          <div class="col-5"></div>
+          <div class="col-7">
+            <%= f.submit "  ログイン  ",class:"btn btn-primary"%>
+          </div>
+        </div>
+      <% end %>
+      <div class="ml-5">
+        会員登録がお済みでない方は<%=link_to"こちら",new_customer_registration_path%>
+      </div>
     </div>
   </div>
 </div>

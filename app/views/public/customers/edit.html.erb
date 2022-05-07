@@ -1,2 +1,63 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 my-5">
+        会員情報編集
+      </h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto pb-5">
+      <%= form_with model: @customer, url: customer_path(@customer), method: :patch do |f| %>
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :画像 %>
+          </div>
+          <div class="col-7">
+            <%=  f.file_field :customer_image, accept: 'image/*' , size:40%>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :ニックネーム %>
+          </div>
+          <div class="col-7">
+            <%= f.text_field :name, autofocus: true, class: "form-control", size:40%>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :メールアドレス %>
+          </div>
+          <div class="col-7">
+            <%= f.email_field :email, autocomplete: "email", class: "form-control",size:40%>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-5">
+            <%= f.label :パスワード %>
+          </div>
+          <div class="col-7">
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control"size:40%>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-4">
+          </div>
+          <div class="col-5">
+            <%= f.submit" 編集内容を保存 ",class:"btn btn-success" %>
+          </div>
+          <div class="col-3">
+            <%=link_to"退会する",unsubscribe_path(@customer),class:"btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

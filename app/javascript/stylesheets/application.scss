@@ -1,6 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
 
 .midashi {
   display: inline-block;
@@ -12,25 +14,13 @@
   box-sizing: border-box;
 }
 
-.midashi:before, .midashi:after {
+.midashi:after {
   position: absolute;
   content: '';
   width: 0px;
   height: 0px;
   z-index: 1;
-}
-
-.midashi:before {
-  /*左の山形*/
-  top: 0;
-  left: 0;
-  border-width: 25px 0px 25px 15px;
-  border-color: transparent transparent transparent #fff;
-  border-style: solid;
-}
-
-.midashi:after {
-  /*右の山形*/
+  /*山形*/
   top: 0;
   right: 0;
   border-width: 25px 15px 25px 0px;
@@ -42,7 +32,9 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  font-family: 'Yusei Magic', sans-serif;
+  // font-family: 'Yusei Magic', sans-serif;
+  // font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: 'M PLUS 1p', sans-serif;
 }
 
 main {
@@ -50,10 +42,14 @@ main {
   background-color: #fffff0;
 }
 
-footer{
+header, footer{
   background-color: #3cb371;
 }
 
+.nav-link {
+  color: #2f4f4f;
+  background-color: #fffff0;
+}
 .footer-text {
   color: #2f4f4f;
 }
