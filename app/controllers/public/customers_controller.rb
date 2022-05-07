@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer = current_customer
+    @my_recipes = Recipe.where(customer_id:@customer.id)
   end
 
   def edit
@@ -16,10 +17,8 @@ class Public::CustomersController < ApplicationController
     end
   end
 
+  #会員のお気に入りレシピ表示
   def favorites
-  end
-
-  def unsubscribe
   end
 
   def withdraw

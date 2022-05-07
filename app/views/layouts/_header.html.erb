@@ -2,11 +2,6 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="/"><%=image_tag"yamarepi.jpg",size:"150x60"%> </a>
-        <div class="px-5">
-          <% if customer_signed_in? %>
-          ようこそ、<%= current_customer.name %>さん！
-          <%end%>
-        </div>
         <nav class="navbar-toggler" style="background-color:#ff7f50;" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </nav>
@@ -14,23 +9,23 @@
           <ul class="navbar-nav ml-auto">
             <%if customer_signed_in?%>
               <li class="nav-item">
-                <%=link_to(customer_path(current_customer.id),class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">マイページ</span><%end%>
+                <%=link_to(customer_path(current_customer.id),class:"nav-link btn btn-light mx-3")do%><i class="fa-solid fa-user-chef"></i>マイページ<%end%>
               </li>
               <li class="nav-item">
-                <%=link_to(recipes_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">レシピ一覧</span><%end%>
+                <%=link_to(recipes_path,class:"nav-link btn btn-light mx-3")do%>レシピ一覧<%end%>
               </li>
               <li class="nav-item">
-                <%=link_to(new_recipe_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">レシピ作成</span><%end%>
+                <%=link_to(new_recipe_path,class:"nav-link btn btn-light mx-3")do%>レシピ作成<%end%>
               </li>
               <li class="nav-item">
-                <%=link_to(destroy_customer_session_path,method: :delete,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">ログアウト</span><%end%>
+                <%=link_to(destroy_customer_session_path,method: :delete,class:"nav-link btn btn-light mx-3")do%>ログアウト<%end%>
               </li>
             <%elsif admin_signed_in?%>
               <li class="nav-item">
-                <%=link_to(admins_recipes_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">レシピ一覧</span><%end%>
+                <%=link_to(admins_recipes_path,class:"nav-link btn btn-light mx-3")do%>レシピ一覧<%end%>
               </li>
               <li class="nav-item">
-                <%=link_to(destroy_admin_session_path,method: :delete,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">ログアウト</span><%end%>
+                <%=link_to(destroy_admin_session_path,method: :delete,class:"nav-link btn btn-light mx-3")do%>ログアウト<%end%>
               </li>
             <%else%>
               <li class="nav-item">
