@@ -4,6 +4,11 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :recipes ,dependent: :destroy
+  has_many :favorites ,dependent: :destroy
+  has_many :comments ,dependent: :destroy
+  has_many :reports ,dependent: :destroy
+
   has_one_attached :customer_image
 
   def get_customer_image(width, height)

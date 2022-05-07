@@ -12,8 +12,8 @@
       <h5 class="text-center customer-name"><i class="far fa-user"></i><%=@customer.name%></h5>
     </div>
     <div class="col-sm-6 offset-sm-4 col-md-8 col-lg-6 offset-md-1 my-5 pt-lg-3">
+      <%=form_with model:@customer,url:admin_customer_path(@customer.id),method: :patch,local:true do |f|%>
       <table class="table table-borderless mb-5">
-        <%=form_with model:@customer,url:admin_customer_path(@customer.id),method: :patch,local:true do |f|%>
         <tbody>
           <tr>
             <td>会員ID</td>
@@ -21,11 +21,11 @@
           </tr>
           <tr>
             <td><%=f.label:ニックネーム%></td>
-            <td><%=f.text_field:name%></td>
+            <td><%=f.text_field:name, class: "form-control"%></td>
           </tr>
           <tr>
             <td><%=f.label:メールアドレス%></td>
-            <td><%=f.email_field:email%></td>
+            <td><%=f.email_field:email, class: "form-control"%></td>
           </tr>
           <tr>
             <td>会員ステータス</td>
@@ -40,8 +40,8 @@
             </td>
           </tr>
         </tbody>
-        <%end%>
       </table>
+      <%end%>
     </div>
   </div>
 </div>
