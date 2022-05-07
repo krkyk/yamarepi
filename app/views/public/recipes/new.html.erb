@@ -12,11 +12,11 @@
           <div class="row">
             <div class="col-4">
               <div class="form-group">
-                <%= f.label:タイトル%>
+                <%= f.label:タイトル ,class:"recipe-form"%>
                 <%= f.text_field :title,:placeholder=>"レシピのタイトル", class: "form-control"%>
               </div>
               <div class="form-group">
-                <%= f.label:料理の写真 %>
+                <%= f.label:料理の写真 ,class:"recipe-form"%>
                 <%= f.file_field :recipe_image, accept: 'image/*' %>
               </div>
               <%=image_tag "noimage.jpg",size:"300x300"%>
@@ -28,7 +28,7 @@
                   <tbody>
                     <tr>
                       <td>
-                        <%= f.label:説明%></br>
+                        <%= f.label:説明 ,class:"recipe-form"%></br>
                         <%= f.text_area :description, :placeholder=> "レシピの説明、コツ、ポイントなど" , class: "form-control"%>
                       </td>
                     </tr>
@@ -43,49 +43,41 @@
                 <table class="table table-borderless">
                   <tbody>
                     <tr>
-                      <td>材料</td>
+                      <td class="recipe-form">材料</td>
                     </tr>
-                    <%= f.fields_for :recipe_ingredients do |t| %>
+                    <%= f.fields_for :recipe_ingredients do |ingredient| %>
                     <tr>
-                      <%= render "post_ingredients",f: t %>
+                      <%= render "ingredient_fields",f: ingredient %>
                     </tr>
                     <% end%>
                   </tbody>
                 </table>
               <div class="add-form">
-                <%= link_to_add_association "材料を追加", f, :recipe_ingredients,
-                  class: "btn btn-secondary btn-block",
-                  data: {
-                  association_insertion_node: '#detail-association-insertion-point',
-                  association_insertion_method: 'after'
-                }%>
+                <%#= link_to_add_association "材料を追加", f, :recipe_ingredients,
+                  class: "btn btn-secondary btn-block"%>
               </div>
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="procedure-title">
-            <h6>作り方</h6>
+            <h6 class="recipe-form ml-3">作り方</h6>
             <div class="col-lg-12 col-xs-12">
-              <%#= f.fields_for :cooking_procedures do |p| %>
-                <table>
+              <%= f.fields_for :steps do |step| %>
+                <table class="table table-borderless">
                   <tbody>
-                    <th>
-                      <%#=  render partial: "users/recipes/cooking_procedures_fields", locals: { f: p } %>
-                    </th>
+                    <tr>
+                      <%=  render"step_fields",f: step %>
+                    </tr>
                   </tbody>
                 </table>
-              <%# end %>
-              <div class="links">
-                <tr>
-                  <%#= link_to_add_association "追加", f, :cooking_procedures , partial: "users/recipes/cooking_procedures_fields" %>
-                </tr>
+              <% end %>
+              <div class="col-4 mx-auto add-forms">
+                  <%= link_to_add_association "作り方を追加", f, :steps,class:"btn btn-block btn-sm btn-step"%>
               </div>
             </div>
-          </div>
         </div>
-        <%= f.submit "レシピ投稿", class: "btn btn-warning  col-xs-offset-4" %>
+        <%= f.submit "レシピ投稿", class: "btn btn-warning" %>
         <% end %>
     </div>
   </div>

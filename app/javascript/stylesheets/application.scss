@@ -78,6 +78,17 @@ main {
   background-color: #ffe4e1;
 }
 
+.btn-step {
+  background-color: #ffd700;
+  color: #006400;
+  border-color: #ffa500;
+  border-width: 2px;
+}
+
+.btn-step:hover {
+  background-color: #8fbc8f;
+}
+
 header, footer{
   background-color: #3cb371;
 }
