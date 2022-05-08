@@ -14,6 +14,7 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import "@nathanvda/cocoon"
+import "script.js"
 
 Rails.start()
 Turbolinks.start()
