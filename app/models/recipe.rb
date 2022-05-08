@@ -6,7 +6,7 @@ class Recipe < ApplicationRecord
   #allow_destroy: trueで子モデルの削除が可能
   accepts_nested_attributes_for :recipe_ingredients, allow_destroy: true
   has_many :ingredients ,inverse_of: :recipe ,through: :recipe_ingredients
-  accepts_nested_attributes_for :ingredients, allow_destroy: true
+  accepts_nested_attributes_for :ingredients
   has_many :steps ,inverse_of: :recipe ,dependent: :destroy
   accepts_nested_attributes_for :steps, allow_destroy: true
   has_many :recipe_tags ,dependent: :destroy
@@ -24,6 +24,13 @@ class Recipe < ApplicationRecord
     recipe_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
   recipe_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  def ingredients_attributes=(ingredient_attributes)
+	  ingredient_attributes.values.each do |ingredient_attribute|
+		  ingredient = Ingredient.find_or_create_by(ingredient_attribute)
+		  self.ingredients << ingredient
+	  end
   end
 
 end

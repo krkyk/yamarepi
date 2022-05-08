@@ -1,3 +1,14 @@
+<div class="text-danger">
+  <%if @recipe.errors.any?%>
+    <h2><%=@recipe.errors.count%> error prohibited this obj from being saved:</h2>
+    <ul>
+      <%@recipe.errors.full_messages.each do |message|%>
+        <li><%=message%></li>
+      <%end%>
+    </ul>
+  <%end%>
+</div>
+
 <div class="container">
     <div class="col-lg-offset-2 col-xs-offset-1">
       <div class="row">
@@ -47,14 +58,13 @@
                     </tr>
                     <%= f.fields_for :recipe_ingredients do |ingredient| %>
                     <tr>
-                      <%= render "ingredient_fields",f: ingredient %>
+                      <%= render "recipe_ingredient_fields",f: ingredient %>
                     </tr>
                     <% end%>
                   </tbody>
                 </table>
               <div class="add-form">
-                <%#= link_to_add_association "材料を追加", f, :recipe_ingredients,
-                  class: "btn btn-secondary btn-block"%>
+                <%= link_to_add_association "材料を追加", f, :recipe_ingredients,class: "btn btn-block btn-sm btn-block btn-step"%>
               </div>
             </div>
           </div>

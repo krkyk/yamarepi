@@ -2,8 +2,8 @@ class Public::RecipesController < ApplicationController
   def new
     @recipe=Recipe.new
     #build＝子モデルのnew
-    @recipe_ingredients=@recipe.recipe_ingredients.build
-    @steps=@recipe.steps.build
+    @recipe.recipe_ingredients.build
+    @recipe.steps.build
   end
 
   def create
@@ -17,24 +17,39 @@ class Public::RecipesController < ApplicationController
   end
 
   def index
+    @recipes=Recipe.page(params[:page])
   end
 
   def show
+    @recipe=Recipe.find(params[:id])
+    @recipe_ingredients=@recipe.recipe_ingredients
+    @steps=@recipe.steps
+    @comment=Comment.new
   end
 
   def edit
+    @recipe=Recipe.find(params[:id])
   end
 
   def update
+    @recipe=Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe.id), notice: "レシピを編集しました"
+    else
+      render "edit"
+    end
   end
 
   def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to customer_path(current_customer.id)
   end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title,:serving,:description,steps_attributes:[:id,:step_description,:_destroy],recipe_ingredients_attributes:[:id,:quantity,:_destroy])
+    params.require(:recipe).permit(:title,:serving,:description,steps_attributes:[:id,:step_description,:_destroy],recipe_ingredients_attributes:[:id,:ingredient_id,:quantity,:_destroy])
   end
 
 end

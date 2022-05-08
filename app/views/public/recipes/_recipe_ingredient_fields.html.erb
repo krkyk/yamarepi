@@ -1,5 +1,5 @@
 <div class="nested-fields">
-  <td><%#= f.text_field :content, :placeholder=> "材料名"%></td>
+  <td><%= f.text_field :content, :placeholder=> "材料名"%></td>
   <td><%= f.text_field :quantity, :placeholder=> "分量", class: "form-control"%></td>
   <td><%= link_to_remove_association f, class: "btn btn-danger" do %><i class="fas fa-trash-alt"></i><% end %></td>
 </div>

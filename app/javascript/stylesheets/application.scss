@@ -31,6 +31,10 @@ main {
   background-color: #fffff0;
 }
 
+.navbar-toggler {
+  background-color: #fffff0;
+}
+
 .midashi {
   display: inline-block;
   position: relative;
@@ -87,6 +91,22 @@ main {
 
 .btn-step:hover {
   background-color: #8fbc8f;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;
 }
 
 header, footer{
