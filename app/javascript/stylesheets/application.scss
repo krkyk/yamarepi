@@ -26,13 +26,71 @@ main {
  }
 }
 
-.nav-link {
-  color: #006400;
+.navbar-toggler {
+  border-color: rgba(0, 0, 0, 0);
+  outline: none;
   background-color: #fffff0;
 }
 
-.navbar-toggler {
+.navbar-toggler-icon {
+  background-image: none;
+}
+
+.navbar-toggler-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+
+  &,
+  span {
+    display: inline-block;
+    transition: all 0.4s;
+    box-sizing: border-box;
+  }
+
+  span {
+    position: absolute;
+    left: 5px;
+    width: 80%;
+    height: 2px;
+    background-color: rgba(165, 165, 165, 1);
+    border-radius: 1px;
+
+    &:nth-of-type(1) {
+      top: 8px;
+    }
+    &:nth-of-type(2) {
+      top: 20px;
+    }
+    &:nth-of-type(3) {
+      top: 32px;
+    }
+  }
+}
+
+.navbar-toggler[aria-expanded='true'] {
+  span.navbar-toggler-icon {
+    span {
+      &:nth-of-type(1) {
+        transform: translateY(12px) rotate(-315deg);
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+      &:nth-of-type(3) {
+        transform: translateY(-12px) rotate(315deg);
+      }
+    }
+  }
+}
+
+.nav-link {
+  color: #006400;
   background-color: #fffff0;
+  border-color: #3cb371;
 }
 
 .midashi {
@@ -81,6 +139,12 @@ main {
 .my-recipe {
   background-color: #ffe4e1;
   border-radius: 15px;
+}
+
+/* レシピ投稿画像のプレビューサイズ */
+#preview {
+  width: 100%;
+  height: auto;
 }
 
 .recipe-form {
@@ -152,7 +216,7 @@ main {
   border-radius: 15px;
 }
 
-/*トップに戻るボタン*/
+/* トップに戻るボタン */
 #back {
   position: fixed;
   right: 20px;
@@ -170,9 +234,4 @@ header, footer{
 
 .footer-text {
   color: #2f4f4f;
-}
-
-#preview {
-  width: 100%;
-  height: auto;
 }

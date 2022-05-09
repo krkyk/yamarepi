@@ -1,3 +1,4 @@
+/* トップへ戻るボタン */
 $(document).on('turbolinks:load',function() {
   $('#back a').on('click',function(event){
     $('body, html').animate({
@@ -8,7 +9,7 @@ $(document).on('turbolinks:load',function() {
 });
 
 
-
+/* レシピ画像プレビュー */
 $(document).on('turbolinks:load',function (){
   $('#recipe_recipe_image').on('change', function (e) {
     var reader = new FileReader();
