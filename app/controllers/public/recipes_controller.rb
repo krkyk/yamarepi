@@ -7,7 +7,6 @@ class Public::RecipesController < ApplicationController
   end
 
   def create
-    byebug
     @recipe = Recipe.new(recipe_params)
     @recipe.customer_id=current_customer.id
     if @recipe.save

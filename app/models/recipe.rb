@@ -25,11 +25,8 @@ class Recipe < ApplicationRecord
   recipe_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  def ingredients_attributes=(ingredient_attributes)
-	  ingredient_attributes.values.each do |ingredient_attribute|
-		  ingredient = Ingredient.find_or_create_by(ingredient_attribute)
-		  self.ingredients << ingredient
-	  end
+  def favorited_by?(customer)
+    favorites.exists?(customer_id:customer.id)
   end
 
 end

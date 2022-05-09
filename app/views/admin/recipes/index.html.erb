@@ -14,10 +14,9 @@
         <table class="table mb-5 mt-2">
           <thead>
             <tr>
-              <th></th>
               <th>タイトル</th>
               <th>ニックネーム</th>
-              <th>日付</th>
+              <th>投稿日</th>
               <th>ステータス</th>
               <th>通報</th>
             </tr>
@@ -25,22 +24,17 @@
           <% @recipes.each do |recipe| %>
             <tbody>
               <tr>
-                <td style="width: 15%">
-                  <%= image_tag recipe.customer.get_customer_image(50,50) %>
-                </td>
-                <td style="width: 15%"><%= link_to recipe.title, admin_recipe_path(recipe.id) %></td>
-                <td style="width: 15%"><%= recipe.created_at.strftime('%Y/%m/%d') %></td>
-                <td style="width: 15%">
-                  <%= link_to recipe.customer.name, admin_customer_path(recipe.customer.id) %>
-                </td>
-                <td style="width: 15%">
+                <td><%= link_to recipe.title, admin_recipe_path(recipe.id) %></td>
+                <td><%= link_to recipe.customer.name, admin_customer_path(recipe.customer.id) %></td>
+                <td><%= recipe.created_at.strftime('%Y/%m/%d') %></td>
+                <td>
                   <% if recipe.customer.is_deleted == false %>
                     <p class="text-success font-weight-bold">有効</p>
                     <% else %>
                     <p class="text-muted font-weight-bold">退会</p>
                   <% end %>
                 </td>
-                <td style="width: 15%">
+                <td>
                   <!--report（通報)がある場合とない場合の表示-->
                   <% if recipe.reports.ids.empty? %>
                     <p class="text-success">問題無し</p>
