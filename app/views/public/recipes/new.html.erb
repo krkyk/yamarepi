@@ -19,21 +19,21 @@
         </div>
       </div>
 
-        <%= form_with model:@recipe, url: recipes_path,method: :post do |f| %>
+        <%= form_with model:@recipe, url: recipes_path,method: :post,local: true do |f| %>
           <div class="row">
-            <div class="col-4">
+            <div class="col-lg-4 col-md-4">
               <div class="form-group">
                 <%= f.label:タイトル ,class:"recipe-form"%>
                 <%= f.text_field :title,:placeholder=>"レシピのタイトル", class: "form-control"%>
               </div>
               <div class="form-group">
                 <%= f.label:料理の写真 ,class:"recipe-form"%>
-                <%= f.file_field :recipe_image, accept: 'image/*' %>
+                <%= f.file_field :recipe_image, accept: 'image/*' ,class: "image"%>
               </div>
               <%=image_tag "noimage.jpg",size:"300x300"%>
             </div>
 
-            <div class="col-8">
+            <div class="col-lg-8 col-md-8">
               <div class="form-group">
                 <table class="table table-borderless">
                   <tbody>
@@ -51,21 +51,13 @@
                   </tbody>
                 </table>
 
-                <table class="table table-borderless">
-                  <tbody>
-                    <tr>
-                      <td class="recipe-form">材料</td>
-                    </tr>
-                    <%= f.fields_for :recipe_ingredients do |ingredient| %>
-                    <tr>
-                      <%= render "recipe_ingredient_fields",f: ingredient %>
-                    </tr>
-                    <% end%>
-                  </tbody>
-                </table>
-              <div class="add-form">
-                <%= link_to_add_association "材料を追加", f, :recipe_ingredients,class: "btn btn-block btn-sm btn-block btn-step"%>
-              </div>
+                <h6 class="recipe-form ml-3">材料</h6>
+                <%= f.fields_for :ingredients do |ingredient| %>
+                  <%= render "ingredient_fields", f: ingredient %>
+                <%end%>
+                <div class="col-4 mx-auto add-form">
+                  <%= link_to_add_association "材料を追加", f, :ingredients,class: "btn btn-block btn-sm btn-success"%>
+                </div>
             </div>
           </div>
         </div>
@@ -74,20 +66,18 @@
             <h6 class="recipe-form ml-3">作り方</h6>
             <div class="col-lg-12 col-xs-12">
               <%= f.fields_for :steps do |step| %>
-                <table class="table table-borderless">
-                  <tbody>
-                    <tr>
-                      <%=  render"step_fields",f: step %>
-                    </tr>
-                  </tbody>
-                </table>
+                <%=  render"step_fields",f: step %>
               <% end %>
               <div class="col-4 mx-auto add-forms">
-                  <%= link_to_add_association "作り方を追加", f, :steps,class:"btn btn-block btn-sm btn-step"%>
+                  <%= link_to_add_association "作り方を追加", f, :steps,class:"btn btn-block btn-sm btn-success"%>
               </div>
             </div>
         </div>
-        <%= f.submit "レシピ投稿", class: "btn btn-warning" %>
+        <div class="row">
+          <div class="mx-auto my-5">
+            <%= f.submit "レシピ投稿", class: "btn btn-warning" %>
+          </div>
+        </div>
         <% end %>
     </div>
   </div>

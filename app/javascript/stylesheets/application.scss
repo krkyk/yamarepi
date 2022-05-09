@@ -80,35 +80,30 @@ main {
 
 .my-recipe {
   background-color: #ffe4e1;
+  border-radius: 15px;
 }
 
-.btn-step {
-  background-color: #ffd700;
-  color: #006400;
-  border-color: #ffa500;
-  border-width: 2px;
-}
-
-.btn-step:hover {
-  background-color: #8fbc8f;
-}
+// .recipe-form {
+//   border-bottom: 2px solid;
+//   border-color:#ffe4e1;
+// }
 
 .pagination>li>a {
   border: none;
   color: #696969;
 }
 
-/* 表示しているページ番号のデザイン */
+/* ページネーションのデザイン */
 .pagination>.active>a {
   background: #93c9ff;
   border-radius: 15px;
 }
 
-/*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;
 }
 
+/*トップに戻るボタン*/
 #back {
   position: fixed;
   right: 20px;

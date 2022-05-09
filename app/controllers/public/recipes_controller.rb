@@ -1,12 +1,13 @@
 class Public::RecipesController < ApplicationController
+
   def new
     @recipe=Recipe.new
-    #build＝子モデルのnew
-    @recipe.recipe_ingredients.build
-    @recipe.steps.build
+    @ingredient=@recipe.ingredients.build
+    @step=@recipe.steps.build
   end
 
   def create
+    byebug
     @recipe = Recipe.new(recipe_params)
     @recipe.customer_id=current_customer.id
     if @recipe.save
@@ -22,7 +23,7 @@ class Public::RecipesController < ApplicationController
 
   def show
     @recipe=Recipe.find(params[:id])
-    @recipe_ingredients=@recipe.recipe_ingredients
+    @ingredients=@recipe.ingredients
     @steps=@recipe.steps
     @comment=Comment.new
   end
@@ -49,7 +50,8 @@ class Public::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title,:serving,:description,steps_attributes:[:id,:step_description,:_destroy],recipe_ingredients_attributes:[:id,:ingredient_id,:quantity,:_destroy])
+    params.require(:recipe).permit(:title,:serving,:description,steps_attributes:[:id,:step_description,:_destroy],
+    ingredients_attributes:[:id,:quantity,:_destroy,:content])
   end
 
 end

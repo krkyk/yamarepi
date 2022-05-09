@@ -2,10 +2,9 @@ class Recipe < ApplicationRecord
 
   belongs_to :customer
   #親がまだ保存されていない状態で子モデルの中身を保存するためinverse_ofを使用
-  has_many :recipe_ingredients ,inverse_of: :recipe ,dependent: :destroy
+  has_many :ingredients ,inverse_of: :recipe ,dependent: :destroy
+  #accepts_nested_attributes_forで親子モデル両方にデータを送信できる
   #allow_destroy: trueで子モデルの削除が可能
-  accepts_nested_attributes_for :recipe_ingredients, allow_destroy: true
-  has_many :ingredients ,inverse_of: :recipe ,through: :recipe_ingredients
   accepts_nested_attributes_for :ingredients
   has_many :steps ,inverse_of: :recipe ,dependent: :destroy
   accepts_nested_attributes_for :steps, allow_destroy: true
