@@ -23,14 +23,20 @@
           <div class="row">
             <div class="col-lg-4 col-md-4">
               <div class="form-group">
-                <%= f.label:タイトル ,class:"recipe-form"%>
-                <%= f.text_field :title,:placeholder=>"レシピのタイトル", class: "form-control"%>
+                <div class="recipe-heading mb-2"><%= f.label:レシピ名 %></div>
+                <%= f.text_field :title,:placeholder=>"レシピのタイトル", class: "recipe-frame form-control"%>
               </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 col-md-4">
               <div class="form-group">
-                <%= f.label:料理の写真 ,class:"recipe-form"%>
-                <%= f.file_field :recipe_image, accept: 'image/*' ,class: "image"%>
+                <div class="recipe-heading mb-2"><%= f.label:料理の写真 %></div>
+                <%= f.file_field :recipe_image, accept: 'image/*' %>
               </div>
-              <%=image_tag "noimage.jpg",size:"300x300"%>
+              <!--画像のプレビュー-->
+              <img id="preview">
             </div>
 
             <div class="col-lg-8 col-md-8">
@@ -39,19 +45,19 @@
                   <tbody>
                     <tr>
                       <td>
-                        <%= f.label:説明 ,class:"recipe-form"%></br>
-                        <%= f.text_area :description, :placeholder=> "レシピの説明、コツ、ポイントなど" , class: "form-control"%>
+                        <div class="recipe-heading mb-2"><%= f.label:説明 %></div>
+                        <%= f.text_area :description, :placeholder=> "レシピの説明、コツ、ポイントなど" , class: "recipe-frame form-control"%>
                       </td>
                     </tr>
                     <tr>
                       <td class="form-inline">
-                        <%= f.number_field :serving, min: 1, :placeholder=> "※選択して下さい" , class: "form-control w-25"%>人前
+                        <%= f.number_field :serving, min: 1, :placeholder=> "※選択して下さい" , class: "recipe-frame form-control w-25"%>人前
                       </td>
                     </tr>
                   </tbody>
                 </table>
 
-                <h6 class="recipe-form ml-3">材料</h6>
+                <div class="recipe-heading">材料</div>
                 <%= f.fields_for :ingredients do |ingredient| %>
                   <%= render "ingredient_fields", f: ingredient %>
                 <%end%>
@@ -63,8 +69,8 @@
         </div>
 
         <div class="row">
-            <h6 class="recipe-form ml-3">作り方</h6>
-            <div class="col-lg-12 col-xs-12">
+          <div class="col-lg-12 col-xs-12">
+            <div class="recipe-heading">作り方</div>
               <%= f.fields_for :steps do |step| %>
                 <%=  render"step_fields",f: step %>
               <% end %>

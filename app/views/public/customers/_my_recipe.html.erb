@@ -1,12 +1,40 @@
 <% my_recipes.each do |recipe| %>
-  <%= link_to recipe_path(recipe.id), class: "btn-link" do %>
-    <div class="recipe-link">
-      <%#= image_tag recipe.get_recipe_image ,size:"130x180"%>
-      <div class="recipe-body">
-        <p class="text-muted"><%= recipe.created_at.strftime('%Y/%m/%d') %></p>
-        <h5 class="recipe-title"><%=recipe.title%></h5>
-        <p class="recipe-description"><%=recipe.description%></p>
+<div class="col-sm-8 offset-sm-2 col-md-4 offset-md-0">
+  <div class="card-link my-3">
+    <div class="card my-3 mx-2">
+
+        <%= link_to recipe_path(recipe.id) do %>
+          <%= image_tag recipe.get_recipe_image(150,200),class:"card-img-top" %>
+          <div class="card-body">
+            <span class="text-muted small"><%= recipe.created_at.strftime('%Y/%m/%d') %></span>
+            <h5 class="card-title"><%= recipe.title %></h5>
+            <p class="card-text recipe-text"><%= recipe.description %></p>
+        <% end %>
+            <p class="card-text"><i class="far fa-comment-dots"></i><%#= recipe.recipe_comments.count %></p>
+            <p class="card-text"><i class="fas fa-heart" aria-hidden="true"></i><%= recipe.favorites.count%></p>
       </div>
     </div>
-  <% end %>
+  </div>
+</div>
+<%end%>
+
+<% my_recipes.each do |recipe| %>
+
+  <div class="card-link my-3">
+    <div class="card my-3 mx-2">
+<div class="row">
+        <%= link_to recipe_path(recipe.id) do %>
+          <%= image_tag recipe.get_recipe_image(150,200),class:"card-img-top" %>
+          <div class="card-body">
+            <span class="text-muted small"><%= recipe.created_at.strftime('%Y/%m/%d') %></span>
+            <h5 class="card-title"><%= recipe.title %></h5>
+            <p class="card-text recipe-text"><%= recipe.description %></p>
+        <% end %>
+            <p class="card-text"><i class="far fa-comment-dots"></i><%#= recipe.recipe_comments.count %></p>
+            <p class="card-text"><i class="fas fa-heart" aria-hidden="true"></i><%= recipe.favorites.count%></p>
+          </div>
+</div>
+    </div>
+  </div>
+
 <%end%>

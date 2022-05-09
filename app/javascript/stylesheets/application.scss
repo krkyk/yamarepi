@@ -83,18 +83,66 @@ main {
   border-radius: 15px;
 }
 
-// .recipe-form {
-//   border-bottom: 2px solid;
-//   border-color:#ffe4e1;
+.recipe-form {
+   border: none;
+   background-color: #fffff0;
+ }
+
+.recipe-frame {
+  border-color: #d2b48c;
+}
+.recipe-table {
+  border-bottom: 1px solid;
+  border-color: #d2b48c;
+}
+
+.recipe-heading {
+  font-weight: bold;
+  font-size: 110%;
+  color: #2f4f4f;
+  border-bottom: 2px solid;
+  border-color: #3cb371;
+}
+
+// .card {
+//   width:200px;
+//   height:250px;
+//   margin:10px;
+//   position:relative;
 // }
 
+// .card:hover{
+//   box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+//   transform: translateY(-10px);
+//   transition-duration: 0.5s
+// }
 
+.card-body {
+  background-color: #ffe4e1;
+}
+
+.card-title {
+  color: #2f4f4f;
+  font-weight: bold;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.recipe-text {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ページネーションのデザイン */
 .pagination>li>a {
   border: none;
   color: #696969;
 }
 
-/* ページネーションのデザイン */
 .pagination>.active>a {
   background: #93c9ff;
   border-radius: 15px;
@@ -122,4 +170,9 @@ header, footer{
 
 .footer-text {
   color: #2f4f4f;
+}
+
+#preview {
+  width: 100%;
+  height: auto;
 }
