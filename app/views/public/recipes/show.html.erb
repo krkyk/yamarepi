@@ -12,7 +12,7 @@
       <div class="col-sm-6 col-md-10 col-lg-3 my-3 mx-auto d-flex justify-content-center">
         <%= image_tag @recipe.get_recipe_image(300,300)%>
       </div>
-      <div class="col-sm-6 col-md-8 col-lg-6 pt-lg-3">
+      <div class="col-sm-5 col-md-7 col-lg-5 pt-lg-3">
         <p><%= @recipe.description%></p>
         <span class="text-muted small"><%= @recipe.created_at.strftime('%Y/%m/%d')%></span>
         <p>
@@ -36,10 +36,11 @@
           </tbody>
         </table>
       </div>
+      <div class="col-sm-1 col-md-1 col-lg-1 pt-lg-3"></div>
     </div>
 
     <div class="row">
-      <div class="col-sm-10 col-md-8 col-lg-8 mx-auto">
+      <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
       <p class="recipe-heading">作り方</p>
       <table class="table table-sm table-borderless">
         <tbody>
@@ -53,5 +54,9 @@
       </div>
     </div>
 
+    <div class="row mt-5">
+      <%= render"public/comments/comment_list",recipe:@recipe %>
+      <%= render"public/comments/comment_form",recipe:@recipe,comment:@comment %>
+    </div>
   </div>
 </div>

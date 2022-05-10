@@ -16,7 +16,7 @@ class Customer < ApplicationRecord
     file_path = Rails.root.join('app/assets/images/noimage.jpg')
     customer_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
-  customer_image.variant(resize_to_limit: [width, height]).processed
+    customer_image.variant(resize_to_limit: [width, height]).processed
   end
 
 end

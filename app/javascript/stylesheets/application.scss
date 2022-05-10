@@ -26,6 +26,10 @@ main {
  }
 }
 
+.error-message {
+  color: #ff0000;
+}
+
 .navbar-toggler {
   border-color: rgba(0, 0, 0, 0);
   outline: none;
@@ -166,6 +170,10 @@ main {
   color: #2f4f4f;
   border-bottom: 2px solid;
   border-color: #3cb371;
+}
+
+.btn-post{
+  color: #2f4f4f;
 }
 
 // .card {

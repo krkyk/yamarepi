@@ -1,0 +1,52 @@
+ja:
+  activerecord:
+    attributes:
+      customer:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+        name: ニックネーム
+        is_deleted: 会員ステータス
+      admin:
+        email: メールアドレス
+        password: パスワード
+      recipe:
+        customer_id: 会員ID
+        title: レシピタイトル
+        serving: 人分
+        description: 説明
+      step:
+        recipe_id: レシピID
+        step_description: 作り方
+      ingredient:
+        recipe_id: レシピID
+        content: 食材
+        quantity: 分量
+      tag:
+        name: 名前
+      recipe_tag:
+        recipe_id: レシピID
+        tag_id: タグID
+      favorite:
+        customer_id: 会員ID
+        recipe_id: レシピID
+      comment:
+        customer_id: 会員ID
+        recipe_id: レシピID
+        comment: コメント
+      report:
+        customer_id: 会員ID
+        recipe_id: レシピID
+
+    models:
+      customer: 会員
+      admin: 管理者
+      recipe: レシピ
+      step: 手順
+      ingredient: 材料
+      tag: タグ
+      recipe_tag: レシピタグ
+      favorite: お気に入り
+      comment: コメント
+      report: 通報
