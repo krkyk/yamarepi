@@ -1,7 +1,9 @@
 class Public::CustomersController < ApplicationController
+  #before_action :ensure_guest_customer!
+
   def show
     @customer = current_customer
-    @my_recipes = Recipe.where(customer_id:@customer.id)
+    @recipes = Recipe.where(customer_id:@customer.id)
   end
 
   def edit
@@ -34,5 +36,11 @@ class Public::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:name,:email,:customer_image,:encrypted_password,:is_deleted)
   end
+
+  # def ensure_guest_customer
+  #   if @customer.name == "ゲストユーザー"
+  #     redirect_to root_path , notice: 'ゲストユーザーはマイページ画面へ遷移できません。'
+  #   end
+  # end
 
 end

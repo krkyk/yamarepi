@@ -21,16 +21,19 @@
       <%=link_to"会員情報編集",edit_customer_path(@customer),class:"btn btn-block btn-customer"%>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
-      <h5 class="pl-3 pr-4 my-5">
-        <span class="my-recipe px-3">マイレシピ</span>
+      <h5 class="pl-3 pr-4 mt-5">
+        <span class="my-recipe px-3 py-2">
+          <%= @customer.name %>さんのマイレシピ
+        </span>
       </h5>
     </div>
   </div>
   <div class="card-list-container">
     <div class="row">
-      <%=render"my_recipe",my_recipes: @my_recipes%>
+      <%=render"public/recipes/recipes",recipes: @recipes%>
     </div>
   </div>
 </div>

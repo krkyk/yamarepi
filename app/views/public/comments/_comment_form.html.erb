@@ -1,4 +1,4 @@
-<%=form_with(model:[recipe,comment],local: false) do |f|%>
+<%=form_with model: comment, url: recipe_comments_path(recipe), method: :post, local: false do |f|%>
   <div class="form-group">
     <%= f.file_field :comment_image, accept: 'image/*' %>
   </div>
@@ -7,7 +7,9 @@
     <%= f.hidden_field :customer_id, :value => current_customer.id %>
   </div>
   <div class="form-group text-right">
-    <%=f.submit"送信",class: "btn btn-sm btn-primary"%>
+    <%= button_tag type: 'submit',class: "btn btn-sm btn-outline-primary" do%>
+      <i class="fas fa-paper-plane"></i> 送信
+    <% end %>
   </div>
 <%end%>
 

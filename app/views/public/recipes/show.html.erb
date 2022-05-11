@@ -71,14 +71,12 @@
 
     <div class="row mt-5">
       <div class="col-sm-6 col-md-7 col-lg-8">
-        <div id="comment_list">
-          <%= render"public/comments/comment_list",recipe:@recipe %>
-        </div>
+          <div id="comment_list">
+            <%= render"public/comments/comment_list", recipe: @recipe %>
+          </div>
       </div>
       <div class="col-sm-6 col-md-5 col-lg-4">
-        <div id="comment_form">
-          <%= render"public/comments/comment_form",recipe:@recipe,comment:@comment %>
-        </div>
+        <%= render"public/comments/comment_form", recipe: @recipe, comment: @comment %>
       </div>
     </div>
 

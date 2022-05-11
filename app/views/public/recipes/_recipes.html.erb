@@ -1,4 +1,4 @@
-<% my_recipes.each do |recipe| %>
+<% recipes.each do |recipe| %>
 <div class="col-sm-8 offset-sm-2 col-md-4 offset-md-0">
   <div class="card-link my-3">
     <div class="card my-3 mx-2">
@@ -10,7 +10,7 @@
             <h5 class="card-title"><%= recipe.title %></h5>
             <p class="card-text recipe-text"><%= recipe.description %></p>
         <% end %>
-            <p class="card-text"><i class="far fa-comment-dots"></i><%= recipe.recipe_comments.count %></p>
+            <p class="card-text"><i class="far fa-comment-dots"></i><%= recipe.comments.count %></p>
             <p class="card-text"><i class="fas fa-heart" aria-hidden="true"></i><%= recipe.favorites.count%></p>
       </div>
     </div>
