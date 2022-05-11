@@ -30,4 +30,8 @@ class Recipe < ApplicationRecord
     favorites.exists?(customer_id:customer.id)
   end
 
+  def reported_by?(customer)
+    reports.exists?(customer_id:customer.id)
+  end
+
 end

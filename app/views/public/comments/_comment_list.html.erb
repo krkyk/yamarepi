@@ -1,5 +1,4 @@
-<div class="col-sm-6 col-md-7 col-lg-8">
-  <% recipe.comments.each do |comment| %>
+<% recipe.comments.each do |comment| %>
   <table class="table table-borderless">
     <tbody>
       <tr>
@@ -7,7 +6,7 @@
         <td><%= comment.comment %></td>
         <td>
           <% if comment.customer==current_customer %>
-            <%= link_to recipe_comment_path(comment.recipe,comment),method: :delete,class: "btn btn-sm btn-danger" do %>
+            <%= link_to recipe_comment_path(comment.recipe,comment),method: :delete,remote: true,class: "btn btn-sm btn-danger" do %>
             <i class="fas fa-trash-alt"></i>
             <% end %>
           <% end %>
@@ -15,5 +14,4 @@
       </tr>
     </tbody>
   </table>
-  <% end %>
-</div>
+<% end %>

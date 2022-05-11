@@ -18,11 +18,11 @@
         <p>
           <%= link_to customer_path(@recipe.customer) do%>
           <%= image_tag @recipe.customer.get_customer_image(40,40),class: "rounded-circle"%>
-          <%= @recipe.customer.name%>
+          <span class="name-link"><%= @recipe.customer.name%></span>
           <% end %>
         </p>
         <p>
-          <span id="favorite_buttons_<%=@recipe.id%>"><%= render"public/favorites/favorites",recipe:@recipe%></span>
+          <span id="favorite_buttons_<%=@recipe.id%>"><%= render"public/favorites/favorites",recipe: @recipe %></span>
         </p>
         <p class="recipe-heading">材料（<%= @recipe.serving %>人前）</p>
         <table class="table table-sm table-borderless">
@@ -54,9 +54,30 @@
       </div>
     </div>
 
-    <div class="row mt-5">
-      <%= render"public/comments/comment_list",recipe:@recipe %>
-      <%= render"public/comments/comment_form",recipe:@recipe,comment:@comment %>
+    <div class="row">
+      <div class="col text-right">
+        <% if @recipe.customer==current_customer %>
+          <%= link_to edit_recipe_path(@recipe),class: "btn btn-customer my-5 mr-5" do %>
+            <i class="fas fa-edit"></i> レシピ編集
+          <% end %>
+        <% else %>
+          <span id="report_buttons_<%=@recipe.id%>"><%= render "public/reports/reports",recipe: @recipe %></span>
+        <% end %>
+      </div>
     </div>
+
+    <div class="row mt-5">
+      <div class="col-sm-6 col-md-7 col-lg-8">
+        <div id="comment_list">
+          <%= render"public/comments/comment_list",recipe:@recipe %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-5 col-lg-4">
+        <div id="comment_form">
+          <%= render"public/comments/comment_form",recipe:@recipe,comment:@comment %>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -140,6 +140,28 @@ main {
   background-color: #8fbc8f;
 }
 
+.btn-report {
+  background-color: #ffe4e1;
+  color: #dc143c;
+  border-color: #dc143c;
+  border-width: 4px;
+}
+
+.btn-report:hover {
+  background-color: #ff6347;
+}
+
+.btn-reported {
+  background-color: #e0ffff;
+  color: #4169e1;
+  border-color: #4169e1;
+  border-width: 4px;
+}
+
+.btn-reported:hover {
+  background-color: #add8e6;
+}
+
 .my-recipe {
   background-color: #ffe4e1;
   border-radius: 15px;
@@ -176,6 +198,10 @@ main {
   color: #2f4f4f;
 }
 
+.name-link {
+  color: #696969;
+  text-decoration: underline;
+}
 // .card {
 //   width:200px;
 //   height:250px;

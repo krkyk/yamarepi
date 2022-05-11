@@ -1,0 +1,9 @@
+<%if recipe.reported_by?(current_customer)%>
+  <%= link_to recipe_reports_path(recipe),method: :delete,remote: true,class: "btn btn-reported my-5 mr-5" do %>
+    <i class="fas fa-exclamation-circle"></i> 通報を解除する
+  <% end %>
+<%else%>
+  <%= link_to recipe_reports_path(recipe),method: :post,remote: true,class: "btn btn-report my-5 mr-5" do %>
+    <i class="fas fa-exclamation-circle"></i> 通報する
+  <% end %>
+<%end%>
