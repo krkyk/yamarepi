@@ -57,8 +57,11 @@
     <div class="row">
       <div class="col text-right">
         <% if @recipe.customer==current_customer %>
-          <%= link_to edit_recipe_path(@recipe),class: "btn btn-customer my-5 mr-5" do %>
+          <%= link_to edit_recipe_path(@recipe),class: "btn btn-customer my-5 mr-3" do %>
             <i class="fas fa-edit"></i> レシピ編集
+          <% end %>
+          <%= link_to recipe_path(@recipe),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-destroy my-5 mr-5" do %>
+            <i class="fas fa-trash-alt"></i> レシピ削除
           <% end %>
         <% else %>
           <span id="report_buttons_<%=@recipe.id%>"><%= render "public/reports/reports",recipe: @recipe %></span>

@@ -140,6 +140,17 @@ main {
   background-color: #8fbc8f;
 }
 
+.btn-destroy {
+  background-color: #fff;
+  color: #dc143c;
+  border-color: #dc143c;
+  border-width: 4px;
+}
+
+.btn-destroy:hover {
+  background-color: #ffe4e1;
+}
+
 .btn-report {
   background-color: #ffe4e1;
   color: #dc143c;
