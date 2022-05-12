@@ -3,7 +3,7 @@
     <%= f.file_field :comment_image, accept: 'image/*' %>
   </div>
   <div class="form-group">
-    <%=f.text_area :comment, rows: "2", placeholder: "コメントはこちら" ,class: "form-control"%>
+    <%=f.text_area :comment, rows: "2", placeholder: "レビュー、コメントはこちら" ,class: "form-control"%>
     <%= f.hidden_field :customer_id, :value => current_customer.id %>
   </div>
   <div class="form-group text-right">
