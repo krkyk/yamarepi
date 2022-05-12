@@ -20,8 +20,6 @@
         <%= link_to"レシピ投稿",new_recipe_path, class: "btn btn-block btn-green mb-3" %>
         <%= link_to"お気に入りレシピ一覧",favorites_path(@customer), class: "btn btn-block btn-green mb-3" %>
         <%= link_to"会員情報編集",edit_customer_path(@customer), class: "btn btn-block btn-green" %>
-      <% else %>
-        <%= link_to"レシピ投稿",new_recipe_path, class: "btn btn-block btn-green mb-3" %>
       <% end %>
     </div>
   </div>
@@ -50,4 +48,8 @@
       <p class="ml-5 my-5">〜マイレシピはありません〜</p>
     </div>
   <% end %>
+</div>
+
+<div class="row my-3">
+  <div class="mx-auto"><%= paginate @recipes %></div>
 </div>

@@ -50,3 +50,10 @@ ja:
       favorite: お気に入り
       comment: コメント
       report: 通報
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

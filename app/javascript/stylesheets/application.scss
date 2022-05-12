@@ -270,18 +270,26 @@ main {
 }
 
 /* ページネーションのデザイン */
-.pagination>li>a {
-  border: none;
-  color: #696969;
+.paginate {
+  text-align: center;
 }
 
-.pagination>.active>a {
-  background: #93c9ff;
-  border-radius: 15px;
+.pagination>li>a {
+  margin-right: 5px;
+  border: solid 3px #d2b48c;
+  color: #a0522d;
+  font-weight: bold;
 }
+
+// .pagination>.active>a {
+//   background-color: #006400;
+//   color: #fff;
+// }
 
 .pagination>li>a:hover {
   border-radius: 15px;
+  background-color: #d2b48c;
+  color: #fff;
 }
 
 /* トップに戻るボタン */
