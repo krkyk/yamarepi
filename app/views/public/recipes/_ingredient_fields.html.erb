@@ -2,10 +2,10 @@
   <table class="table table-borderless table-sm">
     <tbody>
       <tr class="recipe-table">
-        <td style="width: 70%"><%= f.text_field :content, class: "recipe-form form-control"%></td>
-        <td style="width: 30%"><%= f.text_field :quantity, class: "recipe-form form-control"%></td>
+        <td style="width: 70%"><%= f.text_field :content, :placeholder=> "材料名" , class: "recipe-form form-control"%></td>
+        <td style="width: 30%"><%= f.text_field :quantity, :placeholder=> "分量" , class: "recipe-form form-control"%></td>
         <td>
-          <%= link_to_remove_association f, class: "btn btn-danger btn-sm mt-1" do %>
+          <%= link_to_remove_association f, class: "btn btn-red btn-sm mt-1" do %>
           <i class="fas fa-trash-alt"></i>
           <% end %>
         </td>

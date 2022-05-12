@@ -57,10 +57,10 @@
     <div class="row">
       <div class="col text-right">
         <% if @recipe.customer==current_customer %>
-          <%= link_to edit_recipe_path(@recipe),class: "btn btn-customer my-5 mr-3" do %>
+          <%= link_to edit_recipe_path(@recipe),class: "btn btn-green my-5 mr-3" do %>
             <i class="fas fa-edit"></i> レシピ編集
           <% end %>
-          <%= link_to recipe_path(@recipe),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-destroy my-5 mr-5" do %>
+          <%= link_to recipe_path(@recipe),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-red my-5 mr-5" do %>
             <i class="fas fa-trash-alt"></i> レシピ削除
           <% end %>
         <% else %>
@@ -75,9 +75,11 @@
             <%= render"public/comments/comment_list", recipe: @recipe %>
           </div>
       </div>
-      <div class="col-sm-6 col-md-5 col-lg-4">
-        <%= render"public/comments/comment_form", recipe: @recipe, comment: @comment %>
-      </div>
+      <% if @recipe.customer!=current_customer %>
+        <div class="col-sm-6 col-md-5 col-lg-4 d-flex align-items-end">
+          <%= render"public/comments/comment_form", recipe: @recipe, comment: @comment %>
+        </div>
+      <% end %>
     </div>
 
   </div>

@@ -98,7 +98,6 @@ main {
 }
 
 .nav-link:hover {
-  transform: translateY(-5px);
   color: #2f4f4f;
 }
 .midashi {
@@ -106,10 +105,10 @@ main {
   position: relative;
   line-height: 50px;
   text-align: center;
-  // background-color: #ffd700;
+  background-color: #ffd700;
   color: #2f4f4f;
   box-sizing: border-box;
-  // box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
 }
 
 .midashi:after {
@@ -133,51 +132,57 @@ main {
   font-weight: bold;
   color: #2f4f4f;
 }
-.btn-customer {
+
+.btn:hover {
+  transform: translateY(-5px);
+}
+
+.btn-green {
   background-color: #fff;
   color: #006400;
   border-color: #006400;
   border-width: 4px;
 }
 
-.btn-customer:hover {
-  transform: translateY(-5px);
+.btn-green:hover {
   background-color: #006400;
   color: #fff;
  }
 
-.btn-destroy {
-  background-color: #fff;
+.btn-red {
+  background-color: #fff5ee;
   color: #dc143c;
   border-color: #dc143c;
   border-width: 4px;
 }
 
-.btn-destroy:hover {
+.btn-red:hover {
   background-color: #dc143c;
   color: #fff;
 }
 
-.btn-report {
-  background-color: #ffe4e1;
-  color: #dc143c;
-  border-color: #dc143c;
-  border-width: 4px;
-}
-
-.btn-report:hover {
-  background-color: #ff6347;
-}
-
-.btn-reported {
-  background-color: #e0ffff;
+.btn-blue {
+  background-color: #f0ffff;
   color: #4169e1;
   border-color: #4169e1;
   border-width: 4px;
 }
 
-.btn-reported:hover {
-  background-color: #add8e6;
+.btn-blue:hover {
+  background-color: #4169e1;
+  color: #fff;
+}
+
+.btn-yellow {
+  background-color: #fff;
+  color: #2e8b57;
+  border-color: #ffa500;
+  border-width: 4px;
+}
+
+.btn-yellow:hover {
+  background-color: #ffa500;
+  color: #fff;
 }
 
 .my-recipe {
@@ -212,10 +217,6 @@ main {
   color: #2f4f4f;
   border-bottom: 2px solid;
   border-color: #3cb371;
-}
-
-.btn-post{
-  color: #2f4f4f;
 }
 
 .name-link {
