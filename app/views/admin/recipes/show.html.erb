@@ -22,7 +22,7 @@
           <% end %>
         </p>
         <p>
-          <span id="favorite_buttons_<%=@recipe.id%>"><%= render"public/favorites/favorites",recipe: @recipe %></span>
+          <%= @recipe.favorites.count %>いいね
         </p>
         <p class="recipe-heading">材料（<%= @recipe.serving %>人前）</p>
         <table class="table table-sm table-borderless">

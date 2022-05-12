@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <h5 class="midashi pl-3 pr-4 mt-5">
-        <% if @customer==current_customer %>
+        <% if @customer == current_customer %>
           マイページ
         <% else %>
           <%= @customer.name %>さんのマイページ
@@ -12,13 +12,17 @@
   </div>
   <div class="row">
     <div class="col-sm-6 offset-sm-3 col-md-10 col-lg-3 offset-md-1 my-3">
-      <%=image_tag @customer.get_customer_image(250,250),class:"rounded-circle"%>
+      <%= image_tag @customer.get_customer_image(250,250),class: "rounded-circle" %>
       <h5 class="text-center customer-name"><i class="far fa-user"></i><%=@customer.name%></h5>
     </div>
     <div class="btn-wrapper mx-auto col-sm-6 offset-sm-4 col-md-8 col-lg-6 offset-md-1 my-5 pt-lg-3">
-      <%=link_to"レシピ投稿",new_recipe_path,class:"btn btn-block btn-green mb-3"%>
-      <%=link_to"お気に入りレシピ一覧",favorites_path(@customer),class:"btn btn-block btn-green mb-3"%>
-      <%=link_to"会員情報編集",edit_customer_path(@customer),class:"btn btn-block btn-green"%>
+      <% if @customer.name != "ゲストユーザー" %>
+        <%= link_to"レシピ投稿",new_recipe_path, class: "btn btn-block btn-green mb-3" %>
+        <%= link_to"お気に入りレシピ一覧",favorites_path(@customer), class: "btn btn-block btn-green mb-3" %>
+        <%= link_to"会員情報編集",edit_customer_path(@customer), class: "btn btn-block btn-green" %>
+      <% else %>
+        <%= link_to"レシピ投稿",new_recipe_path, class: "btn btn-block btn-green mb-3" %>
+      <% end %>
     </div>
   </div>
 
@@ -26,7 +30,7 @@
     <div class="col">
       <h5 class="pl-3 pr-4 mt-5">
         <span class="my-recipe px-3 py-2">
-          <% if @customer==current_customer %>
+          <% if @customer == current_customer %>
             マイレシピ
           <%else%>
             <%= @customer.name %>さんのマイレシピ
@@ -38,7 +42,7 @@
   <% if @customer.recipes.present? %>
   <div class="card-list-container">
     <div class="row">
-      <%=render"public/recipes/recipes",recipes: @recipes%>
+      <%= render"public/recipes/recipes",recipes: @recipes %>
     </div>
   </div>
   <% else %>

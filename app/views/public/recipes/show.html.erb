@@ -3,18 +3,18 @@
     <div class="row">
       <div class="col">
         <h5 class="midashi pl-3 pr-4 my-5">
-          <%=@recipe.title%>
+          <%= @recipe.title %>
         </h5>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6 col-md-10 col-lg-3 my-3 mx-auto d-flex justify-content-center">
-        <%= image_tag @recipe.get_recipe_image(300,300)%>
+        <%= image_tag @recipe.get_recipe_image(300,300) %>
       </div>
       <div class="col-sm-5 col-md-7 col-lg-5 pt-lg-3">
-        <p><%= @recipe.description%></p>
-        <span class="text-muted small"><%= @recipe.created_at.strftime('%Y/%m/%d')%></span>
+        <p><%= @recipe.description %></p>
+        <span class="text-muted small"><%= @recipe.created_at.strftime('%Y/%m/%d') %></span>
         <p>
           <%= link_to customer_path(@recipe.customer) do%>
           <%= image_tag @recipe.customer.get_customer_image(40,40),class: "rounded-circle"%>
@@ -22,7 +22,7 @@
           <% end %>
         </p>
         <p>
-          <span id="favorite_buttons_<%=@recipe.id%>"><%= render"public/favorites/favorites",recipe: @recipe %></span>
+          <span id="favorite_buttons_<%= @recipe.id %>"><%= render"public/favorites/favorites",recipe: @recipe %></span>
         </p>
         <p class="recipe-heading">材料（<%= @recipe.serving %>人前）</p>
         <table class="table table-sm table-borderless">
@@ -56,7 +56,7 @@
 
     <div class="row">
       <div class="col text-right">
-        <% if @recipe.customer==current_customer %>
+        <% if @recipe.customer == current_customer %>
           <%= link_to edit_recipe_path(@recipe),class: "btn btn-green my-5 mr-3" do %>
             <i class="fas fa-edit"></i> レシピ編集
           <% end %>
@@ -80,7 +80,7 @@
           <p class="ml-5 my-5">〜レシピレビューはありません〜</p>
         <% end %>
       </div>
-      <% if @recipe.customer!=current_customer %>
+      <% if @recipe.customer != current_customer %>
         <div class="col-sm-6 col-md-5 col-lg-4 d-flex align-items-end">
           <%= render"public/comments/comment_form", recipe: @recipe, comment: @comment %>
         </div>

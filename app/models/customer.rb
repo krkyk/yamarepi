@@ -19,12 +19,12 @@ class Customer < ApplicationRecord
     customer_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  # def self.guest
-  #   find_or_create_by!(name: 'ゲストユーザー' ,email: 'guest@example.com') do |customer|
-  #     customer.password = SecureRandom.urlsafe_base64
-  #     customer.name = 'ゲストユーザー'
-  #     customer.email = 'guest@example.com'
-  #   end
-  # end
+  def self.guest
+    find_or_create_by!(name: 'ゲストユーザー' ,email: 'guest@example.com') do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+      customer.name = 'ゲストユーザー'
+      customer.email = 'guest@example.com'
+    end
+  end
 
 end
