@@ -5,7 +5,7 @@
         <td class="col-xs-3 col-md-3 col-lg-3"><%= image_tag comment.get_comment_image(100,100) %></td>
         <td class="col-xs-5 col-md-5 col-lg-5"><%= comment.comment %></td>
         <td class="col-xs-2 col-md-3 col-lg-3 text-right">
-          <%= link_to customer_path(comment.customer) do %>
+          <%= link_to admin_customer_path(comment.customer) do %>
             <small>
               <%= image_tag comment.customer.get_customer_image(30,30),class: "rounded-circle" %>
               <span class="name-link"><%= comment.customer.name %></span>
@@ -13,11 +13,9 @@
           <% end %>
         </td>
         <td class="col-xs-2 col-md-1 col-lg-1 text-right">
-          <% if comment.customer==current_customer %>
-            <%= link_to recipe_comment_path(comment.recipe, comment), method: :delete,"data-confirm"=>"本当に削除しますか？", remote: true, class: "btn btn-red btn-circle btn-sm m-1" do %>
-            <i class="fas fa-trash-alt"></i>
+            <%= link_to admin_recipe_comment_path(comment.recipe, comment), method: :delete,"data-confirm"=>"本当に削除しますか？", remote: true, class: "btn btn-red btn-circle btn-sm m-1" do %>
+              <i class="fas fa-trash-alt"></i>
             <% end %>
-          <% end %>
         </td>
       </tr>
     </tbody>

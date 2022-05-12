@@ -12,6 +12,8 @@ class Admin::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @ingredients=@recipe.ingredients
+    @steps=@recipe.steps
   end
 
   def destroy

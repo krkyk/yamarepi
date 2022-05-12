@@ -72,9 +72,13 @@
     <div class="row mt-5">
       <div class="col-sm-6 col-md-7 col-lg-8">
         <p class="comment-heading">レシピレビュー</p>
-        <div id="comment_list">
-          <%= render"public/comments/comment_list", recipe: @recipe %>
-        </div>
+        <% if @recipe.comments.present? %>
+          <div id="comment_list">
+            <%= render"public/comments/comment_list", recipe: @recipe %>
+          </div>
+        <% else %>
+          <p class="ml-5 my-5">〜レシピレビューはありません〜</p>
+        <% end %>
       </div>
       <% if @recipe.customer!=current_customer %>
         <div class="col-sm-6 col-md-5 col-lg-4 d-flex align-items-end">
