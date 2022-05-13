@@ -1,2 +1,28 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+  <div class="low">
+    <div class="col">
+      <div id="box">
+        <div id="theTarget">
+          <div class="test1"></div>
+          <div class="test2"></div>
+          <div class="test3"></div>
+          <div class="test4"></div>
+          <div class="test5"></div>
+        </div>
+        <p class="top-text">やまレピ！</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h5 class="pl-3 pr-4 mt-5">
+        新着レシピ
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <%= render"public/recipes/recipes",recipes: @recipes %>
+  </div>
+
+</div>

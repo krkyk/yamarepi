@@ -23,6 +23,9 @@ class Public::RecipesController < ApplicationController
     # レシピをいいねが多い順に並べる
     elsif params[:favorite]
       @recipes = Kaminari.paginate_array(Recipe.recipe_favorites).page(params[:page])
+    # レシピを１週間でいいねが多い順に並べる
+    elsif params[:week_favorite]
+      @recipes = Kaminari.paginate_array(Recipe.recipe_week_favorites).page(params[:page])
     else
       @recipes = Recipe.page(params[:page])
     end

@@ -40,6 +40,12 @@ class Recipe < ApplicationRecord
     Recipe.includes(:favorited_customers).sort {|a,b| b.favorited_customers.size <=> a.favorited_customers.size}
   end
 
+  def self.recipe_week_favorites
+    from  = Time.current.at_beginning_of_day
+    to = (from + 6.day).at_end_of_day
+    Recipe.includes(:favorited_customers).sort{|a,b|b.favorited_customers.includes(:favorites).where(created_at: from...to).size<=>a.favorited_customers.includes(:favorites).where(created_at: from...to).size}
+  end
+
   def self.recipe_reports
     Recipe.includes(:reported_customers).sort {|a,b| b.reported_customers.size <=> a.reported_customers.size}
   end

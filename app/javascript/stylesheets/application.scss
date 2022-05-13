@@ -100,6 +100,38 @@ main {
 .nav-link:hover {
   color: #2f4f4f;
 }
+
+.about-heading {
+  color: #2f4f4f;
+  font-weight: bold;
+}
+
+.about-image {
+  border-radius: 20%;
+}
+
+.about-icon {
+  color: #db7093;
+}
+
+.animationTarget {
+  opacity: 0;
+  transform: translate(0, 50%);
+  transition: 2s;
+}
+
+.animationTarget.is-show {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+@keyframes midashiAnimation {
+  0% {
+    letter-spacing: 0.3em;
+    opacity: 0;
+  }
+}
+
 .midashi {
   display: inline-block;
   position: relative;
@@ -109,6 +141,9 @@ main {
   color: #2f4f4f;
   box-sizing: border-box;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  animation: midashiAnimation 1.8s;
+  font-family: 'RocknRoll One', sans-serif;
 }
 
 .midashi:after {
@@ -128,6 +163,7 @@ main {
 .kochira-link {
   text-decoration: underline;
 }
+
 .customer-name {
   font-weight: bold;
   color: #2f4f4f;
@@ -310,4 +346,30 @@ header, footer{
 
 .footer-text {
   color: #2f4f4f;
+}
+
+// .test1 {
+//   background-image: url(mountain.jpg);
+// }
+// .test2 {
+//   background-image: url(mountain2.jpg);
+// }
+// .test3 {
+//   background-image: url(noimage.jpg);
+// }
+// .test4 {
+//   background-image: url(mountain3.jpg);
+// }
+// .test5 {
+//   background-image: url(mountain4.jpg);
+// }
+// #box{
+//   height:500px;
+// }
+
+@media screen and (max-width: 425px) {
+  .about-image {
+    width: 100%;
+    height: auto;
+  }
 }

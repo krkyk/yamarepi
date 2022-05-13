@@ -10,10 +10,13 @@
   <div class="row">
     <div class="col-md-12 my-3 ml-3">
       <%= link_to recipes_path(latest: true) ,class: "btn btn-blue mr-3" do %>
-        <i class="fas fa-star"></i> 新着順に並べる
+        <i class="fas fa-star"></i> 新着順
       <% end %>
-      <%= link_to recipes_path(favorite: true) ,class: "btn btn-yellow" do %>
-        <i class="fas fa-crown"></i> 人気順に並べる
+      <%= link_to recipes_path(favorite: true) ,class: "btn btn-yellow mr-3" do %>
+        <i class="fas fa-crown"></i> 人気順
+      <% end %>
+      <%= link_to recipes_path(week_favorite: true) ,class: "btn btn-green" do %>
+        <i class="fas fa-crown"></i> 週間人気順
       <% end %>
     </div>
   </div>
