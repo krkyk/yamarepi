@@ -1,10 +1,9 @@
 <% recipes.each do |recipe| %>
-<div class="col-sm-8 offset-sm-2 col-md-4 offset-md-0">
+<div class="col-sm-9 offset-sm-2 col-md-6 offset-md-0 col-lg-4 offset-lg-0">
   <div class="card-link my-3">
     <div class="card my-3 mx-2">
-
         <%= link_to recipe_path(recipe.id) do %>
-          <%= image_tag recipe.get_recipe_image(150,200),class:"card-img-top" %>
+          <%= image_tag recipe.get_recipe_image(250,250),class: "card-img-top" %>
           <div class="card-body">
             <span class="text-muted small"><%= recipe.created_at.strftime('%Y/%m/%d') %></span>
             <h5 class="card-title"><%= recipe.title %></h5>

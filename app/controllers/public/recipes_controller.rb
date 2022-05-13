@@ -17,7 +17,15 @@ class Public::RecipesController < ApplicationController
   end
 
   def index
-    @recipes=Recipe.page(params[:page])
+    # レシピを新着順に並べる
+    if params[:latest]
+      @recipes = Recipe.latest.page(params[:page])
+    # レシピをいいねが多い順に並べる
+    elsif params[:favorite]
+      @recipes = Kaminari.paginate_array(Recipe.recipe_favorites).page(params[:page])
+    else
+      @recipes = Recipe.page(params[:page])
+    end
   end
 
   def show

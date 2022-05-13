@@ -7,6 +7,17 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-12 my-3 ml-3">
+      <%= link_to recipes_path(latest: true) ,class: "btn btn-blue mr-3" do %>
+        <i class="fas fa-star"></i> 新着順に並べる
+      <% end %>
+      <%= link_to recipes_path(favorite: true) ,class: "btn btn-yellow" do %>
+        <i class="fas fa-crown"></i> 人気順に並べる
+      <% end %>
+    </div>
+  </div>
+
   <div class="card-list-container">
     <div class="row">
       <%=render"recipes",recipes: @recipes%>

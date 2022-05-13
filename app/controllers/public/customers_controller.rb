@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @recipes = Recipe.where(customer_id:@customer.id)
+    @recipes = Recipe.where(customer_id:@customer.id).page(params[:page])
   end
 
   def edit

@@ -1,20 +1,20 @@
 class Recipe < ApplicationRecord
 
   belongs_to :customer
-  #親がまだ保存されていない状態で子モデルの中身を保存するためinverse_ofを使用
+  # cocoon用：親がまだ保存されていない状態で子モデルの中身を保存するためinverse_ofを使用
   has_many :ingredients ,inverse_of: :recipe ,dependent: :destroy
   has_many :steps ,inverse_of: :recipe ,dependent: :destroy
-  #accepts_nested_attributes_forで親子モデル両方にデータを送信できる
-  #allow_destroy: trueで子モデルの削除が可能
-  accepts_nested_attributes_for :ingredients
-  accepts_nested_attributes_for :steps, allow_destroy: true
-
   has_many :recipe_tags ,dependent: :destroy
   has_many :tags ,through: :recipe_tags
   has_many :favorites ,dependent: :destroy
+  has_many :favorited_customers,through: :favorites, source: :customer
   has_many :comments ,dependent: :destroy
   has_many :reports ,dependent: :destroy
-
+  has_many :reported_customers,through: :reports, source: :customer
+  # cocoon用：accepts_nested_attributes_forで親子モデル両方にデータを送信できる
+  # cocoon用：allow_destroy: trueで子モデルの削除が可能
+  accepts_nested_attributes_for :ingredients
+  accepts_nested_attributes_for :steps, allow_destroy: true
 
   has_one_attached :recipe_image
 
@@ -27,11 +27,21 @@ class Recipe < ApplicationRecord
   end
 
   def favorited_by?(customer)
-    favorites.exists?(customer_id:customer.id)
+    favorites.exists?(customer_id: customer.id)
   end
 
   def reported_by?(customer)
-    reports.exists?(customer_id:customer.id)
+    reports.exists?(customer_id: customer.id)
+  end
+
+  scope:latest,->{order(created_at: :desc)}
+
+  def self.recipe_favorites
+    Recipe.includes(:favorited_customers).sort {|a,b| b.favorited_customers.size <=> a.favorited_customers.size}
+  end
+
+  def self.recipe_reports
+    Recipe.includes(:reported_customers).sort {|a,b| b.reported_customers.size <=> a.reported_customers.size}
   end
 
 end
