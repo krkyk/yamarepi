@@ -20,30 +20,7 @@ $(document).on('turbolinks:load',function (){
 });
 });
 
-/* トップページスライドショー */
-$(document).ready(function(){
-  $("#theTarget").skippr({
-    transition:"slide",
-    speed:1000,
-    easing:"easeOutQuart",
-    navType:"bubble",
-    childrenElementType:"div",
-    arrows:true,
-    autoPlay:true,
-    autoPlayDuration:3000,
-    keybordOnAlways:true,
-    hidePrevious:false
-  })
-});
-
 /* アバウトページの画像フェードイン */
-// $(document).on('turbolinks:load',function(){
-//   $(".animationTarget").on("inview", function (event, isInView) {
-//     if (isInView) {
-//       $(this).stop().addClass("fadeInDown");
-//     }
-//   });
-// });
 $(function () {
   $(".js-fadeUp").on("inview", function () {
     console.log("inview")
