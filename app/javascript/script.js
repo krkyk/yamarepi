@@ -37,10 +37,16 @@ $(document).ready(function(){
 });
 
 /* アバウトページの画像フェードイン */
-$(document).on('turbolinks:load',function(){
-  $(".animationTarget").on("inview", function (event, isInView) {
-    if (isInView) {
-      $(this).stop().addClass("fadeInDown");
-    }
+// $(document).on('turbolinks:load',function(){
+//   $(".animationTarget").on("inview", function (event, isInView) {
+//     if (isInView) {
+//       $(this).stop().addClass("fadeInDown");
+//     }
+//   });
+// });
+$(function () {
+  $(".js-fadeUp").on("inview", function () {
+    console.log("inview")
+    $(this).addClass("is-inview");
   });
 });

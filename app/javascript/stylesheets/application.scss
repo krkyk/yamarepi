@@ -106,6 +106,18 @@ main {
   font-weight: bold;
 }
 
+.about-text {
+  color: #2f4f4f;
+  font-weight: bold;
+  // text-decoration: underline;
+  // text-decoration-thickness: 3px;
+  // text-decoration-color: #ffe4e1;
+  // text-underline-offset: 20%;
+}
+
+.about-box {
+  border: solid 3px #ffe4e1;
+}
 .about-image {
   border-radius: 20%;
 }
@@ -114,22 +126,17 @@ main {
   color: #db7093;
 }
 
-.animationTarget {
+/* abautページフェードイン */
+.js-fadeUp {
   opacity: 0;
-  transform: translate(0, 50%);
-  transition: 2s;
+  transform: translateY(30px);
+  transition: opacity 1.8s, transform 1.8s;
 }
 
-.animationTarget.is-show {
-  transform: translate(0, 0);
+.js-fadeUp.is-inview {
   opacity: 1;
-}
-
-@keyframes midashiAnimation {
-  0% {
-    letter-spacing: 0.3em;
-    opacity: 0;
-  }
+  transform: translateY(0);
+  transition-delay: .5s;
 }
 
 .midashi {
@@ -340,8 +347,8 @@ main {
 }
 
 .pagetop{
-  width:      50px;
-  height:     50px;
+  width: 50px;
+  height: 50px;
 }
 
 header, footer{
@@ -353,23 +360,23 @@ header, footer{
 }
 
 // .test1 {
-//   background-image: url(mountain.jpg);
+//   background-image: url("../images/mountain.jpg");
 // }
 // .test2 {
-//   background-image: url(mountain2.jpg);
+//   background-image: url("../images/mountain2.jpg");
 // }
 // .test3 {
-//   background-image: url(noimage.jpg);
+//   background-image: url("../images/noimage.jpg");
 // }
 // .test4 {
-//   background-image: url(mountain3.jpg);
+//   background-image: url("../images/mountain3.jpg");
 // }
 // .test5 {
-//   background-image: url(mountain4.jpg);
+//   background-image: url("../images/mountain4.jpg");
 // }
 // #box{
 //   height:500px;
-// }
+//   }
 
 @media screen and (max-width: 425px) {
   .about-image {
