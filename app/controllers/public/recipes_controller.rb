@@ -4,7 +4,6 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.new
     @ingredient = @recipe.ingredients.build
     @step = @recipe.steps.build
-    #@tags = Tag.all
   end
 
   def create
@@ -60,7 +59,18 @@ class Public::RecipesController < ApplicationController
 
   def search_tag
     @tag = Tag.find(params[:tag_id])
-    @recipes = @tag.recipes.page(params[:page])
+    # レシピを新着順に並べる
+    if params[:latest]
+      @recipes = @tag.recipes.latest.page(params[:page])
+    # レシピをいいねが多い順に並べる
+    elsif params[:favorite]
+      @recipes = Kaminari.paginate_array(@tag.recipes.recipe_favorites).page(params[:page])
+    # レシピを１週間でいいねが多い順に並べる
+    elsif params[:week_favorite]
+      @recipes = Kaminari.paginate_array(@tag.recipes.recipe_week_favorites).page(params[:page])
+    else
+      @recipes = @tag.recipes.page(params[:page])
+    end
   end
 
   private
