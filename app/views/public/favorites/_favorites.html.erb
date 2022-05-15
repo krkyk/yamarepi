@@ -1,0 +1,9 @@
+<%if recipe.favorited_by?(current_customer)%>
+  <%=link_to recipe_favorites_path(recipe),method: :delete,remote: true do%>
+    <i class="fas fa-heart" style="color:red;" aria-hidden="true"></i><%=recipe.favorites.count%>いいね
+  <%end%>
+<%else%>
+  <%=link_to recipe_favorites_path(recipe),method: :post,remote: true do%>
+    <i class="fas fa-heart" aria-hidden="true"></i><%=recipe.favorites.count%>いいね
+  <%end%>
+<%end%>

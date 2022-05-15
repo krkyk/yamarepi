@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        タグ一覧・追加
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-5 col-lg-5 mt-3">
+      <div id="tag_form">
+        <%= render"admin/tags/tag_form",tag: @tag %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-7 col-lg-7 mt-3">
+      <div id="tag_list">
+        <% if @tags.present? %>
+          <%= render"admin/tags/tag_list",tags: @tags %>
+        <% else %>
+          <p>タグの登録はありません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

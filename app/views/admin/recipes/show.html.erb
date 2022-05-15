@@ -1,2 +1,80 @@
-<h1>Admin::Recipes#show</h1>
-<p>Find me in app/views/admin/recipes/show.html.erb</p>
+<div class="container">
+  <div class="col-lg-offset-2 col-xs-offset-1">
+    <div class="row">
+      <div class="col">
+        <h5 class="midashi pl-3 pr-4 my-5">
+          <%=@recipe.title%>
+        </h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-10 col-lg-3 my-3 mx-auto d-flex justify-content-center">
+        <%= image_tag @recipe.get_recipe_image(300,300)%>
+      </div>
+      <div class="col-sm-5 col-md-7 col-lg-5 pt-lg-3">
+        <p><%= @recipe.description%></p>
+        <span class="text-muted small"><%= @recipe.created_at.strftime('%Y/%m/%d')%></span>
+        <p>
+          <%= link_to admin_customer_path(@recipe.customer) do%>
+          <%= image_tag @recipe.customer.get_customer_image(40,40),class: "rounded-circle"%>
+          <span class="name-link"><%= @recipe.customer.name%></span>
+          <% end %>
+        </p>
+        <p>
+          <%= @recipe.favorites.count %>いいね
+        </p>
+        <p class="recipe-heading">材料（<%= @recipe.serving %>人前）</p>
+        <table class="table table-sm table-borderless">
+          <tbody>
+            <% @ingredients.each do |ingredient|%>
+            <tr class="recipe-table">
+              <td><div class="ml-3"><%= ingredient.content%></div></td>
+              <td><div class="text-right mr-3"><%= ingredient.quantity%></div></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-1 col-md-1 col-lg-1 pt-lg-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+      <p class="recipe-heading">作り方</p>
+      <table class="table table-sm table-borderless">
+        <tbody>
+          <% @steps.each do |step|%>
+          <tr class="recipe-table">
+            <td><div class="ml-3"><%= step.step_description %></div></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col text-right">
+        <%= link_to admin_recipe_path(@recipe),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-red my-5 mr-5" do %>
+          <i class="fas fa-trash-alt"></i> レシピ削除
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-sm-6 col-md-7 col-lg-8">
+        <p class="comment-heading">レシピレビュー</p>
+        <% if @recipe.comments.present? %>
+          <div id="comment_list">
+            <%= render"admin/comments/comment_list", recipe: @recipe %>
+          </div>
+        <% else %>
+          <p class="ml-2 my-3">レシピレビューはありません</p>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+

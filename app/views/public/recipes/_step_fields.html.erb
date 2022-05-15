@@ -1,0 +1,14 @@
+<div class="nested-fields">
+  <table class="table table-borderless table-sm">
+    <tbody>
+      <tr class="recipe-table">
+        <td style="width: 100%"><%= f.text_field :step_description, :placeholder=> "手順" , class: "recipe-form form-control"%></td>
+        <td>
+          <%= link_to_remove_association f, class: "btn btn-red btn-sm mt-1" do %>
+          <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

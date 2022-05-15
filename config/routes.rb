@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  # ゲストユーザー用
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
+  end
+
   #会員用
   scope module: :public do
     root :to => "homes#top"
@@ -25,15 +30,20 @@ Rails.application.routes.draw do
       resource :favorites, only:[:create,:destroy]
       resource :reports, only:[:create,:destroy]
       resources :comments, only:[:create,:destroy]
+      collection do
+        get "search_tag"
+      end
     end
   end
 
   #管理者用
   namespace :admin do
     root :to => 'homes#top'
-    resources :recipes, only:[:index,:show,:destroy]
+    resources :recipes, only:[:index,:show,:destroy] do
+      resources :comments, only:[:destroy]
+    end
     resources :customers, only:[:show,:edit,:update]
-    resources :comments, only:[:destroy]
+    resources :tags,only:[:index,:create,:destroy,:edit,:update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

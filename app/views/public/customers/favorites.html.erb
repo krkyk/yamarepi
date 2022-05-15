@@ -1,2 +1,19 @@
-<h1>Public::Customers#favorites</h1>
-<p>Find me in app/views/public/customers/favorites.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        お気に入りレシピ一覧
+      </h5>
+    </div>
+  </div>
+
+  <div class="card-list-container">
+    <div class="row">
+      <%=render"public/recipes/recipes",recipes: @favorite_recipes%>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="mx-auto"><%= paginate @favorite_recipes %></div>
+  </div>
+</div>
