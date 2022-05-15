@@ -14,8 +14,6 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import "@nathanvda/cocoon"
-// import "swiper/swiper-bundle.js"
-// import "swiper.js"
 import "script.js"
 
 

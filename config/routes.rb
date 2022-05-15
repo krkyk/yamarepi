@@ -30,6 +30,9 @@ Rails.application.routes.draw do
       resource :favorites, only:[:create,:destroy]
       resource :reports, only:[:create,:destroy]
       resources :comments, only:[:create,:destroy]
+      collection do
+        get "search_tag"
+      end
     end
   end
 
@@ -40,6 +43,7 @@ Rails.application.routes.draw do
       resources :comments, only:[:destroy]
     end
     resources :customers, only:[:show,:edit,:update]
+    resources :tags,only:[:index,:create,:destroy,:edit,:update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

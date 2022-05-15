@@ -1,6 +1,6 @@
 class RecipeTag < ApplicationRecord
 
   belongs_to :recipe
-  belongs_to :tags
+  belongs_to :tag
 
 end

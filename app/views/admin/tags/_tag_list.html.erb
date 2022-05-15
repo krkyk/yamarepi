@@ -1,0 +1,22 @@
+<table class="table" >
+  <thead>
+    <tr>
+      <th class="tag-head"><i class="fas fa-tags"></i> タグ一覧</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% tags.each do |tag| %>
+    <tr>
+      <td class="tag-name"><%= tag.name %></td>
+      <td class="text-right">
+        <%= link_to"編集する",edit_admin_tag_path(tag.id),class: "btn btn-sm btn-green" %>
+      </td>
+      <td class="text-right">
+        <%= link_to"削除する",admin_tag_path(tag.id),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-sm btn-red" %>
+      </td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>

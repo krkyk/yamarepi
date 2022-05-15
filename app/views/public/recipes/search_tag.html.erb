@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-10">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        "<%= @tag.name %>"のレシピ一覧
+      </h5>
+      <p class="m-2 px-3">全<span class="recipe-count"><%= @tag.recipes.count %></span>件見つかりました！</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 my-3 ml-3">
+      <%= link_to search_tag_recipes_path(latest: true) ,class: "btn btn-blue mr-3" do %>
+        <i class="fas fa-star"></i> 新着順
+      <% end %>
+      <%= link_to search_tag_recipes_path(tag.id),favorite: true ,class: "btn btn-yellow mr-3" do %>
+        <i class="fas fa-crown"></i> 人気順
+      <% end %>
+      <%= link_to search_tag_recipes_path(tag_id: tag.id),week_favorite: true ,class: "btn btn-green" do %>
+        <i class="fas fa-crown"></i> 週間人気順
+      <% end %>
+    </div>
+  </div>
+  <div class="card-list-container">
+    <div class="row">
+      <%=render"recipes",recipes: @recipes%>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="mx-auto"><%= paginate @recipes %></div>
+  </div>
+</div>

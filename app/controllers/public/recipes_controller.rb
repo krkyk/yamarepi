@@ -1,14 +1,15 @@
 class Public::RecipesController < ApplicationController
 
   def new
-    @recipe=Recipe.new
-    @ingredient=@recipe.ingredients.build
-    @step=@recipe.steps.build
+    @recipe = Recipe.new
+    @ingredient = @recipe.ingredients.build
+    @step = @recipe.steps.build
+    #@tags = Tag.all
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.customer_id=current_customer.id
+    @recipe.customer_id = current_customer.id
     if @recipe.save
       redirect_to recipe_path(@recipe.id) ,notice: "レシピを投稿しました"
     else
@@ -32,18 +33,18 @@ class Public::RecipesController < ApplicationController
   end
 
   def show
-    @recipe=Recipe.find(params[:id])
-    @ingredients=@recipe.ingredients
-    @steps=@recipe.steps
-    @comment=Comment.new
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
+    @steps = @recipe.steps
+    @comment = Comment.new
   end
 
   def edit
-    @recipe=Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def update
-    @recipe=Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe.id), notice: "レシピを編集しました"
     else
@@ -57,10 +58,15 @@ class Public::RecipesController < ApplicationController
     redirect_to customer_path(current_customer.id), notice: "レシピを削除しました"
   end
 
+  def search_tag
+    @tag = Tag.find(params[:tag_id])
+    @recipes = @tag.recipes.page(params[:page])
+  end
+
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title,:serving,:description,:recipe_image,steps_attributes:[:id,:step_description,:_destroy],
+    params.require(:recipe).permit(:title,:serving,:description,:recipe_image,tag_ids:[],steps_attributes:[:id,:step_description,:_destroy],
     ingredients_attributes:[:id,:quantity,:_destroy,:content])
   end
 

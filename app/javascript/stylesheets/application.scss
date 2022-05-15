@@ -316,6 +316,23 @@ main {
   text-overflow: ellipsis;
 }
 
+.recipe-count {
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.tag-head {
+  color: #2f4f4f;
+  font-weight: bold;
+}
+
+.tag-button {
+  background-color: #f5deb3;
+  color: #2f4f4f;
+  border: 2px solid #d2b48c;
+  border-radius: 10%;
+}
+
 /* ページネーションのデザイン */
 .paginate {
   text-align: center;
@@ -359,25 +376,6 @@ header, footer{
 .footer-text {
   color: #2f4f4f;
 }
-
-// .test1 {
-//   background-image: url("../images/mountain.jpg");
-// }
-// .test2 {
-//   background-image: url("../images/mountain2.jpg");
-// }
-// .test3 {
-//   background-image: url("../images/noimage.jpg");
-// }
-// .test4 {
-//   background-image: url("../images/mountain3.jpg");
-// }
-// .test5 {
-//   background-image: url("../images/mountain4.jpg");
-// }
-// #box{
-//   height:500px;
-//   }
 
 @media screen and (max-width: 425px) {
   .about-image {

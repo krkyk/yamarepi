@@ -29,6 +29,9 @@
                 <%= link_to(admins_recipes_path, class: "nav-link btn btn-light mx-3") do %><i class="fas fa-book-open"></i> レシピ一覧<% end %>
               </li>
               <li class="nav-item">
+                <%= link_to(admin_tags_path, class: "nav-link btn btn-light mx-3") do %><i class="fas fa-tag"></i> タグ一覧<% end %>
+              </li>
+              <li class="nav-item">
                 <%= link_to(destroy_admin_session_path,method: :delete, class: "nav-link btn btn-light mx-3") do %><i class="fas fa-sign-out-alt"></i> ログアウト<% end %>
               </li>
             <%else%>
