@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col">
       <h5 class="midashi pl-3 pr-4 mt-5">
-        ”<%#= @search.result.recipes.title %>”の検索結果
+        ”<%= params[:q][:title_or_ingredients_content_cont] %>”の検索結果
       </h5>
       <p class="m-2 px-3">全<span class="recipe-count"><%= @search.result.count %></span>件見つかりました！</p>
     </div>
@@ -38,7 +38,7 @@
   <div class="row">
     <div class="col">
       <h5 class="midashi pl-3 pr-4 mt-5">
-        ”<%#= @search.result.recipes.title %>”の検索結果
+        ”<%= params[:q][:title_or_ingredients_content_cont] %>”の検索結果
       </h5>
       <p class="m-2 px-3">全<span class="recipe-count">0</span>件</p>
     </div>
