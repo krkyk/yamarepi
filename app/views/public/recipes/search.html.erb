@@ -1,4 +1,5 @@
 <div class="container">
+<% if @search.result.present? %>
   <div class="row">
     <div class="col">
       <h5 class="midashi pl-3 pr-4 mt-5">
@@ -8,6 +9,7 @@
     </div>
   </div>
 
+  <% if customer_signed_in? %>
   <div class="row">
     <div class="col-md-12 mb-3 ml-3">
       <%= link_to search_recipes_path(latest: true) ,class: "btn btn-blue mt-3 mr-3" do %>
@@ -21,6 +23,7 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
   <div class="card-list-container">
     <div class="row">
@@ -31,4 +34,23 @@
   <div class="row my-3">
     <div class="mx-auto"><%= paginate @recipes %></div>
   </div>
+<% else %>
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        ”<%#= @search.result.recipes.title %>”の検索結果
+      </h5>
+      <p class="m-2 px-3">全<span class="recipe-count">0</span>件</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-lg-6">
+      <p>お探しのレシピは見つかりませんでした。</p>
+      <p>検索ワードをより一般的なものへ置き換えてみてください。</p>
+    </div>
+    <div class="col-xs-10 col-lg-6 mx-auto mb-5">
+      <%= image_tag"mountain.jpg" ,class: "nosearch-image"%>
+    </div>
+  </div>
+<% end %>
 </div>

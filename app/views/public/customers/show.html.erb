@@ -18,8 +18,10 @@
     <div class="btn-wrapper mx-auto col-sm-6 offset-sm-4 col-md-8 col-lg-6 offset-md-1 my-5 pt-lg-3">
       <% if @customer.name != "ゲストユーザー" %>
         <%= link_to"レシピ投稿",new_recipe_path, class: "btn btn-block btn-green mb-3" %>
-        <%= link_to"お気に入りレシピ一覧",favorites_path(@customer), class: "btn btn-block btn-green mb-3" %>
-        <%= link_to"会員情報編集",edit_customer_path(@customer), class: "btn btn-block btn-green" %>
+        <% if @customer == current_customer %>
+          <%= link_to"お気に入りレシピ一覧",favorites_path(@customer), class: "btn btn-block btn-green mb-3" %>
+          <%= link_to"会員情報編集",edit_customer_path(@customer), class: "btn btn-block btn-green" %>
+        <% end %>
       <% end %>
     </div>
   </div>

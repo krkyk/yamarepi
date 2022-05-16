@@ -85,7 +85,7 @@ class Public::RecipesController < ApplicationController
   def ensure_guest_customer
     @customer = current_customer
     if @customer.name == "ゲストユーザー"
-      redirect_to root_path , notice: 'ゲストユーザーはその機能を使用できません。'
+      redirect_to root_path , notice: "ゲストユーザーはその機能を使用できません。"
     end
   end
 

@@ -20,7 +20,7 @@ main {
 
 .flash{
   .notice {
-   background-color: #ff8c00;
+   background-color: #ffb6c1;
    color: #fff;
    text-align: center;
  }
@@ -395,6 +395,12 @@ header, footer{
 
 .footer-text {
   color: #2f4f4f;
+}
+
+.nosearch-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 425px) {
