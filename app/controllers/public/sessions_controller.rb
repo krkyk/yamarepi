@@ -18,7 +18,17 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+   protected
+
+  def reject_customer
+    @customer = Customer.find_by(email: params[:customer][:email])
+    if @customer
+      if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
+        redirect_to new_customer_registration
+      else
+      end
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

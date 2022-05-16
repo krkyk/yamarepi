@@ -1,4 +1,6 @@
 class Public::RecipesController < ApplicationController
+  before_action :authenticate_customer!,only:[:new]
+  before_action :ensure_guest_customer,only:[:new]
 
   def new
     @recipe = Recipe.new
@@ -78,6 +80,13 @@ class Public::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title,:serving,:description,:recipe_image,tag_ids:[],steps_attributes:[:id,:step_description,:_destroy],
     ingredients_attributes:[:id,:quantity,:_destroy,:content])
+  end
+
+  def ensure_guest_customer
+    @customer = current_customer
+    if @customer.name == "ゲストユーザー"
+      redirect_to root_path , notice: 'ゲストユーザーはその機能を使用できません。'
+    end
   end
 
 end

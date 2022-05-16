@@ -11,4 +11,5 @@ class Public::ReportsController < ApplicationController
     report=current_customer.reports.find_by(recipe_id:@recipe.id)
     report.destroy
   end
+
 end

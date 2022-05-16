@@ -55,6 +55,16 @@
     </div>
 
     <div class="row">
+      <div class="col-lg-8 col-md-10 col-xs-12 mx-auto my-5">
+        <% @recipe.tags.each do |tag| %>
+          <%= link_to search_tag_recipes_path(tag_id: tag.id),class: "tag-button mr-3 px-2" do %>
+            <i class="fas fa-tag"></i> <%= tag.name %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col text-right">
         <%= link_to admin_recipe_path(@recipe),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-red my-5 mr-5" do %>
           <i class="fas fa-trash-alt"></i> レシピ削除

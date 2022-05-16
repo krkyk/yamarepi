@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
-  before_action :ensure_guest_customer,only:[:show]
+  before_action :authenticate_customer!
+  before_action :ensure_guest_customer,only:[:edit,:favorites,:withdraw]
 
   def show
     @customer = Customer.find(params[:id])

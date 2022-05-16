@@ -101,6 +101,26 @@ main {
   color: #2f4f4f;
 }
 
+.search {
+  text-align: right;
+  margin-bottom: -15px;
+}
+
+.search-form {
+  border-radius: 15px;
+  border-color: #008000;
+  background-color: #fffff0;
+}
+
+.btn-search {
+  color: #fff;
+  margin-left: -10px;
+}
+
+.btn-search:hover {
+  color: #ffd700;
+}
+
 .about-heading {
   color: #2f4f4f;
   font-weight: bold;
