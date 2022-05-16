@@ -16,6 +16,12 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients
   accepts_nested_attributes_for :steps, allow_destroy: true
 
+  with_options presence: true do
+    validates :title, length: { maximum: 15 }
+    validates :serving
+    validates :description, length: { maximum: 30 }
+  end
+
   has_one_attached :recipe_image
 
   def get_recipe_image(width, height)

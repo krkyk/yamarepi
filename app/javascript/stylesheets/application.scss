@@ -121,6 +121,12 @@ main {
   color: #ffd700;
 }
 
+.nosearch-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
 .about-heading {
   color: #2f4f4f;
   font-weight: bold;
@@ -187,7 +193,7 @@ main {
   border-style: solid;
 }
 
-.device-form {
+.devise-form {
   width: 100%;
 }
 
@@ -365,10 +371,10 @@ main {
   font-weight: bold;
 }
 
-// .pagination>.active>a {
-//   background-color: #006400;
-//   color: #fff;
-// }
+.pagination>.active>a {
+  background-color: #006400;
+  color: #fff;
+}
 
 .pagination>li>a:hover {
   border-radius: 15px;
@@ -395,12 +401,6 @@ header, footer{
 
 .footer-text {
   color: #2f4f4f;
-}
-
-.nosearch-image {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
 }
 
 @media screen and (max-width: 425px) {

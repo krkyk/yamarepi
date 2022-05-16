@@ -3,6 +3,8 @@ class Comment < ApplicationRecord
   belongs_to :customer
   belongs_to :recipe
 
+  validates :comment, presence: true, length: { maximum: 30 }
+
   has_one_attached :comment_image
 
   def get_comment_image(width, height)
