@@ -27,7 +27,16 @@ main {
 }
 
 .error-message {
-  color: #ff0000;
+  color: #dc143c;
+}
+
+.error-box {
+  background-color: #ffe4e1;
+  border-radius: 10px;
+}
+
+.error-list {
+  list-style: none;
 }
 
 .navbar-toggler {
@@ -201,7 +210,7 @@ main {
   text-decoration: underline;
 }
 
-.customer-name {
+.customer-text {
   font-weight: bold;
   color: #2f4f4f;
 }

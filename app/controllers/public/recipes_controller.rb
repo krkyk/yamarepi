@@ -47,7 +47,7 @@ class Public::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      redirect_to recipe_path(@recipe.id), notice: "レシピを編集しました"
+      redirect_to recipe_path(@recipe.id), notice: "レシピを更新しました"
     else
       render "edit"
     end

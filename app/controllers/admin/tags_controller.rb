@@ -11,7 +11,8 @@ class Admin::TagsController < ApplicationController
     if @tag.save
       redirect_to request.referer ,notice: "タグを作成しました"
     else
-      redirect_to request.referer
+      @tags = Tag.all
+      render "index"
     end
   end
 
