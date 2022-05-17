@@ -1,7 +1,10 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :ensure_guest_customer,only:[:edit,:favorites,:withdraw]
+
   def show
-    @customer = current_customer
-    @my_recipes = Recipe.where(customer_id:@customer.id)
+    @customer = Customer.find(params[:id])
+    @recipes = Recipe.where(customer_id:@customer.id).page(params[:page])
   end
 
   def edit
@@ -19,6 +22,9 @@ class Public::CustomersController < ApplicationController
 
   #会員のお気に入りレシピ表示
   def favorites
+    @customer = current_customer
+    favorites = Favorite.where(customer_id: @customer.id).pluck(:recipe_id)
+    @favorite_recipes = Kaminari.paginate_array(Recipe.find(favorites)).page(params[:page])
   end
 
   def withdraw
@@ -33,6 +39,13 @@ class Public::CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:name,:email,:customer_image,:encrypted_password,:is_deleted)
+  end
+
+  def ensure_guest_customer
+    @customer = current_customer
+    if @customer.name == "ゲストユーザー"
+      redirect_to root_path , notice: "ゲストユーザーはその機能を使用できません。"
+    end
   end
 
 end

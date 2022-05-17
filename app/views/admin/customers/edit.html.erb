@@ -1,4 +1,5 @@
 <div class="container">
+<div class="error-message"><%= render "layouts/error", obj: @customer %></div>
   <div class="row">
     <div class="col">
       <h5 class="midashi pl-3 pr-4 mt-5">
@@ -8,40 +9,40 @@
   </div>
   <div class="row">
     <div class="col-sm-6 offset-sm-3 col-md-10 col-lg-3 offset-md-1 my-3">
-      <%=image_tag @customer.get_customer_image(250,250),class:"rounded-circle"%>
-      <h5 class="text-center customer-name"><i class="far fa-user"></i><%=@customer.name%></h5>
+      <%= image_tag @customer.get_customer_image(250,250),class: "rounded-circle" %>
+      <h5 class="text-center customer-text"><i class="far fa-user"></i><%= @customer.name %></h5>
     </div>
     <div class="col-sm-6 offset-sm-4 col-md-8 col-lg-6 offset-md-1 my-5 pt-lg-3">
+      <%= form_with model: @customer,url:admin_customer_path(@customer.id),method: :patch,local: true do |f| %>
       <table class="table table-borderless mb-5">
-        <%=form_with model:@customer,url:admin_customer_path(@customer.id),method: :patch,local:true do |f|%>
         <tbody>
           <tr>
             <td>会員ID</td>
-            <td><%=@customer.id%></td>
+            <td><%= @customer.id %></td>
           </tr>
           <tr>
-            <td><%=f.label:ニックネーム%></td>
-            <td><%=f.text_field:name%></td>
+            <td><%= f.label:ニックネーム %></td>
+            <td><%= f.text_field:name, class: "form-control" %></td>
           </tr>
           <tr>
-            <td><%=f.label:メールアドレス%></td>
-            <td><%=f.email_field:email%></td>
+            <td><%= f.label:メールアドレス%></td>
+            <td><%= f.email_field:email, class: "form-control" %></td>
           </tr>
           <tr>
             <td>会員ステータス</td>
             <td>
-              <%= f.radio_button :is_deleted, false%>有効  <%= f.radio_button :is_deleted, true%>退会
+              <%= f.radio_button :is_deleted, false %>有効  <%= f.radio_button :is_deleted, true %>退会
             </td>
           </tr>
           <tr>
             <td></td>
             <td>
-              <%= f.submit "  変更を保存  " ,class:"btn btn-success"%>
+              <%= f.submit "  変更を保存  " ,class: "btn btn-blue"%>
             </td>
           </tr>
         </tbody>
-        <%end%>
       </table>
+      <%end%>
     </div>
   </div>
 </div>

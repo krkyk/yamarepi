@@ -1,2 +1,35 @@
-<h1>Public::Recipes#index</h1>
-<p>Find me in app/views/public/recipes/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        レシピ一覧
+      </h5>
+    </div>
+  </div>
+
+  <% if customer_signed_in? %>
+  <div class="row">
+    <div class="col-md-12 mb-3 ml-3">
+      <%= link_to recipes_path(latest: true) ,class: "btn btn-blue mt-3 mr-3" do %>
+        <i class="fas fa-star"></i> 新着順
+      <% end %>
+      <%= link_to recipes_path(favorite: true) ,class: "btn btn-yellow mt-3 mr-3" do %>
+        <i class="fas fa-crown"></i> 人気順
+      <% end %>
+      <%= link_to recipes_path(week_favorite: true) ,class: "btn btn-green mt-3" do %>
+        <i class="fas fa-crown"></i> 週間人気順
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="card-list-container">
+    <div class="row">
+      <%=render"recipes",recipes: @recipes%>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="mx-auto"><%= paginate @recipes %></div>
+  </div>
+</div>

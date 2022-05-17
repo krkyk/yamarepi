@@ -1,0 +1,24 @@
+<div class="container">
+<div class="error-message"><%= render "layouts/error", obj: @tag %></div>
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 my-5">
+        タグ編集
+      </h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto col-12 col-md-8 col-lg-6 pb-5">
+    <%= form_with model: @tag, url: admin_tag_path(@tag.id),local: true do |f| %>
+      <div class="form-group">
+          <%= f.label :タグ名 ,class: "tag-head"%><br>
+          <%= f.text_field :name, autofocus: true,class: "form-control" %>
+      </div>
+      <div class="form-group">
+          <%= f.submit" 変更を保存 ",class: "btn btn-green mt-3" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
