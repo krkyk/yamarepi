@@ -1,4 +1,7 @@
 <header>
+  <% unless admin_signed_in? %>
+  <div class="search mt-3 mr-5"><%= render "layouts/search" ,search: @search%></div>
+  <% end %>
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="/"><%= image_tag"yamarepi3.png",size: "180x75" %></a>
@@ -26,7 +29,7 @@
               </li>
             <%elsif admin_signed_in?%>
               <li class="nav-item">
-                <%= link_to(admins_recipes_path, class: "nav-link btn btn-light mx-3") do %><i class="fas fa-book-open"></i> レシピ一覧<% end %>
+                <%= link_to(admin_recipes_path, class: "nav-link btn btn-light mx-3") do %><i class="fas fa-book-open"></i> レシピ一覧<% end %>
               </li>
               <li class="nav-item">
                 <%= link_to(admin_tags_path, class: "nav-link btn btn-light mx-3") do %><i class="fas fa-tag"></i> タグ一覧<% end %>

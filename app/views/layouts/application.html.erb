@@ -13,8 +13,9 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <%= render "layouts/header" %>
       <main>
+        <%= render 'layouts/flash' %>
         <%= yield %>
         <span id="back">
           <a href="">
@@ -22,6 +23,6 @@
           </a>
         </span>
       </main>
-    <%= render 'layouts/footer' %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

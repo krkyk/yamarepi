@@ -2,24 +2,28 @@
   <div class="row">
     <div class="col-xs-12 col-lg-10">
       <h5 class="midashi pl-3 pr-4 mt-5">
-        "<%= @tag.name %>"のレシピ一覧
+        ”<%= @tag.name %>”のレシピ一覧
       </h5>
       <p class="m-2 px-3">全<span class="recipe-count"><%= @tag.recipes.count %></span>件見つかりました！</p>
     </div>
   </div>
+
+  <% if customer_signed_in? %>
   <div class="row">
-    <div class="col-md-12 my-3 ml-3">
-      <%= link_to search_tag_recipes_path(latest: true) ,class: "btn btn-blue mr-3" do %>
+    <div class="col-md-12 mb-3 ml-3">
+      <%= link_to search_tag_recipes_path(tag_id: @tag.id,latest: true) ,class: "btn btn-blue mt-3 mr-3" do %>
         <i class="fas fa-star"></i> 新着順
       <% end %>
-      <%= link_to search_tag_recipes_path(tag.id),favorite: true ,class: "btn btn-yellow mr-3" do %>
+      <%= link_to search_tag_recipes_path(tag_id: @tag.id,favorite: true) ,class: "btn btn-yellow mt-3 mr-3" do %>
         <i class="fas fa-crown"></i> 人気順
       <% end %>
-      <%= link_to search_tag_recipes_path(tag_id: tag.id),week_favorite: true ,class: "btn btn-green" do %>
+      <%= link_to search_tag_recipes_path(tag_id: @tag.id,week_favorite: true) ,class: "btn btn-green mt-3" do %>
         <i class="fas fa-crown"></i> 週間人気順
       <% end %>
     </div>
   </div>
+  <% end %>
+
   <div class="card-list-container">
     <div class="row">
       <%=render"recipes",recipes: @recipes%>

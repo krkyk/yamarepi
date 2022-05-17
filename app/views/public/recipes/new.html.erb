@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="error-message"><%= render "layouts/error", obj: @recipe %></div>
     <div class="col-lg-offset-2 col-xs-offset-1">
       <div class="row">
         <div class="col">
@@ -71,8 +72,8 @@
 
         <div class="row">
           <div class="col-lg-8 col-md-10 col-xs-12 mx-auto my-5">
-            <div class="recipe-heading mb-3">タグ（複数選択可）</div>
-            <div class="form-group">
+            <div class="recipe-heading mb-3">タグ付け（複数選択可）</div>
+            <div class="form-group mx-2">
             <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
               <%= tag.label do %>
                <div class="tag-button mr-3 px-2">

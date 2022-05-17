@@ -21,9 +21,14 @@ $(document).on('turbolinks:load',function (){
 });
 
 /* アバウトページの画像フェードイン */
-$(function () {
+$(document).on('turbolinks:load',function () {
   $(".js-fadeUp").on("inview", function () {
     console.log("inview")
     $(this).addClass("is-inview");
   });
+});
+
+/* フラッシュメッセージの消去 */
+$(document).on('turbolinks:load',function(){
+  $('.flash').fadeOut(5000);
 });

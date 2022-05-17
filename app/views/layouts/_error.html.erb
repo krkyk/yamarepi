@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12 col-lg-6">
+    <% if obj.errors.any? %>
+      <h3 class="mt-5"><%= obj.errors.count %>個のエラーがあります</h3>
+      <ul class="error-list">
+        <% obj.errors.full_messages.each do |message| %>
+        <div class="error-box px-3 py-1 alert" role="alert">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">close</span>
+          </button>
+        <li><%= message %></li>
+        </div>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

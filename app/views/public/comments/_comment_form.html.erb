@@ -1,9 +1,9 @@
-<%=form_with model: comment, url: recipe_comments_path(recipe), method: :post, local: false do |f|%>
+<%= form_with model: comment, url: recipe_comments_path(recipe), method: :post, local: false do |f| %>
   <div class="form-group">
     <%= f.file_field :comment_image, accept: 'image/*' %>
   </div>
   <div class="form-group">
-    <%=f.text_area :comment, rows: "2", placeholder: "レビュー、コメントはこちら" ,class: "form-control"%>
+    <%= f.text_area :comment, rows: "2", placeholder: "レビュー、コメントはこちら" ,class: "form-control devise-form"%>
     <%= f.hidden_field :customer_id, :value => current_customer.id %>
   </div>
   <div class="form-group text-right">
@@ -12,5 +12,3 @@
     <% end %>
   </div>
 <%end%>
-
-

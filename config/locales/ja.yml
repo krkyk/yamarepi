@@ -14,12 +14,12 @@ ja:
       recipe:
         customer_id: 会員ID
         title: レシピタイトル
-        serving: 人分
+        serving: 何人前か
         description: 説明
-      step:
+      recipe/steps:
         recipe_id: レシピID
-        step_description: 作り方
-      ingredient:
+        step_description: 手順
+      recipe/ingredients:
         recipe_id: レシピID
         content: 食材
         quantity: 分量
@@ -43,7 +43,7 @@ ja:
       customer: 会員
       admin: 管理者
       recipe: レシピ
-      step: 手順
+      step: 作り方
       ingredient: 材料
       tag: タグ
       recipe_tag: レシピタグ

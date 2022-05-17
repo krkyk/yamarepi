@@ -1,10 +1,11 @@
 class Public::RecipesController < ApplicationController
+  before_action :authenticate_customer!,only:[:new]
+  before_action :ensure_guest_customer,only:[:new]
 
   def new
     @recipe = Recipe.new
     @ingredient = @recipe.ingredients.build
     @step = @recipe.steps.build
-    #@tags = Tag.all
   end
 
   def create
@@ -46,7 +47,7 @@ class Public::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      redirect_to recipe_path(@recipe.id), notice: "レシピを編集しました"
+      redirect_to recipe_path(@recipe.id), notice: "レシピを更新しました"
     else
       render "edit"
     end
@@ -60,7 +61,18 @@ class Public::RecipesController < ApplicationController
 
   def search_tag
     @tag = Tag.find(params[:tag_id])
-    @recipes = @tag.recipes.page(params[:page])
+    # レシピを新着順に並べる
+    if params[:latest]
+      @recipes = @tag.recipes.latest.page(params[:page])
+    # レシピをいいねが多い順に並べる
+    elsif params[:favorite]
+      @recipes = Kaminari.paginate_array(@tag.recipes.recipe_favorites).page(params[:page])
+    # レシピを１週間でいいねが多い順に並べる
+    elsif params[:week_favorite]
+      @recipes = Kaminari.paginate_array(@tag.recipes.recipe_week_favorites).page(params[:page])
+    else
+      @recipes = @tag.recipes.page(params[:page])
+    end
   end
 
   private
@@ -68,6 +80,13 @@ class Public::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title,:serving,:description,:recipe_image,tag_ids:[],steps_attributes:[:id,:step_description,:_destroy],
     ingredients_attributes:[:id,:quantity,:_destroy,:content])
+  end
+
+  def ensure_guest_customer
+    @customer = current_customer
+    if @customer.name == "ゲストユーザー"
+      redirect_to root_path , notice: "ゲストユーザーはその機能を使用できません。"
+    end
   end
 
 end

@@ -1,4 +1,5 @@
 class Admin::RecipesController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     # レシピを新着順に並べる

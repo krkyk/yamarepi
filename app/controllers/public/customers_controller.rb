@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
-  before_action :ensure_guest_customer,only:[:show]
+  before_action :authenticate_customer!
+  before_action :ensure_guest_customer,only:[:edit,:favorites,:withdraw]
 
   def show
     @customer = Customer.find(params[:id])
@@ -43,7 +44,7 @@ class Public::CustomersController < ApplicationController
   def ensure_guest_customer
     @customer = current_customer
     if @customer.name == "ゲストユーザー"
-      redirect_to root_path , notice: 'ゲストユーザーはその機能を使用できません。'
+      redirect_to root_path , notice: "ゲストユーザーはその機能を使用できません。"
     end
   end
 

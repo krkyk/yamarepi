@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     get "about" => "homes#about"
 
     resources :customers, only:[:show,:edit,:update]
-    get "customers/:id/favorites" => "customers#favorites",as: :favorites
-    get "customers/:id/unsubscribe" => "customers#unsubscribe",as: :unsubscribe
-    patch "customers/:id/withdraw" => "customers#withdraw",as: :withdraw
+      get "customers/:id/favorites" => "customers#favorites",as: :favorites
+      get "customers/:id/unsubscribe" => "customers#unsubscribe",as: :unsubscribe
+      patch "customers/:id/withdraw" => "customers#withdraw",as: :withdraw
 
     resources :recipes do
       resource :favorites, only:[:create,:destroy]
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :comments, only:[:create,:destroy]
       collection do
         get "search_tag"
+        get "search"
       end
     end
   end

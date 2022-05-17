@@ -36,16 +36,25 @@
   border-radius: 2%;
   font-size: 4rem;
   text-align: center;
-  background-color: white;
-// 　background-color: rgba(255,255,0,0.3);
+  // background-color: white;
+　background-color: rgba(255,255,0,0.3);
 // 　background-color: rgba(194,118,43,0.7);
   color: #008000;
   z-index: 5000;
   font-family: 'Otomanopee One', sans-serif;
   text-shadow: 4px 3px 0px #fff,
                9px 8px 0px rgba(0,0,0,0.15);
-  // span {
-  //   display: block;
-  //   transform: rotate(-7.5deg);
-  // }
 }
+
+// .swiper-box {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   -webkit-transform: translate(-50%, -50%);
+//   -ms-transform: translate(-50%, -50%);;
+//   width: 60%;
+//   border-radius: 2%;
+//   text-align: center;
+//   z-index: 5000;
+// }

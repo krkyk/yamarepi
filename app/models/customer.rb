@@ -8,6 +8,8 @@ class Customer < ApplicationRecord
   has_many :favorites ,dependent: :destroy
   has_many :comments ,dependent: :destroy
   has_many :reports ,dependent: :destroy
+  
+  validates :name, length: { in: 2..20 }, uniqueness: true
 
   has_one_attached :customer_image
 
