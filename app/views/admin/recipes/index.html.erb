@@ -35,7 +35,7 @@
                   <% end %>
                 </td>
                 <td>
-                  <!--report（通報)がある場合とない場合の表示-->
+                  <!--通報の有無-->
                   <% if recipe.reports.ids.empty? %>
                     <p class="text-success">問題無し</p>
                     <% else %>
@@ -47,8 +47,7 @@
         </table>
     </div>
   </div>
-</div>
-
-<div class="row my-3">
-  <div class="mx-auto"><%= paginate @recipes %></div>
+  <div class="row my-3">
+    <div class="mx-auto"><%= paginate @recipes %></div>
+  </div>
 </div>
