@@ -9,21 +9,32 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-6 col-md-10 col-lg-3 my-3 mx-auto d-flex justify-content-center">
-        <%= image_tag @recipe.get_recipe_image(300,300) %>
+      <div class="col-sm-6 col-md-10 col-lg-3 my-3 mx-auto d-flex justify-content-center recipe-show-image">
+        <%= image_tag @recipe.get_recipe_image(350,500) %>
       </div>
       <div class="col-sm-5 col-md-7 col-lg-5 pt-lg-3">
-        <p><%= @recipe.description %></p>
+        <h5><%= @recipe.description %></h5>
         <span class="text-muted small"><%= @recipe.created_at.strftime('%Y/%m/%d') %></span>
         <p>
           <%= link_to customer_path(@recipe.customer) do%>
-          <%= image_tag @recipe.customer.get_customer_image(40,40),class: "rounded-circle"%>
+          <%= image_tag @recipe.customer.get_customer_image(40,40),class: "rounded-circle" %>
           <span class="name-link"><%= @recipe.customer.name%></span>
           <% end %>
         </p>
         <% if customer_signed_in? && (current_customer.name != "ゲストユーザー") %>
         <p><span id="favorite_buttons_<%= @recipe.id %>">
           <%= render"public/favorites/favorites",recipe: @recipe %>
+          </span>
+          <!--SNSシェアボタン-->
+          <span class="social-btn">
+            <%= link_to "https://social-plugins.line.me/lineit/share?url=#{ request.url }&text=#{ @recipe.title }、
+              by#{ @recipe.customer.name }",class: "btn btn-line" do %>
+              <i class="fab fa-line fa-3x"></i>
+            <% end %>
+            <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{ @recipe.title }、by#{ @recipe.customer.name }",
+              target: '_blank',class: "btn btn-twitter" do %>
+              <i class="fab fa-twitter-square fa-3x"></i>
+            <% end %>
           </span>
         </p>
         <% end %>

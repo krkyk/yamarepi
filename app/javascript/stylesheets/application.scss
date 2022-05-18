@@ -272,11 +272,38 @@ main {
   border-width: 2px;
 }
 
+.social-btn {
+   float: right;
+}
+
+.btn-twitter {
+  color: #4169e1;
+}
+
+.btn-twitter:hover {
+  color: #191970;
+}
+
+.btn-line {
+  color: #32cd32;
+}
+
+.btn-line:hover {
+  color: #228b22;
+}
+
 .my-recipe {
   width: 90%;
   color: #2f4f4f;
   border: 4px solid #ffd700;
   border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+}
+
+.customer-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* レシピ投稿画像のプレビューサイズ */
@@ -362,6 +389,12 @@ main {
 .recipe-count {
   font-weight: bold;
   font-size: 150%;
+}
+
+.recipe-show-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .tag-head {
