@@ -1,15 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-// @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
 
 body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  // font-family: 'Yusei Magic', sans-serif;
-  // font-family: 'Zen Maru Gothic', sans-serif;
   font-family: 'M PLUS 1p', sans-serif;
 }
 
@@ -273,15 +269,15 @@ main {
 }
 
 .social-btn {
-   float: right;
+  float: right;
 }
 
 .btn-twitter {
-  color: #4169e1;
+  color: #00bfff;
 }
 
 .btn-twitter:hover {
-  color: #191970;
+  color: #4682b4;
 }
 
 .btn-line {
@@ -290,6 +286,26 @@ main {
 
 .btn-line:hover {
   color: #228b22;
+}
+
+.btn-facebook {
+  color: #4169e1;
+}
+
+.btn-facebook:hover {
+  color: #191970;
+}
+
+.btn-new {
+  color: #fff;
+  background-color: #3cb371;
+  border: 6px outset #3cb371;
+}
+
+.btn-login {
+  color: #fff;
+  background-color: #4169e1;
+  border: 6px outset #4169e1;
 }
 
 .my-recipe {
@@ -421,9 +437,14 @@ main {
   font-weight: bold;
 }
 
-.pagination>.active>a {
-  background-color: #006400;
-  color: #fff;
+.pagination>.active>.page-link {
+  background-color: #d2b48c;
+  border-color: #d2b48c;
+}
+
+.pagination>.active>.page-link:hover {
+  background-color: #d2b48c;
+  border-color: #c0c0c0;
 }
 
 .pagination>li>a:hover {
@@ -453,10 +474,30 @@ header, footer{
   color: #2f4f4f;
 }
 
-
+/* レスポンシブ対応 */
 @media screen and (max-width: 425px) {
   .about-image {
     width: 100%;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .btn-new {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .btn-login {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .admin-recipes {
+    width: 500px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }

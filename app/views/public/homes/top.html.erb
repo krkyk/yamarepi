@@ -8,7 +8,13 @@
         <div class="swiper-slide"><%= image_tag"flower2.jpg",class: "swiper-image" %></div>
         <div class="swiper-slide"><%= image_tag"mountain4.jpg",class: "swiper-image" %></div>
         <div class="swiper-slide"><%= image_tag"flower.jpg",class: "swiper-image" %></div>
+        <span class="swiper-box">
         <div class="swiper-text">や ま レ ピ ！</div>
+        <div class="swiper-btn">
+          <%= link_to(new_customer_registration_path, class: "btn btn-new mr-5") do %>新規登録<% end %>
+          <%= link_to(new_customer_session_path, class: "btn btn-login ml-5") do %>ログイン<% end %>
+        </div>
+        </span>
       </div>
       <div class="swiper-scrollbar"></div>
       </div>

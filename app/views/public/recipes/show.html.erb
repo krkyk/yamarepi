@@ -35,6 +35,10 @@
               target: '_blank',class: "btn btn-twitter" do %>
               <i class="fab fa-twitter-square fa-3x"></i>
             <% end %>
+            <%= link_to "https://www.facebook.com/sharer/sharer.php?url=#{ request.url }&text=#{ @recipe.title }、by#{ @recipe.customer.name }",
+              target: '_blank',class: "btn btn-facebook" do %>
+              <i class="fab fa-facebook-square fa-3x"></i>
+            <% end %>
           </span>
         </p>
         <% end %>
