@@ -14,7 +14,7 @@
           <%= f.text_field :inquiry_name,:placeholder=>"お名前", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label:お問い合わせ内容 %>
+          <%= f.label:お問い合わせ内容 %><br>
           <%= f.select :subject, options_for_select(Inquiry.subjects), {prompt: "選択してください"} %>
         </div>
         <div class="form-group">

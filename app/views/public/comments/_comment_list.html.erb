@@ -1,4 +1,4 @@
-<% recipe.comments.each do |comment| %>
+<% comments.each do |comment| %>
   <table class="table table-borderless">
     <tbody>
       <tr class="row d-flex align-items-center">
@@ -23,3 +23,6 @@
     </tbody>
   </table>
 <% end %>
+<div class="row my-3">
+  <div class="mx-auto"><%= paginate comments %></div>
+</div>

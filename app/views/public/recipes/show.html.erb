@@ -104,7 +104,7 @@
         <p class="comment-heading">レシピレビュー</p>
         <% if @recipe.comments.present? %>
           <div id="comment_list">
-            <%= render"public/comments/comment_list", recipe: @recipe %>
+            <%= render"public/comments/comment_list", comments: @comments %>
           </div>
         <% else %>
           <p class="ml-5 my-5">〜レシピレビューはありません〜</p>
