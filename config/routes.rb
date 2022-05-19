@@ -35,6 +35,10 @@ Rails.application.routes.draw do
         get "search"
       end
     end
+
+    resource :inquiries, only:[:new,:create]
+      post "inquiries/confirm" => "inquiries/confirm",as: :confirm
+      get "inquiries/done" => "inquiries#done",as: :done
   end
 
   #管理者用

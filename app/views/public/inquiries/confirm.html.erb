@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        お問い合わせ内容確認
+      </h5>
+    </div>
+  </div>
+
+  <%= form_with model: @inquiry,url: inquiries_path,method: :post,local: true do |f| %>
+    <div class="row">
+      <div class="mx-auto col-12 col-md-8 col-lg-6 mt-3">
+        <table>
+          <tbody>
+            <tr>
+              <td>お名前</td>
+              <td><%= @inquiry.inquiry_name %></td>
+            </tr>
+            <tr>
+              <td>お問い合わせ内容</td>
+              <td><%= @inquiry.subject %></td>
+            </tr>
+            <tr>
+              <td>本文</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

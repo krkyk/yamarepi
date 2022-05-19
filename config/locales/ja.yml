@@ -57,3 +57,9 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+  enums:
+    inquiry:
+      subject:
+        functions: やまレピの機能やご利用方法について
+        tags: タグの削除や追加について
+        other: 上記以外のお問合せ
