@@ -6,25 +6,41 @@
       </h5>
     </div>
   </div>
-
   <%= form_with model: @inquiry,url: inquiries_path,method: :post,local: true do |f| %>
     <div class="row">
-      <div class="mx-auto col-12 col-md-8 col-lg-6 mt-3">
-        <table>
+      <div class="mx-auto col-12 col-md-8 col-lg-6 mt-5">
+        <table class="table table-borderless">
           <tbody>
             <tr>
-              <td>お名前</td>
-              <td><%= @inquiry.inquiry_name %></td>
+              <h6 class="inquiry-title">《お名前》</h6>
+              <p class="inquiry-text ml-3"><%= @inquiry.inquiry_name %>様</p>
             </tr>
             <tr>
-              <td>お問い合わせ内容</td>
-              <td><%= @inquiry.subject %></td>
+              <h6 class="inquiry-title">《お問い合わせ内容》</h6>
+              <p class="inquiry-text ml-3"><%= @inquiry.subject %></p>
             </tr>
             <tr>
-              <td>本文</td>
+              <h6 class="inquiry-title">《本文》</h6>
+              <p class="inquiry-text ml-3"><%= @inquiry.message %></p>
+            </tr>
+            <tr>
+              <h6 class="inquiry-title">《返信用メールアドレス》</H6>
+              <P class="inquiry-text ml-3"><%= @inquiry.email %></P>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+    <div class="row">
+      <div class="mx-auto mb-5">
+        <%= f.hidden_field :inquiry_name %>
+        <%= f.hidden_field :subject %>
+        <%= f.hidden_field :message %>
+        <%= f.hidden_field :email %>
+        <%= button_tag type: "submit", class: "btn btn-blue" do %>
+          <i class="fas fa-mail-bulk"></i> お問い合わせ送信
+        <% end %>
+     </div>
+    </div>
+  <% end %>
 </div>

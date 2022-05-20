@@ -7,9 +7,7 @@ class Public::InquiriesController < ApplicationController
   # 入力値のチェックページ
   def confirm
     @inquiry = Inquiry.new(inquiry_params)
-    if @inquiry.valid?
-      render "confirm"
-    else
+    if @inquiry.invalid?
       render "new"
     end
   end
@@ -30,7 +28,7 @@ class Public::InquiriesController < ApplicationController
   private
 
   def inquiry_params
-    params.require(:inqury).permit(:inquiry_name,:message,:email,:subject)
+    params.require(:inquiry).permit(:inquiry_name,:message,:email,:subject)
   end
 
 end
