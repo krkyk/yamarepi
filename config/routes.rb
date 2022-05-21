@@ -37,7 +37,6 @@ Rails.application.routes.draw do
     end
 
     resource :inquiries, only:[:new,:create]
-      get "inquiries/confirm" => "inquiries#confirm"
       post "inquiries/confirm" => "inquiries#confirm",as: :confirm
       get "inquiries/done" => "inquiries#done",as: :done
   end

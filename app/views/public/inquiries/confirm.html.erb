@@ -37,7 +37,7 @@
         <%= f.hidden_field :subject %>
         <%= f.hidden_field :message %>
         <%= f.hidden_field :email %>
-        <%= button_tag type: "submit", class: "btn btn-blue" do %>
+        <%= button_tag type: "submit", "data-confirm"=>"この内容で送信しますか？", class: "btn btn-blue" do %>
           <i class="fas fa-mail-bulk"></i> お問い合わせ送信
         <% end %>
      </div>

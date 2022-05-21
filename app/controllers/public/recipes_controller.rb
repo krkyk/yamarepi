@@ -38,7 +38,7 @@ class Public::RecipesController < ApplicationController
     @ingredients = @recipe.ingredients
     @steps = @recipe.steps
     @comment = Comment.new
-    @comments = @recipe.comments.page(params[:page]).per(5)
+    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
   end
 
   def edit

@@ -102,13 +102,16 @@
     <div class="row mt-5">
       <div class="col-xs-12 col-md-10 col-lg-8 mx-auto">
         <p class="comment-heading">レシピレビュー</p>
-        <% if @recipe.comments.present? %>
-          <div id="comment_list">
+        <div id="comment_list">
+          <% if @recipe.comments.present? %>
             <%= render"public/comments/comment_list", comments: @comments %>
-          </div>
-        <% else %>
-          <p class="ml-5 my-5">〜レシピレビューはありません〜</p>
-        <% end %>
+          <% else %>
+            <p class="ml-5 my-5">〜レシピレビューはありません〜</p>
+          <% end %>
+        </div>
+        <div class="row my-3">
+          <div class="mx-auto"><%= paginate @comments %></div>
+        </div>
       </div>
       <% if customer_signed_in? && (current_customer.name != "ゲストユーザー") %>
         <% if @recipe.customer != current_customer %>

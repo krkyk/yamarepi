@@ -16,13 +16,10 @@ class Public::InquiriesController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
       InquiryMailer.send_mail(@inquiry).deliver
-      redirect_to done_path
-    else
+      redirect_to root_path, notice: "お問い合わせを送信しました"
+    else params[:back] || !@inquiry.save
       render "new"
     end
-  end
-
-  def done
   end
 
   private

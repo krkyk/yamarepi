@@ -1,8 +1,13 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="mx-auto">
-        <p class="footer-text my-5">© 2022 YamaRepi!.Inc</p>
+      <div class="mx-auto my-5 footer-box">
+        <div class="footer-text">© 2022 YamaRepi!.Inc</div>
+        <div class="inquiry-box">
+          <%= link_to(new_inquiries_path,class: "inquiry-link") do %>
+            <i class="fas fa-envelope"></i> お問い合わせはこちら
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

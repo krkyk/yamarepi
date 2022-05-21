@@ -435,6 +435,21 @@ main {
   font-weight: bold;
 }
 
+.inquiry-box {
+  float: right;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.inquiry-link {
+  color: #ffffe0;
+}
+
+.inquiry-link:hover {
+  color: #ffd700;
+}
+
 /* ページネーションのデザイン */
 .paginate {
   text-align: center;
@@ -484,6 +499,11 @@ header, footer{
   color: #2f4f4f;
 }
 
+.footer-box {
+  display: flex;
+  justify-content: space-around;
+}
+
 /* レスポンシブ対応 */
 @media screen and (max-width: 425px) {
   .about-image {
@@ -509,5 +529,11 @@ header, footer{
     width: 500px;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .footer-box {
+    display: block;
   }
 }
