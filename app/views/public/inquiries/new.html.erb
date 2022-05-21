@@ -16,7 +16,8 @@
         </div>
         <div class="form-group">
           <%= f.label:お問い合わせ内容 %><br>
-          <%= f.select :subject, options_for_select(Inquiry.subjects.keys), {prompt: "選択してください"} %>
+          <%= f.select :subject, options_for_select(Inquiry.subjects.keys),
+            {include_blank: "--選択してください--", selected: "--選択してください--"} %>
         </div>
         <div class="form-group">
           <%= f.label:本文 %>
