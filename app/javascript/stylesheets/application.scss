@@ -1,15 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-// @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
 
 body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  // font-family: 'Yusei Magic', sans-serif;
-  // font-family: 'Zen Maru Gothic', sans-serif;
   font-family: 'M PLUS 1p', sans-serif;
 }
 
@@ -272,11 +268,58 @@ main {
   border-width: 2px;
 }
 
+.social-btn {
+  float: right;
+}
+
+.btn-twitter {
+  color: #00bfff;
+}
+
+.btn-twitter:hover {
+  color: #4682b4;
+}
+
+.btn-line {
+  color: #32cd32;
+}
+
+.btn-line:hover {
+  color: #228b22;
+}
+
+.btn-facebook {
+  color: #4169e1;
+}
+
+.btn-facebook:hover {
+  color: #191970;
+}
+
+.btn-new {
+  color: #fff;
+  background-color: #3cb371;
+  border: 6px outset #3cb371;
+}
+
+.btn-login {
+  color: #fff;
+  background-color: #4169e1;
+  border: 6px outset #4169e1;
+}
+
 .my-recipe {
   width: 90%;
   color: #2f4f4f;
   border: 4px solid #ffd700;
   border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+}
+
+.customer-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* レシピ投稿画像のプレビューサイズ */
@@ -318,33 +361,41 @@ main {
   color: #696969;
   text-decoration: underline;
 }
-// .card {
-//   width:200px;
-//   height:250px;
-//   margin:10px;
-//   position:relative;
-// }
 
-// .card:hover{
-//   box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
-//   transform: translateY(-10px);
-//   transition-duration: 0.5s
-// }
+.card:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s
+}
 
 .card-body {
   background-color: #ffe4e1;
 }
 
 .card-title {
-  color: #2f4f4f;
+  color: #4169e1;
   font-weight: bold;
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-icon {
+  color: #001F5B;
+  margin-top: 10px;
+  margin-bottom: -1px;
 }
 
 .recipe-text {
+  color: #191970;
   display: block;
   overflow: hidden;
   white-space: nowrap;
@@ -354,6 +405,12 @@ main {
 .recipe-count {
   font-weight: bold;
   font-size: 150%;
+}
+
+.recipe-show-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .tag-head {
@@ -368,6 +425,24 @@ main {
   border-radius: 10%;
 }
 
+.inquiry-done {
+  color: #008000;
+  text-align: center;
+}
+
+.inquiry-title {
+  color: #008000;
+  font-weight: bold;
+}
+
+.inquiry-link {
+  color: #ffffe0;
+}
+
+.inquiry-link:hover {
+  color: #ffd700;
+}
+
 /* ページネーションのデザイン */
 .paginate {
   text-align: center;
@@ -380,9 +455,14 @@ main {
   font-weight: bold;
 }
 
-.pagination>.active>a {
-  background-color: #006400;
-  color: #fff;
+.pagination>.active>.page-link {
+  background-color: #d2b48c;
+  border-color: #d2b48c;
+}
+
+.pagination>.active>.page-link:hover {
+  background-color: #d2b48c;
+  border-color: #c0c0c0;
 }
 
 .pagination>li>a:hover {
@@ -408,13 +488,39 @@ header, footer{
   background-color: #3cb371;
 }
 
+.footer-box {
+  display: block;
+  text-align: center;
+}
+
 .footer-text {
   color: #2f4f4f;
 }
 
+/* レスポンシブ対応 */
 @media screen and (max-width: 425px) {
   .about-image {
     width: 100%;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .btn-new {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .btn-login {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .admin-recipes {
+    width: 500px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }

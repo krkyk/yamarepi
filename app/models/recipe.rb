@@ -47,9 +47,14 @@ class Recipe < ApplicationRecord
   end
 
   def self.recipe_week_favorites
-    from  = Time.current.at_beginning_of_day
-    to = (from + 6.day).at_end_of_day
-    Recipe.includes(:favorited_customers).sort{|a,b|b.favorited_customers.includes(:favorites).where(created_at: from...to).size<=>a.favorited_customers.includes(:favorites).where(created_at: from...to).size}
+    to  = Time.current.at_end_of_day
+    from = (to - 6.day).at_beginning_of_day
+    Recipe.includes(:favorited_customers).sort{|a,b|b.favorited_customers.includes(:favorites).where(favorites: {created_at: from...to}).size<=>
+      a.favorited_customers.includes(:favorites).where(favorites: {created_at: from...to}).size}
+  end
+
+  def count_favorites_weekly
+    self.favorites.where(favorites:{created_at: (Time.current - 6.day).at_beginning_of_day...Time.current.at_end_of_day}).count
   end
 
   def self.recipe_reports

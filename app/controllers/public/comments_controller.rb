@@ -8,6 +8,7 @@ class Public::CommentsController < ApplicationController
     @comment = current_customer.comments.new(comment_params)
     @comment.recipe_id = @recipe.id
     @comment.save
+    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
   end
 
   def destroy
@@ -15,6 +16,7 @@ class Public::CommentsController < ApplicationController
     @ingredients=@recipe.ingredients
     @steps=@recipe.steps
     Comment.find(params[:id]).destroy
+    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
   end
 
   private

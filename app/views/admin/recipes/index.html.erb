@@ -6,49 +6,12 @@
       </h5>
     </div>
   </div>
-
-<div class="row">
-  <div class="col-md-12 my-2">
-      <%= link_to "投稿を通報の多い順で表示", admin_recipes_path(report: true) ,class: "btn btn-sm btn-outline-danger" %>
-      <%= link_to "投稿すべてを新着順で表示", admin_recipes_path(latest: true) ,class: "btn btn-sm btn-outline-primary" %>
-        <table class="table table-hover mb-5 mt-2">
-          <thead>
-            <tr>
-              <th>タイトル</th>
-              <th>ニックネーム</th>
-              <th>投稿日</th>
-              <th>ステータス</th>
-              <th>通報</th>
-            </tr>
-          </thead>
-          <% @recipes.each do |recipe| %>
-            <tbody>
-              <tr>
-                <td><%= link_to recipe.title, admin_recipe_path(recipe.id) %></td>
-                <td><%= link_to recipe.customer.name, admin_customer_path(recipe.customer.id) %></td>
-                <td><%= recipe.created_at.strftime('%Y/%m/%d') %></td>
-                <td>
-                  <% if recipe.customer.is_deleted == false %>
-                    <p class="text-success font-weight-bold">有効</p>
-                    <% else %>
-                    <p class="text-muted font-weight-bold">退会</p>
-                  <% end %>
-                </td>
-                <td>
-                  <!--report（通報)がある場合とない場合の表示-->
-                  <% if recipe.reports.ids.empty? %>
-                    <p class="text-success">問題無し</p>
-                    <% else %>
-                    <p class="text-danger">通報数<%= recipe.reports.count %></p>
-                  <% end %></td>
-              </tr>
-            </tbody>
-          <% end %>
-        </table>
+  <div class="row">
+    <div class="col-md-12 my-2">
+      <%= render"admin/recipes/admin_recipes",recipes: @recipes %>
     </div>
   </div>
-</div>
-
-<div class="row my-3">
-  <div class="mx-auto"><%= paginate @recipes %></div>
+  <div class="row my-3">
+    <div class="mx-auto"><%= paginate @recipes %></div>
+  </div>
 </div>

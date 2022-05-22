@@ -92,6 +92,8 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -267,6 +269,7 @@ DEPENDENCIES
   cocoon
   devise
   dotenv-rails
+  enum_help
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   kaminari

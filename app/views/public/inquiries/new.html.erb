@@ -1,0 +1,38 @@
+<div class="container">
+<div class="error-message"><%= render "layouts/error", obj: @inquiry %></div>
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        お問い合わせフォーム
+      </h5>
+    </div>
+  </div>
+  <%= form_with model:@inquiry, url: confirm_path,method: :post,local: true do |f| %>
+    <div class="row">
+      <div class="mx-auto col-12 col-md-8 col-lg-6 mt-4">
+        <div class="form-group">
+          <%= f.label:お名前 %>
+          <%= f.text_field :inquiry_name,:placeholder=>"お名前", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label:お問い合わせ内容 %><br>
+          <%= f.select :subject, options_for_select(Inquiry.subjects.keys),
+            {include_blank: "--選択してください--", selected: "--選択してください--"} %>
+        </div>
+        <div class="form-group">
+          <%= f.label:本文 %>
+          <%= f.text_area :message, rows: 5, :placeholder=>"お問い合わせ本文", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label:返信用メールアドレス %>
+          <%= f.text_field :email,:placeholder=>"sample@sample.com", class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mx-auto mt-3 mb-5">
+        <%= f.submit"入力内容確認" ,class: "btn btn-green" %>
+      </div>
+    </div>
+  <% end %>
+</div>
