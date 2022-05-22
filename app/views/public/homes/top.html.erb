@@ -1,26 +1,27 @@
 <div class="container">
-  <div class="low">
+  <div class="row">
     <div class="col-xs-12 col-md-12 col-lg-10 mx-auto">
-    <div class="swiper my-4">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><%= image_tag"mountain.jpg",class: "swiper-image" %></div>
-        <div class="swiper-slide"><%= image_tag"mountain3.jpg",class: "swiper-image" %></div>
-        <div class="swiper-slide"><%= image_tag"flower2.jpg",class: "swiper-image" %></div>
-        <div class="swiper-slide"><%= image_tag"mountain4.jpg",class: "swiper-image" %></div>
-        <div class="swiper-slide"><%= image_tag"flower.jpg",class: "swiper-image" %></div>
-        <span class="swiper-box">
-        <div class="swiper-text">や ま レ ピ ！</div>
-        <div class="swiper-btn">
-          <%= link_to(new_customer_registration_path, class: "btn btn-new mr-5") do %>新規登録<% end %>
-          <%= link_to(new_customer_session_path, class: "btn btn-login ml-5") do %>ログイン<% end %>
+      <div class="swiper-all">
+        <div class="swiper my-4">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><%= image_tag"mountain.jpg",class: "swiper-image" %></div>
+            <div class="swiper-slide"><%= image_tag"mountain3.jpg",class: "swiper-image" %></div>
+            <div class="swiper-slide"><%= image_tag"flower2.jpg",class: "swiper-image" %></div>
+            <div class="swiper-slide"><%= image_tag"mountain4.jpg",class: "swiper-image" %></div>
+            <div class="swiper-slide"><%= image_tag"flower.jpg",class: "swiper-image" %></div>
+          </div>
+          <div class="swiper-scrollbar"></div>
         </div>
-        </span>
-      </div>
-      <div class="swiper-scrollbar"></div>
+        <div class="swiper-box">
+          <div class="swiper-text">や ま レ ピ ！</div>
+          <div class="swiper-btn pt-4">
+            <%= link_to(new_customer_registration_path, class: "btn btn-new mr-5") do %>新規登録<% end %>
+            <%= link_to(new_customer_session_path, class: "btn btn-login ml-5") do %>ログイン<% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col">
       <h5 class="midashi pl-3 pr-4 mt-5">
@@ -28,8 +29,11 @@
       </h5>
     </div>
   </div>
-  <div class="row">
-    <%= render"public/recipes/recipes",recipes: @recipes %>
+  <div class="row mt-3 mb-5">
+    <% if @recipes.present? %>
+      <%= render"public/recipes/recipes",recipes: @recipes %>
+    <% else %>
+      <p class="ml-5 mb-5">〜新着レシピはありません〜</p>
+    <% end %>
   </div>
-
 </div>

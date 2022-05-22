@@ -435,13 +435,6 @@ main {
   font-weight: bold;
 }
 
-.inquiry-box {
-  float: right;
-  transition: .3s;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
 .inquiry-link {
   color: #ffffe0;
 }
@@ -495,13 +488,13 @@ header, footer{
   background-color: #3cb371;
 }
 
-.footer-text {
-  color: #2f4f4f;
+.footer-box {
+  display: block;
+  text-align: center;
 }
 
-.footer-box {
-  display: flex;
-  justify-content: space-around;
+.footer-text {
+  color: #2f4f4f;
 }
 
 /* レスポンシブ対応 */
@@ -529,11 +522,5 @@ header, footer{
     width: 500px;
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .footer-box {
-    display: block;
   }
 }
