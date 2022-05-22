@@ -38,6 +38,11 @@ ja:
       report:
         customer_id: 会員ID
         recipe_id: レシピID
+      inquiry:
+        inquiry_name: お名前
+        message: 本文
+        subject: お問い合わせ内容
+        email: 返信用メールアドレス
 
     models:
       customer: 会員
@@ -50,6 +55,7 @@ ja:
       favorite: お気に入り
       comment: コメント
       report: 通報
+      inquiry: お問い合わせ
   views:
     pagination:
       first: "&laquo; 最初"
@@ -57,3 +63,9 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+  enums:
+    inquiry:
+      subject:
+        functions: やまレピの機能やご利用方法について
+        tags: タグの削除や追加について
+        other: 上記以外のお問合せ
