@@ -22,7 +22,7 @@ class Admin::RecipesController < ApplicationController
   def destroy
     recipe = Recipe.find(params[:id])
     if recipe.destroy
-      redirect_to admin_recipes_path, notice: "投稿を削除しました"
+      redirect_to admin_recipes_path, notice: "投稿を削除しました。"
     end
   end
 

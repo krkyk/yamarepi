@@ -17,7 +17,7 @@
         <span class="text-muted small"><%= @recipe.created_at.strftime('%Y/%m/%d') %></span>
         <p>
           <%= link_to customer_path(@recipe.customer) do%>
-          <%= image_tag @recipe.customer.get_customer_image(40,40),class: "rounded-circle" %>
+          <%= image_tag @recipe.customer.get_customer_image(100,100),class: "recipe-customer-image" %>
           <span class="name-link"><%= @recipe.customer.name%></span>
           <% end %>
         </p>

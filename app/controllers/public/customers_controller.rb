@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to customer_path(current_customer.id) ,notice: "登録情報を更新しました"
+      redirect_to customer_path(current_customer.id) ,notice: "登録情報を更新しました。"
     else
       render "edit"
     end
@@ -32,7 +32,7 @@ class Public::CustomersController < ApplicationController
     #is_deletedカラムをtrueに変更して削除フラグを立てる
     customer.update(is_deleted: true)
     reset_session
-    redirect_to root_path ,notice: "アカウントを削除しました"
+    redirect_to root_path ,notice: "アカウントを削除しました。"
   end
 
   private
