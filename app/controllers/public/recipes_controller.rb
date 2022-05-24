@@ -12,7 +12,7 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.customer_id = current_customer.id
     if @recipe.save
-      redirect_to recipe_path(@recipe.id) ,notice: "レシピを投稿しました"
+      redirect_to recipe_path(@recipe.id) ,notice: "レシピを投稿しました。"
     else
       render "new"
     end
@@ -48,7 +48,7 @@ class Public::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      redirect_to recipe_path(@recipe.id), notice: "レシピを更新しました"
+      redirect_to recipe_path(@recipe.id), notice: "レシピを更新しました。"
     else
       render "edit"
     end
@@ -57,7 +57,7 @@ class Public::RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to customer_path(current_customer.id), notice: "レシピを削除しました"
+    redirect_to customer_path(current_customer.id), notice: "レシピを削除しました。"
   end
 
   def search_tag

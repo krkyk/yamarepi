@@ -6,6 +6,7 @@ class Admin::CommentsController < ApplicationController
     @ingredients=@recipe.ingredients
     @steps=@recipe.steps
     Comment.find(params[:id]).destroy
+    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
   end
 
 end
