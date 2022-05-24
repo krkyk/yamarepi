@@ -365,6 +365,10 @@ main {
    transition: background-color 10000s ease-in-out 0s;
  }
 
+.step-form {
+  width: 100%;
+}
+
 .recipe-frame {
   border-color: #d2b48c;
 }
@@ -372,15 +376,6 @@ main {
 .recipe-table {
   border-bottom: 1px solid;
   border-color: #d2b48c;
-  counter-reset: step-number;
-}
-
-.step-number {
-  counter-increment: step-number;
-}
-.step-number:before {
-
-  content: counter(step-number)".";
 }
 
 .recipe-heading {
