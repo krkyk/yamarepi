@@ -75,13 +75,16 @@
     <div class="row mt-5">
       <div class="col-xs-6 col-md-10 col-lg-8 mx-auto">
         <p class="comment-heading">レシピレビュー</p>
-        <% if @recipe.comments.present? %>
-          <div id="comment_list">
-            <%= render"admin/comments/comment_list", recipe: @recipe %>
-          </div>
-        <% else %>
-          <p class="ml-2 my-3">レシピレビューはありません</p>
-        <% end %>
+        <div id="comment_list">
+          <% if @recipe.comments.present? %>
+            <%= render"admin/comments/comment_list", comments: @comments %>
+          <% else %>
+            <p class="ml-2 my-3">レシピレビューはありません</p>
+          <% end %>
+        </div>
+        <div class="row my-3">
+          <div class="mx-auto"><%= paginate @comments %></div>
+        </div>
       </div>
     </div>
   </div>

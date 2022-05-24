@@ -17,6 +17,7 @@ class Admin::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @ingredients=@recipe.ingredients
     @steps=@recipe.steps
+    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
   end
 
   def destroy
