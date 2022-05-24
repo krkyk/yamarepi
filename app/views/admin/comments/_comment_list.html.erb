@@ -1,13 +1,13 @@
-<% recipe.comments.each do |comment| %>
+<% comments.each do |comment| %>
   <table class="table table-borderless">
     <tbody>
       <tr class="row d-flex align-items-center">
-        <td class="col-xs-3 col-md-3 col-lg-3"><%= image_tag comment.get_comment_image(100,100) %></td>
+        <td class="col-xs-3 col-md-3 col-lg-3"><%= image_tag comment.get_comment_image(100,100),class: "comment-image" %></td>
         <td class="col-xs-5 col-md-5 col-lg-5"><%= comment.comment %></td>
         <td class="col-xs-2 col-md-3 col-lg-3 text-right">
           <%= link_to admin_customer_path(comment.customer) do %>
             <small>
-              <%= image_tag comment.customer.get_customer_image(30,30),class: "rounded-circle" %>
+              <%= image_tag comment.customer.get_customer_image(100,100),class: "comment-customer-image" %>
               <span class="name-link"><%= comment.customer.name %></span>
             </small>
           <% end %>

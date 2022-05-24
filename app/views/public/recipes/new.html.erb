@@ -11,7 +11,7 @@
 
         <%= form_with model:@recipe, url: recipes_path,method: :post,local: true do |f| %>
           <div class="row">
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-5 col-xs-12">
               <div class="form-group">
                 <div class="recipe-heading mb-2"><%= f.label:レシピタイトル %></div>
                 <%= f.text_field :title,:placeholder=>"レシピのタイトル", class: "recipe-frame form-control"%>
@@ -20,7 +20,7 @@
           </div>
 
           <div class="row">
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-5 col-xs-12">
               <div class="form-group">
                 <div class="recipe-heading mb-2"><%= f.label:料理の写真 %></div>
                 <%= f.file_field :recipe_image, accept: 'image/*' %>
@@ -29,7 +29,7 @@
               <img id="preview">
             </div>
 
-            <div class="col-lg-8 col-md-8">
+            <div class="col-lg-8 col-md-7 col-xs-12">
               <div class="form-group">
                 <table class="table table-borderless">
                   <tbody>
@@ -51,7 +51,7 @@
                 <%= f.fields_for :ingredients do |ingredient| %>
                   <%= render "ingredient_fields", f: ingredient %>
                 <%end%>
-                <div class="col-4 mx-auto add-form">
+                <div class="col-lg-4 col-md-4 col-xs-6 mx-auto add-form">
                   <%= link_to_add_association "材料を追加", f, :ingredients,class: "btn btn-block btn-sm btn-success" %>
                 </div>
             </div>
@@ -64,8 +64,8 @@
               <%= f.fields_for :steps do |step| %>
                 <%=  render"step_fields",f: step %>
               <% end %>
-              <div class="col-4 mx-auto add-forms">
-                  <%= link_to_add_association "作り方を追加", f, :steps,class:"btn btn-block btn-sm btn-success" %>
+              <div class="col-lg-4 col-md-4 col-xs-6 mx-auto add-forms">
+                  <%= link_to_add_association "作り方を追加", f, :steps,class: "btn btn-block btn-sm btn-success" %>
               </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
         </div>
 
         <div class="row">
-          <div class="mx-auto my-5">
+          <div class="mx-auto mb-5">
             <%= button_tag type: 'submit',class: "btn btn-yellow" do%>
               <i class="fab fa-pagelines"></i> レシピ投稿
             <% end %>

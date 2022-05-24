@@ -9,7 +9,7 @@ class Admin::TagsController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
-      redirect_to request.referer ,notice: "タグを作成しました"
+      redirect_to request.referer ,notice: "タグを作成しました。"
     else
       @tags = Tag.all
       render "index"
@@ -19,7 +19,7 @@ class Admin::TagsController < ApplicationController
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
-    redirect_to request.referer , notice: "タグを削除しました"
+    redirect_to request.referer , notice: "タグを削除しました。"
   end
 
   def edit
@@ -29,7 +29,7 @@ class Admin::TagsController < ApplicationController
   def update
     @tag = Tag.find(params[:id])
     if @tag.update(tag_params)
-      redirect_to admin_tags_path ,notice: "タグを更新しました"
+      redirect_to admin_tags_path ,notice: "タグを更新しました。"
     else
       render "edit"
     end

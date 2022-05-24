@@ -17,12 +17,13 @@ class Admin::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @ingredients=@recipe.ingredients
     @steps=@recipe.steps
+    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
   end
 
   def destroy
     recipe = Recipe.find(params[:id])
     if recipe.destroy
-      redirect_to admin_recipes_path, notice: "投稿を削除しました"
+      redirect_to admin_recipes_path, notice: "投稿を削除しました。"
     end
   end
 
