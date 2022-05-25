@@ -28,15 +28,15 @@
           <!--SNSシェアボタン-->
           <span class="social-btn">
             <%= link_to "https://social-plugins.line.me/lineit/share?url=#{ request.url }&text=#{ @recipe.title }、
-              by#{ @recipe.customer.name }",class: "btn btn-line" do %>
+              by#{ @recipe.customer.name }",class: "btn btn-rise btn-line" do %>
               <i class="fab fa-line fa-3x"></i>
             <% end %>
             <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{ @recipe.title }、by#{ @recipe.customer.name }",
-              target: '_blank',class: "btn btn-twitter" do %>
+              target: '_blank',class: "btn btn-rise btn-twitter" do %>
               <i class="fab fa-twitter-square fa-3x"></i>
             <% end %>
             <%= link_to "https://www.facebook.com/sharer/sharer.php?url=#{ request.url }&text=#{ @recipe.title }、by#{ @recipe.customer.name }",
-              target: '_blank',class: "btn btn-facebook" do %>
+              target: '_blank',class: "btn btn-rise btn-facebook" do %>
               <i class="fab fa-facebook-square fa-3x"></i>
             <% end %>
           </span>

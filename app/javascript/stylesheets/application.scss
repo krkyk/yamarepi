@@ -219,7 +219,7 @@ main {
 }
 
 /* ボタンデザイン */
-.btn:hover {
+.btn-rise:hover {
   transform: translateY(-5px);
 }
 
@@ -315,7 +315,18 @@ main {
   background-color: #4169e1;
   border: 6px outset #4169e1;
 }
+
+.btn-success:hover {
+  color: #008000;
+  background-color: #fff;
+  border-color: #008000;
+  border-width: 3px;
+}
 /* */
+
+.table-hover tbody tr:hover td {
+  background-color: rgba(144,238,144,0.3);
+}
 
 .my-recipe {
   width: 90%;
