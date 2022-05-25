@@ -24,6 +24,13 @@
               <div class="form-group">
                 <div class="recipe-heading mb-2"><%= f.label:料理の写真 %></div>
                 <%= f.file_field :recipe_image, accept: 'image/*' %>
+
+                <!--<div id="image_preview">-->
+                <!--<%# if @recipe.recipe_image.attached? %>-->
+                <!--  <%#= image_tag @recipe.get_recipe_image(100,100) %>-->
+                <!--<%# end %>-->
+                <!--</div>-->
+
               </div>
               <!--画像のプレビュー-->
               <img id="preview">
