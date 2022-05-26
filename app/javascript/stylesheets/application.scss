@@ -370,6 +370,11 @@ main {
   border-radius: 50%;
 }
 
+.customer-edit-btn, .unsubscribe-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
 .recipe-customer-image {
   width: 40px;
   height: 40px;
@@ -391,10 +396,22 @@ main {
   border-radius: 10%;
 }
 
-/* レシピ投稿画像のプレビューサイズ */
+/* 投稿画像のプレビュー */
 #preview {
   width: 100%;
   height: auto;
+}
+
+#customer-preview {
+  width: 280px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#customer-image-preview {
+  display: flex;
+  justify-content: center;
 }
 /* */
 
@@ -500,6 +517,8 @@ main {
   color: #2f4f4f;
   border: 2px solid #d2b48c;
   border-radius: 10%;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .inquiry-title {

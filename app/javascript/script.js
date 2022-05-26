@@ -47,3 +47,19 @@ $(document).on('turbolinks:load',function () {
     reader.readAsDataURL(file);
   });
 });
+
+/* 会員画像編集プレビュー */
+$(document).on('turbolinks:load',function () {
+  $('#customer_customer_image').change(function (e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = (function (file) {
+      return function (e) {
+        $("#customer-preview").attr("src", e.target.result);
+        $("#customer-preview").attr("title", file.name);
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+});
+

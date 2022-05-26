@@ -8,9 +8,23 @@
     </div>
   </div>
   <div class="row">
-    <div class="mx-auto col-12 col-md-6 col-lg-6 my-5 pt-lg-3">
-      <%= form_with model: @customer,url:admin_customer_path(@customer.id),method: :patch,local: true do |f| %>
-      <table class="table table-borderless mb-5">
+    <div class="mx-auto col-12 col-md-8 col-lg-5 my-5">
+    <%= form_with model: @customer,url:admin_customer_path(@customer.id),method: :patch,local: true do |f| %>
+      <tr>
+        <td><%= f.file_field:customer_image, accept: "image/*" %></td>
+      </tr>
+      <tr>
+        <td><!--画像のプレビュー-->
+          <div id="customer-image-preview">
+            <% if @customer.customer_image.attached? %>
+              <%= image_tag @customer.get_customer_image(500,500), id: "customer-preview" %>
+            <% end %>
+           </div>
+        </td>
+      </tr>
+    </div>
+    <div class="mx-auto col-12 col-md-8 col-lg-6 pt-lg-5">
+      <table class="table table-borderless mt-1 mb-5">
         <tbody>
           <tr>
             <td>会員ID</td>
@@ -32,13 +46,12 @@
           </tr>
         </tbody>
       </table>
-      <div class="row">
-        <div class="mx-auto">
-          <%= f.submit "変更を保存" ,class: "btn btn-blue"%>
-        </div>
-      </div>
-      <%end%>
     </div>
   </div>
+    <div class="row">
+      <div class="text-center col-12 col-md-12 col-lg-12">
+        <%= f.submit "変更を保存" ,class: "btn btn-blue mb-5"%>
+      </div>
+    </div>
+    <%end%>
 </div>
-
