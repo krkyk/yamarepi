@@ -1,19 +1,18 @@
 <div class="container">
-  <div class="col-lg-offset-2 col-xs-offset-1">
-    <div class="row">
-      <div class="col">
-        <h5 class="midashi pl-3 pr-4 my-5">
-          <%= @recipe.title %>
-        </h5>
-      </div>
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5 mb-3">
+        <%= @recipe.title %>
+      </h5>
     </div>
+  </div>
 
     <div class="row">
-      <div class="col-xs-12 col-md-10 col-lg-5 my-3 mx-auto d-flex justify-content-center">
+      <div class="col-12 col-md-10 col-lg-5 my-3 mx-auto d-flex justify-content-center">
         <%= image_tag @recipe.get_recipe_image(1000,1000),class: "recipe-show-image" %>
       </div>
-      <div class="col-xs-12 col-md-10 col-lg-5 pt-lg-3 mx-auto">
-        <h5><%= @recipe.description %></h5>
+      <div class="col-12 col-md-10 col-lg-5 mx-auto">
+        <h5 class="py-3"><%= @recipe.description %></h5>
         <span class="text-muted small"><%= @recipe.created_at.strftime('%Y/%m/%d') %></span>
         <p>
           <%= link_to customer_path(@recipe.customer) do%>
@@ -28,15 +27,15 @@
           <!--SNSシェアボタン-->
           <span class="social-btn">
             <%= link_to "https://social-plugins.line.me/lineit/share?url=#{ request.url }&text=#{ @recipe.title }、
-              by#{ @recipe.customer.name }",class: "btn btn-line" do %>
+              by#{ @recipe.customer.name }",class: "btn btn-rise btn-line" do %>
               <i class="fab fa-line fa-3x"></i>
             <% end %>
             <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{ @recipe.title }、by#{ @recipe.customer.name }",
-              target: '_blank',class: "btn btn-twitter" do %>
+              target: '_blank',class: "btn btn-rise btn-twitter" do %>
               <i class="fab fa-twitter-square fa-3x"></i>
             <% end %>
             <%= link_to "https://www.facebook.com/sharer/sharer.php?url=#{ request.url }&text=#{ @recipe.title }、by#{ @recipe.customer.name }",
-              target: '_blank',class: "btn btn-facebook" do %>
+              target: '_blank',class: "btn btn-rise btn-facebook" do %>
               <i class="fab fa-facebook-square fa-3x"></i>
             <% end %>
           </span>
@@ -58,7 +57,7 @@
     </div>
 
     <div class="row mt-3">
-      <div class="col-xs-12 col-md-10 col-lg-10 mx-auto">
+      <div class="col-12 col-md-10 col-lg-10 mx-auto">
       <p class="recipe-heading">作り方</p>
       <table class="table table-sm table-borderless">
         <tbody>
@@ -73,7 +72,7 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-8 col-md-10 col-xs-12 mx-auto my-5">
+      <div class="col-lg-8 col-md-10 col-12 mx-auto mt-4 mb-2">
         <% @recipe.tags.each do |tag| %>
           <%= link_to search_tag_recipes_path(tag_id: tag.id),class: "tag-button mr-3 px-2" do %>
             <i class="fas fa-tag"></i> <%= tag.name %>
@@ -83,12 +82,12 @@
     </div>
 
     <div class="row">
-      <div class="col text-right">
+      <div class="mx-auto col-lg-10 col-md-10 col-12 text-right">
         <% if @recipe.customer == current_customer %>
           <%= link_to edit_recipe_path(@recipe),class: "btn btn-green my-5 mr-3" do %>
             <i class="fas fa-edit"></i> レシピ編集
           <% end %>
-          <%= link_to recipe_path(@recipe),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-red my-5 mr-5" do %>
+          <%= link_to recipe_path(@recipe),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-red my-5" do %>
             <i class="fas fa-trash-alt"></i> レシピ削除
           <% end %>
         <% else %>
@@ -100,7 +99,7 @@
     </div>
 
     <div class="row mt-5">
-      <div class="col-xs-12 col-md-12 col-lg-8 mx-auto">
+      <div class="col-12 col-md-12 col-lg-8 mx-auto">
         <p class="comment-heading">レシピレビュー</p>
         <div id="comment_list">
           <% if @recipe.comments.present? %>
@@ -115,11 +114,10 @@
       </div>
       <% if customer_signed_in? && (current_customer.name != "ゲストユーザー") %>
         <% if @recipe.customer != current_customer %>
-          <div class="col-xs-12 col-md-12 col-lg-4 d-flex align-items-end mx-auto">
+          <div class="col-12 col-md-12 col-lg-4 d-flex align-items-end mx-auto">
             <%= render"public/comments/comment_form", recipe: @recipe, comment: @comment %>
           </div>
         <% end %>
       <% end %>
     </div>
-  </div>
 </div>

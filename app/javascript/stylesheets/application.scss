@@ -219,7 +219,7 @@ main {
 }
 
 /* ボタンデザイン */
-.btn:hover {
+.btn-rise:hover {
   transform: translateY(-5px);
 }
 
@@ -307,15 +307,54 @@ main {
 .btn-new {
   color: #fff;
   background-color: #3cb371;
-  border: 6px outset #3cb371;
+  border-color: #fff;
+  border-width: 2px;
+  transition: .3s ease-in-out;
+}
+
+.btn-new:hover {
+  background-color: #fff;
+  border-color: #3cb371;
+  color: #3cb371;
+  animation: bounce 2s ease-in-out;
+}
+@keyframes bounce {
+  5%  { transform: scale(1.1, .8); }
+  10% { transform: scale(.8, 1.1) translateY(-5px); }
+  15% { transform: scale(1, 1); }
 }
 
 .btn-login {
   color: #fff;
   background-color: #4169e1;
-  border: 6px outset #4169e1;
+  border-color: #fff;
+  border-width: 2px;
+  transition: .3s ease-in-out;
+}
+
+.btn-login:hover {
+  background-color: #fff;
+  border-color: #4169e1;
+  color: #4169e1;
+  animation: bounce 2s ease-in-out;
+}
+@keyframes bounce {
+  5%  { transform: scale(1.1, .8); }
+  10% { transform: scale(.8, 1.1) translateY(-5px); }
+  15% { transform: scale(1, 1); }
+}
+
+.btn-success:hover {
+  color: #008000;
+  background-color: #fff;
+  border-color: #008000;
+  border-width: 3px;
 }
 /* */
+
+.table-hover tbody tr:hover td {
+  background-color: rgba(144,238,144,0.3);
+}
 
 .my-recipe {
   width: 90%;
@@ -329,6 +368,11 @@ main {
   height: 260px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.customer-edit-btn, .unsubscribe-btn {
+  display: flex;
+  justify-content: space-around;
 }
 
 .recipe-customer-image {
@@ -352,10 +396,22 @@ main {
   border-radius: 10%;
 }
 
-/* レシピ投稿画像のプレビューサイズ */
+/* 投稿画像のプレビュー */
 #preview {
   width: 100%;
   height: auto;
+}
+
+#customer-preview {
+  width: 280px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#customer-image-preview {
+  display: flex;
+  justify-content: center;
 }
 /* */
 
@@ -461,6 +517,8 @@ main {
   color: #2f4f4f;
   border: 2px solid #d2b48c;
   border-radius: 10%;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .inquiry-title {
@@ -555,6 +613,14 @@ header, footer{
 @media screen and (max-width: 576px) {
   .admin-recipes {
     width: 500px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .tag-table {
+    width: 400px;
     white-space: nowrap;
     text-overflow: ellipsis;
   }

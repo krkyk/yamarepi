@@ -18,6 +18,17 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
+  def customer_recipes
+    @customer = Customer.find(params[:id])
+    if params[:latest]
+      @recipes = @customer.recipes.order(created_at: "DESC").page(params[:page])
+    elsif params[:report]
+      @recipes = Kaminari.paginate_array(@customer.recipes.recipe_reports).page(params[:page])
+    else
+      @recipes = @customer.recipes.where(customer_id: @customer.id).page(params[:page])
+    end
+  end
+
   private
 
   def customer_params
