@@ -7,9 +7,9 @@
       </h5>
     </div>
   </div>
+  <%= form_with model: @customer, url: customer_path(@customer),method: :patch,local:true do |f| %>
   <div class="row">
     <div class="mx-auto col-10 col-md-6 col-lg-5 pb-5">
-      <%= form_with model: @customer, url: customer_path(@customer),method: :patch,local:true do |f| %>
         <div class="form-group">
           <%= f.label :画像 ,class: "customer-text" %><br>
           <%=  f.file_field :customer_image, accept: 'image/*' %>
@@ -21,20 +21,20 @@
         </div>
     </div>
     <div class="mx-auto col-10 col-md-6 col-lg-5 pt-lg-5 pt-md-5">
-        <div class="form-group">
-          <%= f.label :ニックネーム ,class: "customer-text"%>
-          <%= f.text_field :name, class: "form-control devise-form" %>
-        </div>
-        <div class="form-group">
-            <%= f.label :メールアドレス ,class: "customer-text" %>
-            <%= f.email_field :email, class: "form-control devise-form" %>
-        </div>
-        <div class="form-group my-5 customer-edit-btn pt-lg-3">
-          <%= f.submit" 更新する ",class: "btn btn-blue" %>
-          <%= link_to" 退会する ",unsubscribe_path(@customer),class: "btn btn-red" %>
-        </div>
-      <% end %>
+      <div class="form-group">
+        <%= f.label :ニックネーム ,class: "customer-text"%>
+        <%= f.text_field :name, class: "form-control devise-form" %>
+      </div>
+      <div class="form-group">
+          <%= f.label :メールアドレス ,class: "customer-text" %>
+          <%= f.email_field :email, class: "form-control devise-form" %>
+      </div>
+      <div class="form-group my-5 customer-edit-btn pt-lg-3">
+        <%= f.submit" 更新する ",class: "btn btn-blue" %>
+        <%= link_to" 退会する ",unsubscribe_path(@customer),class: "btn btn-red" %>
+      </div>
     </div>
   </div>
+  <% end %>
 </div>
 

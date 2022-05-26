@@ -47,6 +47,7 @@ Rails.application.routes.draw do
       resources :comments, only:[:destroy]
     end
     resources :customers, only:[:show,:edit,:update]
+    get "customers/:id/customer_recipes" => "customers#customer_recipes",as: :customer_recipes
     resources :tags,only:[:index,:create,:destroy,:edit,:update]
   end
 
