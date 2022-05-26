@@ -590,6 +590,13 @@ header, footer{
   color: #2f4f4f;
 }
 
+// .comment-form {
+//   display: flex;
+//   justify-content: flex-end;
+//   // position: fixed;
+//   // bottom: 0;
+// }
+
 /* レスポンシブ対応 */
 @media screen and (max-width: 425px) {
   .about-image {
@@ -623,5 +630,12 @@ header, footer{
     width: 400px;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .comment-form {
+    display: flex;
+    justify-content: right;
   }
 }

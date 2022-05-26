@@ -99,7 +99,7 @@
     </div>
 
     <div class="row mt-5">
-      <div class="col-12 col-md-12 col-lg-8 mx-auto">
+      <div class="col-12 col-md-12 col-lg-7 mx-auto">
         <p class="comment-heading">レシピレビュー</p>
         <div id="comment_list">
           <% if @recipe.comments.present? %>
@@ -114,7 +114,7 @@
       </div>
       <% if customer_signed_in? && (current_customer.name != "ゲストユーザー") %>
         <% if @recipe.customer != current_customer %>
-          <div class="col-12 col-md-12 col-lg-4 d-flex align-items-end mx-auto">
+          <div class="col-12 col-md-12 col-lg-5 d-flex align-items-end mx-auto comment-form">
             <%= render"public/comments/comment_form", recipe: @recipe, comment: @comment %>
           </div>
         <% end %>
