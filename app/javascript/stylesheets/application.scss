@@ -146,15 +146,10 @@ main {
 .about-text {
   color: #2f4f4f;
   font-weight: bold;
-  // text-decoration: underline;
-  // text-decoration-thickness: 3px;
-  // text-decoration-color: #ffe4e1;
-  // text-underline-offset: 20%;
+  background: linear-gradient(transparent 50%, #ffff66 0%);
+  line-height: 1.3em;
 }
 
-.about-box {
-  border: solid 3px #ffe4e1;
-}
 .about-image {
   border-radius: 20%;
 }
@@ -307,8 +302,8 @@ main {
 .btn-new {
   color: #fff;
   background-color: #3cb371;
-  border-color: #fff;
-  border-width: 2px;
+  border-color: #2e8b57;
+  border-width: 3px;
   transition: .3s ease-in-out;
 }
 
@@ -327,8 +322,8 @@ main {
 .btn-login {
   color: #fff;
   background-color: #4169e1;
-  border-color: #fff;
-  border-width: 2px;
+  border-color: #6495ed;
+  border-width: 3px;
   transition: .3s ease-in-out;
 }
 
@@ -416,37 +411,36 @@ main {
 /* */
 
 .recipe-form {
-   border: none;
-   background-color: #fffff0;
-   transition: background-color 10000s ease-in-out 0s;
- }
+  border: none;
+  background-color: #fffff0;
+  transition: background-color 10000s ease-in-out 0s;
+}
 
 .step-form {
   width: 100%;
+}
+
+.recipe-table {
+  border-bottom: 1px solid #d2b48c;
 }
 
 .recipe-frame {
   border-color: #d2b48c;
 }
 
-.recipe-table {
-  border-bottom: 1px solid;
-  border-color: #d2b48c;
+.comment-heading, .recipe-heading {
+  font-weight: bold;
+  color: #2f4f4f;
+  border-bottom: 2px solid;
 }
 
 .recipe-heading {
-  font-weight: bold;
   font-size: 110%;
-  color: #2f4f4f;
-  border-bottom: 2px solid;
   border-color: #3cb371;
 }
 
 .comment-heading {
-  font-weight: bold;
   font-size: 120%;
-  color: #2f4f4f;
-  border-bottom: 2px solid;
   border-color: #ffd700;
 }
 
@@ -589,13 +583,6 @@ header, footer{
 .footer-text {
   color: #2f4f4f;
 }
-
-// .comment-form {
-//   display: flex;
-//   justify-content: flex-end;
-//   // position: fixed;
-//   // bottom: 0;
-// }
 
 /* レスポンシブ対応 */
 @media screen and (max-width: 425px) {
