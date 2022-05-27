@@ -172,7 +172,7 @@ main {
 }
 /* */
 
-.midashi {
+.midashi, .midashi2 {
   display: inline-block;
   position: relative;
   line-height: 50px;
@@ -186,7 +186,7 @@ main {
   font-family: 'RocknRoll One', sans-serif;
 }
 
-.midashi:after {
+.midashi:after, .midashi2:after {
   position: absolute;
   content: '';
   width: 0px;
@@ -198,6 +198,11 @@ main {
   border-width: 25px 15px 25px 0px;
   border-color: transparent #fff transparent transparent;
   border-style: solid;
+}
+
+.midashi2 {
+  background-color: #ffb6c1;
+  // color: #fff;
 }
 
 .devise-form {
