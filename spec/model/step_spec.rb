@@ -11,7 +11,7 @@ RSpec.describe 'Stepモデルのテスト', type: :model do
     context 'step_descriptionカラム' do
       it '空欄でないこと' do
         step.step_description = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
     end
   end

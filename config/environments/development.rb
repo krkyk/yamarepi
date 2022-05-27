@@ -1,4 +1,4 @@
-require "active_support/core_ext/integer/time"
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -34,7 +34,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true#送信失敗の時にエラーを出す
+  config.action_mailer.raise_delivery_errors = true # 送信失敗の時にエラーを出す
 
   config.action_mailer.perform_caching = false
 
@@ -76,14 +76,14 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      port: 587,
-      address: 'smtp.gmail.com',
-      domain: 'smtp.gmail.com',
-      user_name: ENV['SMTP_USERNAME'],
-      password: ENV['SMTP_PASSWORD'],
-      authentication: 'plain',
-      enable_starttls_auto: true
+    port: 587,
+    address: 'smtp.gmail.com',
+    domain: 'smtp.gmail.com',
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
   }
 
-  config.hosts << "d7465e506f71491289d4eb1a99f27d36.vfs.cloud9.ap-northeast-1.amazonaws.com"
+  config.hosts << 'd7465e506f71491289d4eb1a99f27d36.vfs.cloud9.ap-northeast-1.amazonaws.com'
 end

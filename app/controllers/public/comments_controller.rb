@@ -3,26 +3,25 @@ class Public::CommentsController < ApplicationController
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @ingredients=@recipe.ingredients
-    @steps=@recipe.steps
+    @ingredients = @recipe.ingredients
+    @steps = @recipe.steps
     @comment = current_customer.comments.new(comment_params)
     @comment.recipe_id = @recipe.id
     @comment.save
-    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
+    @comments = @recipe.comments.order(created_at: 'DESC').page(params[:page]).per(5)
   end
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
-    @ingredients=@recipe.ingredients
-    @steps=@recipe.steps
+    @ingredients = @recipe.ingredients
+    @steps = @recipe.steps
     Comment.find(params[:id]).destroy
-    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
+    @comments = @recipe.comments.order(created_at: 'DESC').page(params[:page]).per(5)
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:comment,:comment_image)
+    params.require(:comment).permit(:comment, :comment_image)
   end
-
 end
