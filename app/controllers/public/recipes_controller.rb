@@ -19,14 +19,14 @@ class Public::RecipesController < ApplicationController
   end
 
   def index
-    # レシピを新着順に並べる
     @recipes = if params[:latest]
+                # レシピを新着順に並べる
                  Recipe.latest.page(params[:page])
-               # レシピをいいねが多い順に並べる
                elsif params[:favorite]
+                # レシピをいいねが多い順に並べる
                  Kaminari.paginate_array(Recipe.recipe_favorites).page(params[:page])
-               # レシピを１週間でいいねが多い順に並べる
                elsif params[:week_favorite]
+                # レシピを１週間でいいねが多い順に並べる
                  Kaminari.paginate_array(Recipe.recipe_week_favorites).page(params[:page])
                else
                  Recipe.page(params[:page])
@@ -62,14 +62,14 @@ class Public::RecipesController < ApplicationController
 
   def search_tag
     @tag = Tag.find(params[:tag_id])
-    # レシピを新着順に並べる
     @recipes = if params[:latest]
+                # レシピを新着順に並べる
                  @tag.recipes.latest.page(params[:page])
-               # レシピをいいねが多い順に並べる
                elsif params[:favorite]
+                # レシピをいいねが多い順に並べる
                  Kaminari.paginate_array(@tag.recipes.recipe_favorites).page(params[:page])
-               # レシピを１週間でいいねが多い順に並べる
                elsif params[:week_favorite]
+                # レシピを１週間でいいねが多い順に並べる
                  Kaminari.paginate_array(@tag.recipes.recipe_week_favorites).page(params[:page])
                else
                  @tag.recipes.page(params[:page])

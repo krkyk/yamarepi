@@ -21,8 +21,10 @@ class Admin::CustomersController < ApplicationController
   def customer_recipes
     @customer = Customer.find(params[:id])
     @recipes = if params[:latest]
+                # レシピを新着順に並べる
                  @customer.recipes.order(created_at: 'DESC').page(params[:page])
                elsif params[:report]
+                # レシピを通報が多い順に並べる
                  Kaminari.paginate_array(@customer.recipes.recipe_reports).page(params[:page])
                else
                  @customer.recipes.where(customer_id: @customer.id).page(params[:page])
