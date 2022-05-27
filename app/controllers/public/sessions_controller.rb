@@ -23,9 +23,10 @@ class Public::SessionsController < Devise::SessionsController
 
   def customer_state
     customer = Customer.find_by(email: params[:customer][:email])
-    return if !customer
+    return unless customer
+
     if customer.valid_password?(params[:customer][:password]) && (customer.is_deleted == true)
-      redirect_to new_customer_registration_path ,notice: "アカウントが存在しません"
+      redirect_to new_customer_registration_path, notice: 'アカウントが存在しません'
     end
   end
 

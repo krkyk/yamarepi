@@ -7,24 +7,23 @@ class ApplicationController < ActionController::Base
     @search = Recipe.ransack(params[:q])
     # 結果は重複させない
     @result = @search.result.distinct
-    # レシピを新着順に並べる
-    if params[:latest]
-      @recipes = @result.latest.page(params[:page])
-    # レシピをいいねが多い順に並べる
-    elsif params[:favorite]
-      @recipes = Kaminari.paginate_array(@result.recipe_favorites).page(params[:page])
-    # レシピを１週間でいいねが多い順に並べる
-    elsif params[:week_favorite]
-      @recipes = Kaminari.paginate_array(@result.recipe_week_favorites).page(params[:page])
-    else
-      @recipes = @result.page(params[:page])
-    end
+    @recipes = if params[:latest]
+                # レシピを新着順に並べる
+                 @result.latest.page(params[:page])
+               elsif params[:favorite]
+                # レシピをいいねが多い順に並べる
+                 Kaminari.paginate_array(@result.recipe_favorites).page(params[:page])
+               elsif params[:week_favorite]
+                # レシピを１週間でいいねが多い順に並べる
+                 Kaminari.paginate_array(@result.recipe_week_favorites).page(params[:page])
+               else
+                 @result.page(params[:page])
+               end
   end
 
-   protected
+  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
-
 end

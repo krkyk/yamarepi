@@ -1,4 +1,5 @@
-<table class="table" >
+<div class="table-responsive-sm">
+<table class="table table-hover tag-table" >
   <thead>
     <tr>
       <th class="tag-head"><i class="fas fa-tags"></i> タグ一覧</th>
@@ -11,12 +12,13 @@
     <tr>
       <td class="tag-name"><%= tag.name %></td>
       <td class="text-right">
-        <%= link_to"編集する",edit_admin_tag_path(tag.id),class: "btn btn-sm btn-green" %>
+        <%= link_to "編集", edit_admin_tag_path(tag.id),class: "btn btn-green" %>
       </td>
       <td class="text-right">
-        <%= link_to"削除する",admin_tag_path(tag.id),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-sm btn-red" %>
+        <%= link_to "削除", admin_tag_path(tag.id),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-red" %>
       </td>
     </tr>
   <%end%>
   </tbody>
 </table>
+</div>

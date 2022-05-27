@@ -5,18 +5,17 @@
         <div class="swiper my-4">
           <div class="swiper-wrapper">
             <div class="swiper-slide"><%= image_tag"mountain.jpg",class: "swiper-image" %></div>
-            <div class="swiper-slide"><%= image_tag"mountain3.jpg",class: "swiper-image" %></div>
             <div class="swiper-slide"><%= image_tag"flower2.jpg",class: "swiper-image" %></div>
-            <div class="swiper-slide"><%= image_tag"mountain4.jpg",class: "swiper-image" %></div>
+            <div class="swiper-slide"><%= image_tag"mountain3.jpg",class: "swiper-image" %></div>
             <div class="swiper-slide"><%= image_tag"flower.jpg",class: "swiper-image" %></div>
           </div>
           <div class="swiper-scrollbar"></div>
         </div>
         <div class="swiper-box">
           <div class="swiper-text">や ま レ ピ ！</div>
-          <div class="swiper-btn pt-4">
-            <%= link_to(new_customer_registration_path, class: "btn btn-new mr-5") do %>新規登録<% end %>
-            <%= link_to(new_customer_session_path, class: "btn btn-login ml-5") do %>ログイン<% end %>
+          <div class="swiper-btn pt-5">
+            <%= link_to(new_customer_registration_path, class: "btn btn-lg btn-new mr-5") do %>新規登録<% end %>
+            <%= link_to(new_customer_session_path, class: "btn btn-lg btn-login ml-5") do %>ログイン<% end %>
           </div>
         </div>
       </div>

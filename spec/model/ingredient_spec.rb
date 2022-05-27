@@ -11,13 +11,13 @@ RSpec.describe 'Ingredientモデルのテスト', type: :model do
     context 'contentカラム' do
       it '空欄でないこと' do
         ingredient.content = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
     end
     context 'quantityカラム' do
       it '空欄でないこと' do
         ingredient.quantity = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
     end
   end

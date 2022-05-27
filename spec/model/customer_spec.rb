@@ -10,15 +10,15 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
       let(:test_customer) { customer }
       it '空欄でないこと' do
         test_customer.name = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
       it '2文字以上であること' do
-        test_customer.name = Faker::Lorem.characters(number:1)
-        is_expected.to eq false;
+        test_customer.name = Faker::Lorem.characters(number: 1)
+        is_expected.to eq false
       end
       it '20文字以下であること' do
-        test_customer.name = Faker::Lorem.characters(number:21)
-        is_expected.to eq false;
+        test_customer.name = Faker::Lorem.characters(number: 21)
+        is_expected.to eq false
       end
     end
   end

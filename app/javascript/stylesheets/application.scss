@@ -146,15 +146,10 @@ main {
 .about-text {
   color: #2f4f4f;
   font-weight: bold;
-  // text-decoration: underline;
-  // text-decoration-thickness: 3px;
-  // text-decoration-color: #ffe4e1;
-  // text-underline-offset: 20%;
+  background: linear-gradient(transparent 50%, #ffff66 0%);
+  line-height: 1.3em;
 }
 
-.about-box {
-  border: solid 3px #ffe4e1;
-}
 .about-image {
   border-radius: 20%;
 }
@@ -177,7 +172,7 @@ main {
 }
 /* */
 
-.midashi {
+.midashi, .midashi2 {
   display: inline-block;
   position: relative;
   line-height: 50px;
@@ -191,7 +186,7 @@ main {
   font-family: 'RocknRoll One', sans-serif;
 }
 
-.midashi:after {
+.midashi:after, .midashi2:after {
   position: absolute;
   content: '';
   width: 0px;
@@ -203,6 +198,10 @@ main {
   border-width: 25px 15px 25px 0px;
   border-color: transparent #fff transparent transparent;
   border-style: solid;
+}
+
+.midashi2 {
+  background-color: #ffb6c1;
 }
 
 .devise-form {
@@ -219,7 +218,7 @@ main {
 }
 
 /* ボタンデザイン */
-.btn:hover {
+.btn-rise:hover {
   transform: translateY(-5px);
 }
 
@@ -307,15 +306,54 @@ main {
 .btn-new {
   color: #fff;
   background-color: #3cb371;
-  border: 6px outset #3cb371;
+  border-color: #2e8b57;
+  border-width: 3px;
+  transition: .3s ease-in-out;
+}
+
+.btn-new:hover {
+  background-color: #fff;
+  border-color: #3cb371;
+  color: #3cb371;
+  animation: bounce 2s ease-in-out;
+}
+@keyframes bounce {
+  5%  { transform: scale(1.1, .8); }
+  10% { transform: scale(.8, 1.1) translateY(-5px); }
+  15% { transform: scale(1, 1); }
 }
 
 .btn-login {
   color: #fff;
   background-color: #4169e1;
-  border: 6px outset #4169e1;
+  border-color: #6495ed;
+  border-width: 3px;
+  transition: .3s ease-in-out;
+}
+
+.btn-login:hover {
+  background-color: #fff;
+  border-color: #4169e1;
+  color: #4169e1;
+  animation: bounce 2s ease-in-out;
+}
+@keyframes bounce {
+  5%  { transform: scale(1.1, .8); }
+  10% { transform: scale(.8, 1.1) translateY(-5px); }
+  15% { transform: scale(1, 1); }
+}
+
+.btn-success:hover {
+  color: #008000;
+  background-color: #fff;
+  border-color: #008000;
+  border-width: 3px;
 }
 /* */
+
+.table-hover tbody tr:hover td {
+  background-color: rgba(144,238,144,0.3);
+}
 
 .my-recipe {
   width: 90%;
@@ -329,6 +367,11 @@ main {
   height: 260px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.customer-edit-btn, .unsubscribe-btn {
+  display: flex;
+  justify-content: space-around;
 }
 
 .recipe-customer-image {
@@ -352,51 +395,73 @@ main {
   border-radius: 10%;
 }
 
-/* レシピ投稿画像のプレビューサイズ */
+/* 投稿画像のプレビュー */
 #preview {
   width: 100%;
   height: auto;
 }
+
+#customer-preview {
+  width: 280px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#customer-image-preview {
+  display: flex;
+  justify-content: center;
+}
 /* */
 
 .recipe-form {
-   border: none;
-   background-color: #fffff0;
-   transition: background-color 10000s ease-in-out 0s;
- }
+  border: none;
+  background-color: #fffff0;
+  transition: background-color 10000s ease-in-out 0s;
+}
 
 .step-form {
   width: 100%;
+}
+
+.recipe-table {
+  border-bottom: 1px solid #d2b48c;
 }
 
 .recipe-frame {
   border-color: #d2b48c;
 }
 
-.recipe-table {
-  border-bottom: 1px solid;
-  border-color: #d2b48c;
+.comment-heading, .recipe-heading {
+  font-weight: bold;
+  color: #2f4f4f;
+  border-bottom: 2px solid;
 }
 
 .recipe-heading {
-  font-weight: bold;
   font-size: 110%;
-  color: #2f4f4f;
-  border-bottom: 2px solid;
   border-color: #3cb371;
 }
 
 .comment-heading {
-  font-weight: bold;
   font-size: 120%;
-  color: #2f4f4f;
-  border-bottom: 2px solid;
   border-color: #ffd700;
 }
 
 .name-link {
   color: #696969;
-  text-decoration: underline;
+}
+
+.name-link:hover {
+  text-decoration: underline #696969;
+}
+
+.fav-link {
+  color: #444444;
+}
+
+.fav-link2 {
+  color: #1e90ff;
 }
 
 .card:hover{
@@ -461,6 +526,8 @@ main {
   color: #2f4f4f;
   border: 2px solid #d2b48c;
   border-radius: 10%;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .inquiry-title {
@@ -557,5 +624,20 @@ header, footer{
     width: 500px;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .tag-table {
+    width: 400px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .comment-form {
+    display: flex;
+    justify-content: right;
   }
 }

@@ -9,7 +9,7 @@ RSpec.describe 'Tagモデルのテスト', type: :model do
     context 'nameカラム' do
       it '空欄でないこと' do
         tag.name = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
     end
   end
