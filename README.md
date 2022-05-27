@@ -1,24 +1,51 @@
-# README
+# やまレピ！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
 
-* Ruby version
+山ごはん（山で食べる食事）のレシピを紹介、検索できるサイト
 
-* System dependencies
+### テーマを選んだ理由
 
-* Configuration
+昨今コロナの影響で、密を避け大自然の中で遊べるアウトドアブームが続いています。
+アウトドアアクティビティにもキャンプやサイクリング、釣りなど様々な種類がありますが、
+個人的に一番好きなアクティビティは登山です。
 
-* Database creation
+登山を好きな理由の１つは登山中に自分で作って食べる料理が好きだからです。
+屋外で食べるごはんは屋内で食べるよりも美味しく感じますが、自分で作った出来立てのごはんはさらに美味しく感じます。
 
-* Database initialization
+山ごはんのレシピサイトがあれば、山で食べるごはんが好きな人にはもちろん、
+キャンプ場や自宅の庭など山以外の場所で料理する際にも参考にできるのではと考えました。
+登山をはじめとしたアウトドアアクティビティをさらに楽しめる手助けになれば嬉しいです。
 
-* How to run the test suite
+### ターゲットユーザ
 
-* Services (job queues, cache servers, search engines, etc.)
+- 登山やキャンプが好きな人
+- 山ごはんに興味がある人
+- 料理が好きな人
 
-* Deployment instructions
+### 主な利用シーン
 
-* ...
+- 山ごはんのレシピを知りたいとき
+- 自分が作った山ごはんのレシピを紹介したいとき
+- 屋外で料理をするとき
+
+## 設計書
+
+
+## 機能一覧
+
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+
+- ロゴ素材 Canva(https://www.canva.com/)
+- 写真素材 O-DAN(https://o-dan.net/)、photoAC(https://www.photo-ac.com/)
