@@ -11,11 +11,11 @@ RSpec.describe 'Recipeモデルのテスト', type: :model do
     context 'titleカラム' do
       it '空欄でないこと' do
         recipe.title = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
       it '15文字以下であること' do
-        recipe.title = Faker::Lorem.characters(number:16)
-        is_expected.to eq false;
+        recipe.title = Faker::Lorem.characters(number: 16)
+        is_expected.to eq false
       end
     end
   end

@@ -3,10 +3,9 @@ class Admin::CommentsController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
-    @ingredients=@recipe.ingredients
-    @steps=@recipe.steps
+    @ingredients = @recipe.ingredients
+    @steps = @recipe.steps
     Comment.find(params[:id]).destroy
-    @comments = @recipe.comments.order(created_at: "DESC").page(params[:page]).per(5)
+    @comments = @recipe.comments.order(created_at: 'DESC').page(params[:page]).per(5)
   end
-
 end

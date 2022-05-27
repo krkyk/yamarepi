@@ -11,11 +11,11 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
     context 'commentカラム' do
       it '空欄でないこと' do
         comment.comment = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
       it '30文字以下であること' do
-        comment.comment = Faker::Lorem.characters(number:31)
-        is_expected.to eq false;
+        comment.comment = Faker::Lorem.characters(number: 31)
+        is_expected.to eq false
       end
     end
   end

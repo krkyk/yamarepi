@@ -146,15 +146,10 @@ main {
 .about-text {
   color: #2f4f4f;
   font-weight: bold;
-  // text-decoration: underline;
-  // text-decoration-thickness: 3px;
-  // text-decoration-color: #ffe4e1;
-  // text-underline-offset: 20%;
+  background: linear-gradient(transparent 50%, #ffff66 0%);
+  line-height: 1.3em;
 }
 
-.about-box {
-  border: solid 3px #ffe4e1;
-}
 .about-image {
   border-radius: 20%;
 }
@@ -177,7 +172,7 @@ main {
 }
 /* */
 
-.midashi {
+.midashi, .midashi2 {
   display: inline-block;
   position: relative;
   line-height: 50px;
@@ -191,7 +186,7 @@ main {
   font-family: 'RocknRoll One', sans-serif;
 }
 
-.midashi:after {
+.midashi:after, .midashi2:after {
   position: absolute;
   content: '';
   width: 0px;
@@ -203,6 +198,10 @@ main {
   border-width: 25px 15px 25px 0px;
   border-color: transparent #fff transparent transparent;
   border-style: solid;
+}
+
+.midashi2 {
+  background-color: #ffb6c1;
 }
 
 .devise-form {
@@ -307,8 +306,8 @@ main {
 .btn-new {
   color: #fff;
   background-color: #3cb371;
-  border-color: #fff;
-  border-width: 2px;
+  border-color: #2e8b57;
+  border-width: 3px;
   transition: .3s ease-in-out;
 }
 
@@ -327,8 +326,8 @@ main {
 .btn-login {
   color: #fff;
   background-color: #4169e1;
-  border-color: #fff;
-  border-width: 2px;
+  border-color: #6495ed;
+  border-width: 3px;
   transition: .3s ease-in-out;
 }
 
@@ -416,43 +415,53 @@ main {
 /* */
 
 .recipe-form {
-   border: none;
-   background-color: #fffff0;
-   transition: background-color 10000s ease-in-out 0s;
- }
+  border: none;
+  background-color: #fffff0;
+  transition: background-color 10000s ease-in-out 0s;
+}
 
 .step-form {
   width: 100%;
+}
+
+.recipe-table {
+  border-bottom: 1px solid #d2b48c;
 }
 
 .recipe-frame {
   border-color: #d2b48c;
 }
 
-.recipe-table {
-  border-bottom: 1px solid;
-  border-color: #d2b48c;
+.comment-heading, .recipe-heading {
+  font-weight: bold;
+  color: #2f4f4f;
+  border-bottom: 2px solid;
 }
 
 .recipe-heading {
-  font-weight: bold;
   font-size: 110%;
-  color: #2f4f4f;
-  border-bottom: 2px solid;
   border-color: #3cb371;
 }
 
 .comment-heading {
-  font-weight: bold;
   font-size: 120%;
-  color: #2f4f4f;
-  border-bottom: 2px solid;
   border-color: #ffd700;
 }
 
 .name-link {
   color: #696969;
-  text-decoration: underline;
+}
+
+.name-link:hover {
+  text-decoration: underline #696969;
+}
+
+.fav-link {
+  color: #444444;
+}
+
+.fav-link2 {
+  color: #1e90ff;
 }
 
 .card:hover{
@@ -623,5 +632,12 @@ header, footer{
     width: 400px;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .comment-form {
+    display: flex;
+    justify-content: right;
   }
 }

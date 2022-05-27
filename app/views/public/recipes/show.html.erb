@@ -46,8 +46,8 @@
           <tbody>
             <% @ingredients.each do |ingredient|%>
             <tr class="recipe-table">
-              <td><div class="ml-3"><%= ingredient.content%></div></td>
-              <td><div class="text-right mr-3"><%= ingredient.quantity%></div></td>
+              <td><div class="ml-3"><%= ingredient.content %></div></td>
+              <td><div class="text-right mr-3"><%= ingredient.quantity %></div></td>
             </tr>
             <% end %>
           </tbody>
@@ -113,11 +113,9 @@
         </div>
       </div>
       <% if customer_signed_in? && (current_customer.name != "ゲストユーザー") %>
-        <% if @recipe.customer != current_customer %>
-          <div class="col-12 col-md-12 col-lg-4 d-flex align-items-end mx-auto">
-            <%= render"public/comments/comment_form", recipe: @recipe, comment: @comment %>
-          </div>
-        <% end %>
+        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-end mx-auto comment-form">
+          <%= render"public/comments/comment_form", recipe: @recipe, comment: @comment %>
+        </div>
       <% end %>
     </div>
 </div>
