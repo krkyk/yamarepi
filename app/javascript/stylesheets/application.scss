@@ -450,7 +450,18 @@ main {
 
 .name-link {
   color: #696969;
-  text-decoration: underline;
+}
+
+.name-link:hover {
+  text-decoration: underline #696969;
+}
+
+.fav-link {
+  color: #444444;
+}
+
+.fav-link2 {
+  color: #1e90ff;
 }
 
 .card:hover{
