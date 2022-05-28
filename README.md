@@ -33,6 +33,15 @@
 
 ## 設計書
 
+- UI Flow
+  [UIFlow-admin.drawio.pdf](https://github.com/krkyk/yamarepi/files/8786859/UIFlow-admin.drawio.pdf)
+  [UIFlow-customer.drawio.pdf](https://github.com/krkyk/yamarepi/files/8786862/UIFlow-customer.drawio.pdf)
+- ER 図
+  [yamarepi_ER.drawio.pdf](https://github.com/krkyk/yamarepi/files/8786683/yamarepi_ER.drawio.pdf)
+- テーブル設計書
+- アプリケーション詳細設計
+  [アプリケーション詳細設計 （管理側）.pdf](https://github.com/krkyk/yamarepi/files/8786699/default.pdf)
+  [アプリケーション詳細設計 （会員側）.pdf](https://github.com/krkyk/yamarepi/files/8786700/default.pdf)
 
 ## 機能一覧
 
