@@ -55,7 +55,7 @@
                 <%= render "ingredient_fields", f: ingredient %>
               <%end%>
             <div class="col-lg-4 col-md-4 col-6 mx-auto add-form">
-              <%= link_to_add_association "材料を追加", f, :ingredients,class: "btn btn-block btn-sm btn-success"%>
+              <%= link_to_add_association "材料を追加", f, :ingredients,class: "btn btn-block btn-sm btn-add"%>
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@
               <%=  render"step_fields",f: step %>
             <% end %>
           <div class="col-lg-4 col-md-4 col-6 mx-auto add-forms">
-            <%= link_to_add_association "作り方を追加", f, :steps,class:"btn btn-block btn-sm btn-success"%>
+            <%= link_to_add_association "作り方を追加", f, :steps,class:"btn btn-block btn-sm btn-add"%>
           </div>
         </div>
       </div>

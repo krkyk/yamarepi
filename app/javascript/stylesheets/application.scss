@@ -343,11 +343,16 @@ main {
   15% { transform: scale(1, 1); }
 }
 
-.btn-success:hover {
-  color: #008000;
+.btn-add {
   background-color: #fff;
-  border-color: #008000;
+  color: #228b22;
+  border-color: #228b22;
   border-width: 3px;
+}
+
+.btn-add:hover {
+  background-color: #228b22;
+  color: #fff;
 }
 /* */
 
