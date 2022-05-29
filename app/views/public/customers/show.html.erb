@@ -22,6 +22,9 @@
           <%= link_to"お気に入りレシピ一覧",favorites_path(@customer), class: "btn btn-block btn-green mb-3" %>
           <%= link_to"会員情報編集",edit_customer_path(@customer), class: "btn btn-block btn-green" %>
         <% end %>
+      <% else %>
+        <p class="guest-message">会員登録するとレシピの新規作成や</p>
+        <p class="guest-message">自分だけのお気に入りレシピ一覧の作成ができます！</p>
       <% end %>
     </div>
   </div>
