@@ -17,11 +17,14 @@
     </div>
     <div class="btn-wrapper mx-auto col-12 col-md-6 col-lg-7 my-5 pt-lg-3">
       <% if @customer.name != "ゲストユーザー" %>
-        <%= link_to"レシピ投稿",new_recipe_path, class: "btn btn-block btn-green mb-3" %>
+        <%= link_to"レシピ作成",new_recipe_path, class: "btn btn-block btn-green mb-3" %>
         <% if @customer == current_customer %>
           <%= link_to"お気に入りレシピ一覧",favorites_path(@customer), class: "btn btn-block btn-green mb-3" %>
           <%= link_to"会員情報編集",edit_customer_path(@customer), class: "btn btn-block btn-green" %>
         <% end %>
+      <% else %>
+        <p class="guest-message">会員登録するとレシピの新規作成や</p>
+        <p class="guest-message">自分だけのお気に入りレシピ一覧の作成ができます！</p>
       <% end %>
     </div>
   </div>

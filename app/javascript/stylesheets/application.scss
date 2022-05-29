@@ -374,6 +374,12 @@ main {
   border-radius: 50%;
 }
 
+.guest-message {
+  text-align: center;
+  color: #008000;
+  font-weight: bold;
+}
+
 .customer-edit-btn, .unsubscribe-btn {
   display: flex;
   justify-content: space-around;
