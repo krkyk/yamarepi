@@ -10,19 +10,19 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it 'URLが正しい' do
         expect(current_path).to eq '/'
       end
-      it 'ログインリンクが表示される' do
+      it '新規登録リンクが表示される' do
         find_all('a')[6].native.inner_text
       end
-      it 'ログインリンクの内容が正しい' do
-        log_in_link = find_all('a')[6].native.inner_text
-        expect(page).to have_link log_in_link, href: new_customer_session_path
+      it '新規登録リンクの内容が正しい' do
+        sign_up_link = find_all('a')[6].native.inner_text
+        expect(page).to have_link sign_up_link, href: new_customer_registration_path
       end
-      it '新規登録リンクが表示される' do
+      it 'ログインリンクが表示される' do
         find_all('a')[7].native.inner_text
       end
-      it '新規登録リンクの内容が正しい' do
-        sign_up_link = find_all('a')[7].native.inner_text
-        expect(page).to have_link sign_up_link, href: new_customer_registration_path
+      it 'ログインリンクの内容が正しい' do
+        log_in_link = find_all('a')[7].native.inner_text
+        expect(page).to have_link log_in_link, href: new_customer_session_path
       end
     end
   end
@@ -46,7 +46,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
 
     context '表示内容の確認' do
       it 'ロゴリンクが表示される' do
-        find_all('a')[0].native.inner_text
+        find_all('a')[0].find('img')
       end
       it 'Aboutリンクが表示される: 左上から2番目のリンクが「About」である' do
         about_link = find_all('a')[1].native.inner_text
@@ -66,7 +66,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       end
       it 'ゲストログインリンクが表示される: 左上から5番目のリンクが「ゲストログイン(閲覧用)」である' do
         guest_login_link = find_all('a')[5].native.inner_text
-        expect(guest_login_link).to match(/ゲストログイン（閲覧用）/)
+        expect(guest_login_link).to match(" ゲストログイン(閲覧用)")
       end
     end
 
@@ -74,10 +74,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       subject { current_path }
 
       it 'ロゴを押すと、トップ画面に遷移する' do
-        home_link = find_all('a')[0].native.inner_text
-        home_link = home_link.delete(' ')
-        home_link.gsub!(/\n/, '')
-        click_link home_link
+        find_all('a')[0].click
         is_expected.to eq '/'
       end
       it 'Aboutを押すと、アバウト画面に遷移する' do
@@ -88,7 +85,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       end
       it 'レシピ一覧を押すと、レシピ一覧画面に遷移する' do
         recipes_link = find_all('a')[2].native.inner_text
-        recipes_link = about_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        recipes_link = recipes_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link recipes_link
         is_expected.to eq '/recipes'
       end
@@ -104,11 +101,11 @@ describe '[STEP1] ユーザログイン前のテスト' do
         click_link login_link, match: :first
         is_expected.to eq '/customers/sign_in'
       end
-      it 'ゲストログインを押すと、ゲストログイン画面に遷移する' do
+      it 'ゲストログインを押すと、トップ画面に遷移する' do
         guest_login_link = find_all('a')[5].native.inner_text
-        guest_login_link = login_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        guest_login_link = guest_login_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link guest_login_link, match: :first
-        is_expected.to eq '/customers/guest_sign_in'
+        is_expected.to eq '/'
       end
     end
   end
@@ -148,10 +145,10 @@ describe '[STEP1] ユーザログイン前のテスト' do
       end
 
       it '正しく新規登録される' do
-        expect { click_button '新規登録' }.to change(Customer.all, :count).by(1)
+        expect { click_button '新規会員登録' }.to change(Customer.all, :count).by(1)
       end
       it '新規登録後のリダイレクト先が、トップ画面になっている' do
-        click_button '新規登録'
+        click_button '新規会員登録'
         expect(current_path).to eq '/'
       end
     end
