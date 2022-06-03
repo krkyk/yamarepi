@@ -619,7 +619,7 @@ header, footer{
   z-index: 99999;
   width: 100%;
   height: 100%;
-  background: #66cdaa;
+  background: #3cb371;
 }
 
 #loading_box {
@@ -633,12 +633,12 @@ header, footer{
 
 .loading-one {
   display: inline-block;
-  border-top: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border-top: 4px double #fffff0;
+  border-bottom: 4px double #fffff0;
 }
 
 .loading-one p.loading-text {
-  color: #fff;
+  color: #fffff0;
   font-size: 25px;
   letter-spacing: 0.25em;
   line-height: 2.0;
