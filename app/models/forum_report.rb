@@ -1,0 +1,2 @@
+class ForumReport < ApplicationRecord
+end

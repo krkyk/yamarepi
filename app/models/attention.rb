@@ -1,0 +1,2 @@
+class Attention < ApplicationRecord
+end
