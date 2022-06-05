@@ -1,2 +1,26 @@
-<h1>Public::Forums#show</h1>
-<p>Find me in app/views/public/forums/show.html.erb</p>
+<div class="container">
+<div class="error-message"><%= render "layouts/error", obj: @forum %></div>
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        トピック詳細
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-12 mx-auto">
+      <h6><%= @forum.title %></h6>
+      <%= link_to customer_path(@forum.customer) do %>
+      <%= image_tag @forum.customer.get_customer_image(100,100),class: "recipe-customer-image" %>
+      <span class="name-link"><%= @forum.customer.name%></span>
+      <% end %>
+      <% if customer_signed_in? && (current_customer.name != "ゲストユーザー") %>
+      <p>
+        <span id="attention_buttons_<%= @forum.id %>">
+          <%= render"public/attentions/attentions",forum: @forum %>
+        </span>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>

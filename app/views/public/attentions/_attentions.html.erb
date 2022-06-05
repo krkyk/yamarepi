@@ -1,0 +1,9 @@
+<% if forum.attentioned_by?(current_customer) %>
+  <%= link_to forum_attentions_path(forum),method: :delete,remote: true, class: "attent-link" do %>
+    注目<i class="fas fa-star" style="color:yellow;" aria-hidden="true"></i><%= forum.attentions.count %>
+  <% end %>
+<% else %>
+  <%= link_to forum_attentions_path(forum),method: :post,remote: true, class: "attent-link2" do %>
+    注目<i class="fas fa-star" aria-hidden="true"></i><%= forum.attentions.count %>
+  <% end %>
+<% end %>
