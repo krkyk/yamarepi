@@ -54,7 +54,9 @@ Rails.application.routes.draw do
     resources :customers, only: %i[show edit update]
     get 'customers/:id/customer_recipes' => 'customers#customer_recipes', as: :customer_recipes
     resources :tags, only: %i[index create destroy edit update]
-    resources :forums, only: %i[index show destroy]
+    resources :forums, only: %i[index show destroy] do
+      resources :forum_comments, only: [:destroy]
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
