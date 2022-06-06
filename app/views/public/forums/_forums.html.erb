@@ -1,27 +1,27 @@
-<% forums.each do |forum| %>
 <table class="table table-hover">
   <tbody>
-    <tr>
-      <td style="width: 70%">
-        <%= link_to forum.forum_title, forum_path(forum) ,class: "forum-list-title"%><br>
-        <span class="forum-customer mt-1">
-          <%= link_to customer_path(forum.customer) do %>
-            <%= image_tag forum.customer.get_customer_image(100,100),class: "forum-customer-image" %>
-            <span class="forum-name-link mr-2"><%= forum.customer.name%></span>
-          <% end %>
-        </span>
-      </td>
-      <td class="align-middle text-center" style="width: 15%">
-        <span class="forum-star">
-          <i class="fas fa-star fa-lg" aria-hidden="true"></i><%= forum.attentions.count %>
-        </span>
-      </td>
-      <td class="align-middle text-center" style="width: 15%">
-        <span class="forum-comment-dots">
-          <i class="far fa-comment-dots fa-lg" aria-hidden="true"></i><%= forum.forum_comments.count %>
-        </span>
-      </td>
-    </tr>
+    <% forums.each do |forum| %>
+      <tr>
+        <td style="width: 70%">
+          <%= link_to forum.forum_title, forum_path(forum) ,class: "forum-list-title"%><br>
+          <span class="forum-customer mt-1">
+            <%= link_to customer_path(forum.customer) do %>
+              <%= image_tag forum.customer.get_customer_image(100,100),class: "forum-customer-image" %>
+              <span class="forum-name-link mr-2"><%= forum.customer.name%></span>
+            <% end %>
+          </span>
+        </td>
+        <td class="align-middle text-center" style="width: 15%">
+          <span class="forum-star">
+            <i class="fas fa-star fa-lg" aria-hidden="true"></i><%= forum.attentions.count %>
+          </span>
+        </td>
+        <td class="align-middle text-center" style="width: 15%">
+          <span class="forum-comment-dots">
+            <i class="far fa-comment-dots fa-lg" aria-hidden="true"></i><%= forum.forum_comments.count %>
+          </span>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
-<% end %>

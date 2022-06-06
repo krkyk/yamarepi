@@ -13,4 +13,21 @@ class Forum < ApplicationRecord
   def forum_reported_by?(customer)
     forum_reports.exists?(customer_id: customer.id)
   end
+
+  def self.forum_attentions
+    Forum.includes(:attentioned_customers).sort { |a, b| b.attentioned_customers.size <=> a.attentioned_customers.size }
+  end
+
+  def self.forum_week_attentions
+    to = Time.current.at_end_of_day
+    from = (to - 6.day).at_beginning_of_day
+    Forum.includes(:attentioned_customers).sort do |a, b|
+      b.attentioned_customers.includes(:attentions).where(attentions: { created_at: from...to }).size <=>
+        a.attentioned_customers.includes(:attentions).where(attentions: { created_at: from...to }).size
+    end
+  end
+
+  def self.forum_reports
+    Forum.includes(:forum_reported_customers).sort { |a, b| b.forum_reported_customers.size <=> a.forum_reported_customers.size }
+  end
 end

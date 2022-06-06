@@ -1,33 +1,35 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>ニックネーム</th>
-      <th>通報数</th>
-      <th>投稿日</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% forums.each do |forum| %>
-      <tr>
-        <td>
-          <%= link_to forum.forum_title, admin_forum_path(forum) %>
-        </td>
-        <td>
-          <%= link_to forum.customer.name, admin_customer_path(forum.customer) %>
-        </td>
-        <td>
-          <!--通報の有無-->
-          <% if forum.forum_reports.ids.empty? %>
-            <p class="text-success">問題無し</p>
-          <% else %>
-            <p class="text-danger">通報数<%= forum.forum_reports.count %></p>
-          <% end %>
-        </td>
-        <td>
-          <%= forum.created_at.strftime('%Y/%m/%d') %>
-        </td>
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr class="admin-table-head">
+        <th>タイトル</th>
+        <th>ニックネーム</th>
+        <th>通報数</th>
+        <th>投稿日</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% forums.each do |forum| %>
+        <tr>
+          <td>
+            <%= link_to forum.forum_title, admin_forum_path(forum) %>
+          </td>
+          <td>
+            <%= link_to forum.customer.name, admin_customer_path(forum.customer) %>
+          </td>
+          <td>
+            <!--通報の有無-->
+            <% if forum.forum_reports.ids.empty? %>
+              <p class="text-success">問題無し</p>
+            <% else %>
+              <p class="text-danger">通報数<%= forum.forum_reports.count %></p>
+            <% end %>
+          </td>
+          <td>
+            <%= forum.created_at.strftime('%Y/%m/%d') %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

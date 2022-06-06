@@ -2,7 +2,15 @@ class Admin::ForumsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @forums = Forum.page(params[:page])
+    @forums = if params[:latest]
+                # トピックを新着順に並べる
+                Forum.order(created_at: 'DESC').page(params[:page])
+              elsif params[:forum_report]
+                # トピックを通報が多い順に並べる
+                Kaminari.paginate_array(Forum.forum_reports).page(params[:page])
+              else
+                Forum.page(params[:page])
+              end
   end
 
   def show

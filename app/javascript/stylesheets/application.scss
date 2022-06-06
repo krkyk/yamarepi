@@ -201,7 +201,8 @@ main {
 }
 
 .midashi2 {
-  background-color: #ffb6c1;
+  background-color: #b0e0e6;
+  color: #111;
 }
 
 .devise-form {
@@ -226,7 +227,7 @@ main {
   background-color: #fff;
   color: #006400;
   border-color: #006400;
-  border-width: 4px;
+  border-width: 3px;
 }
 
 .btn-green:hover {
@@ -238,7 +239,7 @@ main {
   background-color: #fff;
   color: #dc143c;
   border-color: #dc143c;
-  border-width: 4px;
+  border-width: 3px;
 }
 
 .btn-red:hover {
@@ -250,7 +251,7 @@ main {
   background-color: #fff;
   color: #4169e1;
   border-color: #4169e1;
-  border-width: 4px;
+  border-width: 3px;
 }
 
 .btn-blue:hover {
@@ -262,7 +263,7 @@ main {
   background-color: #fff;
   color: #d2691e;
   border-color: #ffa500;
-  border-width: 4px;
+  border-width: 3px;
 }
 
 .btn-yellow:hover {
@@ -527,7 +528,7 @@ main {
   border-radius: 10%;
 }
 
-.tag-head {
+.admin-table-head {
   color: #2f4f4f;
   font-weight: bold;
 }
@@ -590,8 +591,8 @@ main {
 }
 
 .forum-list-title {
-  font-size: 120%;
   color: #2f4f4f;
+  font-weight: bold;
 }
 
 .forum-customer-image {
@@ -611,6 +612,46 @@ main {
 
 .forum-comment-dots {
   color: #0000cd;
+}
+
+.new-nav {
+  color: #fff;
+  background-color: #4169e1;
+}
+
+.new-nav:hover {
+  color: #4169e1;
+  background-color: #fffff0;
+}
+
+.attent-nav {
+  color: #fff;
+  background-color: #ff8c00;
+}
+
+.attent-nav:hover {
+  color: #ff8c00;
+  background-color: #fffff0;
+}
+
+.week-attent-nav {
+  color: #fff;
+  background-color: #2e8b57;
+}
+
+.week-attent-nav:hover {
+  color: #2e8b57;
+  background-color: #fffff0;
+}
+
+.report-nav {
+  color: #fff;
+  background-color: #dc143c;
+}
+
+.report-nav:hover {
+  color: #dc143c;
+  background-color: #fffff0;
 }
 
 /* ページネーションのデザイン */

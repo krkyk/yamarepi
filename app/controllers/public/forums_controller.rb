@@ -14,13 +14,23 @@ class Public::ForumsController < ApplicationController
   end
 
   def index
-    @forums = Forum.page(params[:page])
+    @forums = if params[:latest]
+                # トピックを新着順に並べる
+                Forum.order(created_at: 'DESC').page(params[:page])
+              elsif params[:attention]
+                # トピックを注目が多い順に並べる
+                Kaminari.paginate_array(Forum.forum_attentions).page(params[:page])
+              elsif params[:week_attention]
+                # トピックを１週間で注目が多い順に並べる
+                Kaminari.paginate_array(Forum.forum_week_attentions).page(params[:page])
+              else
+                Forum.page(params[:page])
+              end
   end
 
   def show
     @forum = Forum.find(params[:id])
     @forum_comment = ForumComment.new
-    #@forum_comments=@forum.forum_comments.page(params[:page])
     @forum_comments = @forum.forum_comments.order(created_at: 'DESC').page(params[:page]).per(5)
   end
 
