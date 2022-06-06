@@ -467,11 +467,11 @@ main {
   text-decoration: underline #696969;
 }
 
-.fav-link {
+.fav-link, .attent-link {
   color: #444444;
 }
 
-.fav-link2 {
+.fav-link2, .attent-link2 {
   color: #1e90ff;
 }
 
@@ -552,6 +552,26 @@ main {
 
 .inquiry-link:hover {
   color: #ffd700;
+}
+
+.forum-title {
+  font-weight: bold;
+  color: #2f4f4f;
+}
+
+.forum-content {
+  border-radius: 10px;
+  border: 2px solid #66cdaa;
+}
+
+.attention {
+  display: flex;
+  justify-content: right;
+}
+
+.forum-item {
+  display: flex;
+  justify-content: right;
 }
 
 /* ページネーションのデザイン */

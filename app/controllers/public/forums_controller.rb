@@ -6,7 +6,7 @@ class Public::ForumsController < ApplicationController
   def create
     @forum = Forum.new(forum_params)
     @forum.customer_id = current_customer.id
-    if @recipe.save
+    if @forum.save
       redirect_to forum_path(@forum.id), notice: '掲示板に投稿しました。'
     else
       render 'new'
