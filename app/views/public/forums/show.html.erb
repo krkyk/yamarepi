@@ -43,9 +43,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-8 col-md-12 col-12 mx-auto">
-      <p class="comment-heading">コメント</p>
-        <div id="comment_list">
+    <div class="col-lg-8 col-md-10 col-12 mx-auto">
+      <p class="forum-comment-heading">コメント</p>
+        <div id="forum_comment_list">
           <% if @forum.forum_comments.present? %>
             <%= render"public/forum_comments/forum_comment_list", forum_comments: @forum_comments %>
           <% else %>
@@ -57,7 +57,7 @@
         </div>
     </div>
       <% if customer_signed_in? && (current_customer.name != "ゲストユーザー") %>
-        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-end mx-auto comment-form">
+        <div class="col-lg-8 col-md-10 col-12 mx-auto comment-form mb-2">
           <%= render"public/forum_comments/forum_comment_form", forum: @forum, forum_comment: @forum_comment %>
         </div>
       <% end %>

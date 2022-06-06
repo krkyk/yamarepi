@@ -20,6 +20,7 @@ class Public::ForumsController < ApplicationController
   def show
     @forum = Forum.find(params[:id])
     @forum_comment = ForumComment.new
+    #@forum_comments=@forum.forum_comments.page(params[:page])
     @forum_comments = @forum.forum_comments.order(created_at: 'DESC').page(params[:page]).per(5)
   end
 
@@ -30,7 +31,7 @@ class Public::ForumsController < ApplicationController
   def update
     @forum = Forum.find(params[:id])
     if @forum.update(forum_params)
-      redirect_to forum_path(@forum.id), notice: '投稿を更新しました。'
+      redirect_to forum_path(@forum.id), notice: 'トピックを更新しました。'
     else
       render 'edit'
     end
@@ -39,7 +40,7 @@ class Public::ForumsController < ApplicationController
   def destroy
     @forum = Forum.find(params[:id])
     @form.destroy
-    redirect_to forums_path, notice: '投稿を削除しました。'
+    redirect_to forums_path, notice: 'トピックを削除しました。'
   end
 
   private

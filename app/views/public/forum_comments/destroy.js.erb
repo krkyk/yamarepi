@@ -1,2 +1,4 @@
-<h1>Public::ForumComments#destroy</h1>
-<p>Find me in app/views/public/forum_comments/destroy.html.erb</p>
+$('#forum_comment_list').html("<%= j(render"public/forum_comments/forum_comment_list",forum_comments: @forum_comments) %>");
+<% if @forum_comments.count <= 0 %>
+  $('#forum_comment_list').html('<p class="ml-5 my-5">〜コメントはありません〜</p>')
+<% end %>

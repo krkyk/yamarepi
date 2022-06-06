@@ -459,7 +459,7 @@ main {
   border-color: #ffd700;
 }
 
-.name-link {
+.name-link, .forum-name-link {
   color: #696969;
 }
 
@@ -569,9 +569,48 @@ main {
   justify-content: right;
 }
 
+.attent-star {
+  color: #ffa500;
+}
+
 .forum-item {
   display: flex;
   justify-content: right;
+}
+
+.forum-comment-heading {
+  font-weight: bold;
+  border-bottom: 2px solid #008080;
+  font-size: 120%;
+}
+
+.forum-customer {
+  display: flex;
+  justify-content: right;
+}
+
+.forum-list-title {
+  font-size: 120%;
+  color: #2f4f4f;
+}
+
+.forum-customer-image {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.forum-name-link {
+  font-size: 90%;
+}
+
+.forum-star {
+  color: #ff8c00;
+}
+
+.forum-comment-dots {
+  color: #0000cd;
 }
 
 /* ページネーションのデザイン */
