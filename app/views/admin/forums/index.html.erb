@@ -1,2 +1,19 @@
-<h1>Admin::Forums#index</h1>
-<p>Find me in app/views/admin/forums/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi2 pl-3 pr-4 mt-5">
+        掲示板一覧
+      </h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-12 col-lg-10 mx-auto">
+      <%=render"admin_forums",forums: @forums%>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="mx-auto"><%= paginate @forums %></div>
+  </div>
+</div>

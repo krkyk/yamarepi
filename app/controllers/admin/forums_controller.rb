@@ -2,6 +2,7 @@ class Admin::ForumsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    @forums = Forum.page(params[:page])
   end
 
   def show
