@@ -815,7 +815,7 @@ header, footer{
 }
 
 @media screen and (max-width: 576px) {
-  .tag-table {
+  .tag-table, .admin-forum-table {
     width: 400px;
     white-space: nowrap;
     text-overflow: ellipsis;
