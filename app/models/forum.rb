@@ -6,6 +6,11 @@ class Forum < ApplicationRecord
   has_many :forum_reports, dependent: :destroy
   has_many :forum_reported_customers, through: :forum_reports, source: :customer
 
+  with_options presence: true do
+    validates :forum_title, length: { maximum: 30 }
+    validates :forum_content, length: { maximum: 200 }
+  end
+
   def attentioned_by?(customer)
     attentions.exists?(customer_id: customer.id)
   end

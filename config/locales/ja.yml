@@ -43,6 +43,19 @@ ja:
         message: 本文
         subject: お問い合わせ内容
         email: 返信用メールアドレス
+      forum:
+        forum_title: タイトル
+        forum_content: 本文
+      forum_comment:
+        customer_id: 会員ID
+        forum_id: 掲示板ID
+        forum_comment: コメント
+      attention:
+        customer_id: 会員ID
+        forum_id: 掲示板ID
+      forum_report:
+        customer_id: 会員ID
+        forum_id: 掲示板ID
 
     models:
       customer: 会員
@@ -56,6 +69,10 @@ ja:
       comment: コメント
       report: 通報
       inquiry: お問い合わせ
+      forum: 掲示板
+      forum_comment: 掲示板コメント
+      attention: 注目
+      forum_report: 掲示板通報
   views:
     pagination:
       first: "&laquo; 最初"
