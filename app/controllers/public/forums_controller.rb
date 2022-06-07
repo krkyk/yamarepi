@@ -1,4 +1,6 @@
 class Public::ForumsController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
     @forum = Forum.new
   end

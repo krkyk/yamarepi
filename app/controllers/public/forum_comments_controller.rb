@@ -1,4 +1,6 @@
 class Public::ForumCommentsController < ApplicationController
+  before_action :authenticate_customer!
+
   def create
     @forum = Forum.find(params[:forum_id])
     @forum_comment = current_customer.forum_comments.new(forum_comment_params)

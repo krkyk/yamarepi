@@ -20,11 +20,13 @@
         <%= link_to"レシピ作成",new_recipe_path, class: "btn btn-block btn-green mb-3" %>
         <% if @customer == current_customer %>
           <%= link_to"お気に入りレシピ一覧",favorites_path(@customer), class: "btn btn-block btn-green mb-3" %>
+          <%= link_to"マイ掲示板",my_forums_path(@customer), class: "btn btn-block btn-green mb-3" %>
           <%= link_to"会員情報編集",edit_customer_path(@customer), class: "btn btn-block btn-green" %>
         <% end %>
       <% else %>
-        <p class="guest-message">会員登録するとレシピの新規作成や</p>
-        <p class="guest-message">自分だけのお気に入りレシピ一覧の作成ができます！</p>
+        <h5 class="guest-message">会員登録すると新規レシピや</h5>
+        <h5 class="guest-message py-2">自分だけのお気に入りレシピ一覧,</h5>
+        <h5 class="guest-message">マイ掲示板の作成ができます！</h5>
       <% end %>
     </div>
   </div>
