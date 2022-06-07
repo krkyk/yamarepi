@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :ensure_guest_customer, only: %i[edit favorites withdraw]
+  before_action :ensure_guest_customer, only: %i[edit favorites forums withdraw]
 
   def show
     @customer = Customer.find(params[:id])
@@ -25,6 +25,19 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     favorites = Favorite.where(customer_id: @customer.id).pluck(:recipe_id)
     @favorite_recipes = Kaminari.paginate_array(Recipe.find(favorites)).page(params[:page])
+  end
+
+  # 会員が掲示板に投稿したトピックと注目アクションをしたトピック表示
+  def my_forums
+    @customer = current_customer
+    attentions = Attention.where(customer_id: @customer.id).pluck(:forum_id)
+    @forums = if params[:my_forum]
+                Forum.where(customer_id: @customer.id).page(params[:page])
+              elsif params[:attention]
+                Kaminari.paginate_array(Forum.find(attentions)).page(params[:page])
+              else
+                Forum.where(customer_id: @customer.id).page(params[:page])
+              end
   end
 
   def withdraw

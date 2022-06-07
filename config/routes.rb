@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
     resources :customers, only: %i[show edit update]
     get 'customers/:id/favorites' => 'customers#favorites', as: :favorites
+    get 'customers/:id/my_forums' => 'customers#my_forums', as: :my_forums
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: :unsubscribe
     patch 'customers/:id/withdraw' => 'customers#withdraw', as: :withdraw
 
