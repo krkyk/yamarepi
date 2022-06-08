@@ -11,20 +11,20 @@
 
   <% if customer_signed_in? %>
     <div class="row">
-      <div class="col-md-12 my-2 ml-3">
+      <div class="col-md-12 mt-2 ml-3">
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <%= link_to search_recipes_path(latest: true, q: {title_or_ingredients_content_cont: params[:q][:title_or_ingredients_content_cont]} ),class: "nav-link blue-nav" do %>
+            <%= link_to search_recipes_path(latest: true, q: {title_or_ingredients_content_cont: params[:q][:title_or_ingredients_content_cont]} ),class: "nav-link blue-nav mb-2" do %>
               <i class="fas fa-star"></i> 新着順
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to search_recipes_path(favorite: true, q: {title_or_ingredients_content_cont: params[:q][:title_or_ingredients_content_cont]}) ,class: "nav-link yellow-nav mx-2" do %>
+            <%= link_to search_recipes_path(favorite: true, q: {title_or_ingredients_content_cont: params[:q][:title_or_ingredients_content_cont]}) ,class: "nav-link yellow-nav mx-2 mb-2" do %>
               <i class="fas fa-crown"></i> 人気順
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to search_recipes_path(week_favorite: true, q: {title_or_ingredients_content_cont: params[:q][:title_or_ingredients_content_cont]}) ,class: "nav-link green-nav" do %>
+            <%= link_to search_recipes_path(week_favorite: true, q: {title_or_ingredients_content_cont: params[:q][:title_or_ingredients_content_cont]}) ,class: "nav-link green-nav mb-2" do %>
               <i class="fas fa-crown"></i> 週間人気順
             <% end %>
           </li>
