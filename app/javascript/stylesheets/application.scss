@@ -355,6 +355,19 @@ main {
   background-color: #228b22;
   color: #fff;
 }
+
+.btn-forums {
+  font-weight: bold;
+  color: #fff;
+  background-color: #fa8072;
+  line-height: 30px;
+  border-radius: 50%;
+}
+
+.btn-forums:hover {
+  color: #fa8072;
+  background-color: #fffff0;
+}
 /* */
 
 .table-hover tbody tr:hover td {

@@ -8,7 +8,12 @@
   </div>
   <% if customer_signed_in? %>
     <div class="row">
-      <div class="col-12 col-md-12 col-lg-10 mx-auto my-3">
+      <div class="col-12 col-md-12 col-lg-10 mx-auto mb-3">
+        <div class="text-right">
+          <%= link_to new_forum_path, class: "btn btn-forums" do %>
+            <i class="fas fa-plus"></i> 投稿
+          <% end %>
+        </div>
         <ul class="nav nav-pills">
           <li class="nav-item">
             <%= link_to forums_path(latest: true) ,class: "nav-link new-nav" do %>
