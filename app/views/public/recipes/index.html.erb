@@ -9,16 +9,24 @@
 
   <% if customer_signed_in? %>
   <div class="row">
-    <div class="col-md-12 mb-3 ml-3">
-      <%= link_to recipes_path(latest: true) ,class: "btn btn-blue mt-3 mr-3" do %>
-        <i class="fas fa-star"></i> 新着順
-      <% end %>
-      <%= link_to recipes_path(favorite: true) ,class: "btn btn-yellow mt-3 mr-3" do %>
-        <i class="fas fa-crown"></i> 人気順
-      <% end %>
-      <%= link_to recipes_path(week_favorite: true) ,class: "btn btn-green mt-3" do %>
-        <i class="fas fa-crown"></i> 週間人気順
-      <% end %>
+    <div class="col-md-12 my-2 ml-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <%= link_to recipes_path(latest: true) ,class: "nav-link blue-nav" do %>
+            <i class="fas fa-star"></i> 新着順
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to recipes_path(favorite: true) ,class: "nav-link yellow-nav mx-2" do %>
+            <i class="fas fa-crown"></i> 人気順
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to recipes_path(week_favorite: true) ,class: "nav-link green-nav" do %>
+            <i class="fas fa-crown"></i> 週間人気順
+          <% end %>
+        </li>
+      </ul>
     </div>
   </div>
   <% end %>
