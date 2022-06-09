@@ -7,8 +7,10 @@ class Public::CommentsController < ApplicationController
     @steps = @recipe.steps
     @comment = current_customer.comments.new(comment_params)
     @comment.recipe_id = @recipe.id
-    @comment.save
     @comments = @recipe.comments.order(created_at: 'DESC').page(params[:page]).per(5)
+    unless @comment.save
+      render 'error'
+    end
   end
 
   def destroy

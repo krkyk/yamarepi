@@ -5,8 +5,10 @@ class Public::ForumCommentsController < ApplicationController
     @forum = Forum.find(params[:forum_id])
     @forum_comment = current_customer.forum_comments.new(forum_comment_params)
     @forum_comment.forum_id = @forum.id
-    @forum_comment.save
     @forum_comments = @forum.forum_comments.order(created_at: 'DESC').page(params[:page]).per(5)
+    unless @forum_comment.save
+      render 'error'
+    end
   end
 
   def destroy

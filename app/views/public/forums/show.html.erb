@@ -56,7 +56,10 @@
         </div>
     </div>
       <% if customer_signed_in? && (current_customer.name != "ゲストユーザー") %>
-        <div class="col-lg-8 col-md-10 col-12 mx-auto comment-form mb-2">
+        <div class="col-lg-8 col-md-10 col-12 mx-auto mb-2">
+          <div id="forum_comments_error" class="error-message">
+            <%= render 'layouts/comment_error', obj: @forum_comment %>
+          </div>
           <%= render"public/forum_comments/forum_comment_form", forum: @forum, forum_comment: @forum_comment %>
         </div>
       <% end %>
