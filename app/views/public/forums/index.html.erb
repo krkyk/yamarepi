@@ -9,11 +9,13 @@
   <% if customer_signed_in? %>
     <div class="row">
       <div class="col-12 col-md-12 col-lg-10 mx-auto">
-        <div class="text-right">
-          <%= link_to new_forum_path, class: "btn btn-forums" do %>
-            <i class="fas fa-plus"></i> 投稿
-          <% end %>
-        </div>
+        <% if @customer.name != "ゲストユーザー" %>
+          <div class="text-right">
+            <%= link_to new_forum_path, class: "btn btn-forums" do %>
+              <i class="fas fa-plus"></i> 投稿
+            <% end %>
+          </div>
+        <% end %>
         <ul class="nav nav-pills">
           <li class="nav-item">
             <%= link_to forums_path(latest: true) ,class: "nav-link blue-nav mb-2" do %>

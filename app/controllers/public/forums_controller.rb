@@ -1,5 +1,6 @@
 class Public::ForumsController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_guest_customer,only: [:new]
 
   def new
     @forum = Forum.new
@@ -16,6 +17,7 @@ class Public::ForumsController < ApplicationController
   end
 
   def index
+    @customer = current_customer
     @forums = if params[:latest]
                 # トピックを新着順に並べる
                 Forum.order(created_at: 'DESC').page(params[:page])
@@ -59,5 +61,10 @@ class Public::ForumsController < ApplicationController
 
   def forum_params
     params.require(:forum).permit(:forum_title, :forum_content)
+  end
+
+  def ensure_guest_customer
+    @customer = current_customer
+    redirect_to forums_path, notice: 'ゲストユーザーはその機能を使用できません。' if @customer.name == 'ゲストユーザー'
   end
 end
