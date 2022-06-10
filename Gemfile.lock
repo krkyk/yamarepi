@@ -121,6 +121,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.2)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -207,6 +208,8 @@ GEM
       thor (~> 1.0)
     rainbow (3.1.1)
     rake (13.0.6)
+    rakuten_web_service (1.13.1)
+      json (~> 2.3)
     ransack (3.0.1)
       activerecord (>= 6.0.4)
       activesupport (>= 6.0.4)
@@ -331,6 +334,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.5, >= 6.1.5.1)
   rails-i18n
+  rakuten_web_service
   ransack
   rspec-rails
   rubocop

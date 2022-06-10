@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    get 'items/item_search' => 'items#item_search',as: :item_search
 
     resources :customers, only: %i[show edit update]
     get 'customers/:id/favorites' => 'customers#favorites', as: :favorites

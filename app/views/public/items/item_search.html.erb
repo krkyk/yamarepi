@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        楽天市場商品
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-10 col-lg-6 mt-2">
+      <%= form_with url: item_search_path,method: :get,local: true do |f|%>
+        <div class="rakuten-form">
+        <div class="form-group">
+          <%= f.text_field :keyword,:placeholder=>"例)登山調理グッズ", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit '検索',class: "btn btn-sm btn-blue ml-2" %>
+        </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <% if @items.present? %>
+        <% @items.each do |item| %>
+          <li>
+            <%= link_to item.url do %>
+              <%= image_tag (item.medium_image_urls[0]) %>
+            <% end %>
+            <%= item.name %>
+          </li>
+        <% end %>
+      <% else %>
+        <% @outdoors_items.each do |outdoors_item| %>
+        <li>
+          <%= link_to outdoors_item.url do %>
+            <%= image_tag (outdoors_item.medium_image_urls[0]) %>
+            <%= outdoors_item.name %>
+          <% end %>
+        </li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
