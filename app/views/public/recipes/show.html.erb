@@ -118,4 +118,11 @@
         </div>
       <% end %>
     </div>
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12 text-right mb-2">
+        <div id="comments_error" class="error-message">
+          <%= render 'layouts/comment_error', obj: @comment %>
+        </div>
+      </div>
+    </div>
 </div>

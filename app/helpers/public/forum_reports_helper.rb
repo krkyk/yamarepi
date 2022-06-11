@@ -1,0 +1,2 @@
+module Public::ForumReportsHelper
+end

@@ -143,7 +143,7 @@ main {
   font-weight: bold;
 }
 
-.about-text {
+.about-text,.rakuten-text {
   color: #2f4f4f;
   font-weight: bold;
   background: linear-gradient(transparent 50%, #ffff66 0%);
@@ -201,7 +201,8 @@ main {
 }
 
 .midashi2 {
-  background-color: #ffb6c1;
+  background-color: #b0e0e6;
+  color: #111;
 }
 
 .devise-form {
@@ -226,7 +227,7 @@ main {
   background-color: #fff;
   color: #006400;
   border-color: #006400;
-  border-width: 4px;
+  border-width: 3px;
 }
 
 .btn-green:hover {
@@ -238,7 +239,7 @@ main {
   background-color: #fff;
   color: #dc143c;
   border-color: #dc143c;
-  border-width: 4px;
+  border-width: 3px;
 }
 
 .btn-red:hover {
@@ -250,7 +251,7 @@ main {
   background-color: #fff;
   color: #4169e1;
   border-color: #4169e1;
-  border-width: 4px;
+  border-width: 3px;
 }
 
 .btn-blue:hover {
@@ -262,7 +263,7 @@ main {
   background-color: #fff;
   color: #d2691e;
   border-color: #ffa500;
-  border-width: 4px;
+  border-width: 3px;
 }
 
 .btn-yellow:hover {
@@ -353,6 +354,19 @@ main {
 .btn-add:hover {
   background-color: #228b22;
   color: #fff;
+}
+
+.btn-forums {
+  font-weight: bold;
+  color: #fff;
+  background-color: #fa8072;
+  line-height: 30px;
+  border-radius: 50%;
+}
+
+.btn-forums:hover {
+  color: #fa8072;
+  background-color: #fffff0;
 }
 /* */
 
@@ -459,7 +473,7 @@ main {
   border-color: #ffd700;
 }
 
-.name-link {
+.name-link, .forum-name-link {
   color: #696969;
 }
 
@@ -467,11 +481,11 @@ main {
   text-decoration: underline #696969;
 }
 
-.fav-link {
+.fav-link, .attent-link {
   color: #444444;
 }
 
-.fav-link2 {
+.fav-link2, .attent-link2 {
   color: #1e90ff;
 }
 
@@ -527,7 +541,7 @@ main {
   border-radius: 10%;
 }
 
-.tag-head {
+.admin-table-head {
   color: #2f4f4f;
   font-weight: bold;
 }
@@ -552,6 +566,109 @@ main {
 
 .inquiry-link:hover {
   color: #ffd700;
+}
+
+.forum-title {
+  font-weight: bold;
+  color: #2f4f4f;
+}
+
+.forum-content {
+  border-radius: 10px;
+  border: 2px solid #66cdaa;
+}
+
+.attention {
+  display: flex;
+  justify-content: right;
+}
+
+.attent-star {
+  color: #ffa500;
+}
+
+.forum-item {
+  display: flex;
+  justify-content: right;
+}
+
+.forum-comment-heading {
+  font-weight: bold;
+  border-bottom: 2px solid #008080;
+  font-size: 120%;
+}
+
+.forum-customer {
+  display: flex;
+  justify-content: right;
+}
+
+.forum-list-title {
+  color: #2f4f4f;
+  font-weight: bold;
+}
+
+.forum-customer-image {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.forum-name-link {
+  font-size: 90%;
+}
+
+.forum-star {
+  color: #ff8c00;
+}
+
+.forum-comment-dots {
+  color: #0000cd;
+}
+
+.blue-nav {
+  color: #fff;
+  background-color: #4169e1;
+}
+
+.blue-nav:hover {
+  color: #4169e1;
+  background-color: #fffff0;
+}
+
+.yellow-nav {
+  color: #fff;
+  background-color: #ff8c00;
+}
+
+.yellow-nav:hover {
+  color: #ff8c00;
+  background-color: #fffff0;
+}
+
+.green-nav {
+  color: #fff;
+  background-color: #2e8b57;
+}
+
+.green-nav:hover {
+  color: #2e8b57;
+  background-color: #fffff0;
+}
+
+.red-nav {
+  color: #fff;
+  background-color: #dc143c;
+}
+
+.red-nav:hover {
+  color: #dc143c;
+  background-color: #fffff0;
+}
+
+.rakuten-img {
+  border-radius: 10px;
 }
 
 /* ページネーションのデザイン */
@@ -610,6 +727,90 @@ header, footer{
   color: #2f4f4f;
 }
 
+.rakuten-link {
+  color: #2f4f4f;
+}
+
+.rakuten-link:hover {
+  color: #ff0000;
+}
+
+/* ローディング */
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  background: #3cb371;
+}
+
+#loading_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+.loading-one {
+  display: inline-block;
+  border-top: 4px double #fffff0;
+  border-bottom: 4px double #fffff0;
+}
+
+.loading-one p.loading-text {
+  color: #fffff0;
+  font-size: 25px;
+  letter-spacing: 0.25em;
+  line-height: 2.0;
+  padding: 2em 0;
+}
+
+.animation_loading {
+  animation: equalizer_loading 7000ms infinite;
+  animation-iteration-count: 10;
+}
+
+@keyframes equalizer_loading {
+  0% {
+    width: 70%;
+  }
+  10% {
+    width: 50%;
+  }
+  20% {
+    width: 100%;
+  }
+  30% {
+    width: 10%;
+  }
+  40% {
+    width: 50%;
+  }
+  50% {
+    width: 70%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 10%;
+  }
+  80% {
+    width: 100%;
+  }
+  90% {
+    width: 10%;
+  }
+  100% {
+    width: 70%;
+  }
+}
+
 /* レスポンシブ対応 */
 @media screen and (max-width: 425px) {
   .about-image {
@@ -639,7 +840,7 @@ header, footer{
 }
 
 @media screen and (max-width: 576px) {
-  .tag-table {
+  .tag-table, .admin-forum-table {
     width: 400px;
     white-space: nowrap;
     text-overflow: ellipsis;

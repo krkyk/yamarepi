@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 col-lg-6 mt-5">
+      <p><span class="rakuten-text px-2">楽天市場の商品検索ができます！</span></p>
+      <p><span class="rakuten-text px-2">山ごはんの調理グッズなどを検索してみましょう！</span></p>
+      <%= form_with url: item_search_path,method: :get,local: true do |f|%>
+        <div class="d-flex mt-2">
+          <div class="form-group">
+            <%= f.text_field :keyword,:placeholder=>"例)登山調理グッズ", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit '検索',class: "btn btn-sm btn-blue ml-2" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mx-auto">
+      <table class="table">
+        <% if @items.present? %>
+          <% @items.each do |item| %>
+          <tr>
+            <td>
+              <%= link_to item.url do %>
+                <%= image_tag (item.medium_image_urls[0]), class: "rakuten-img" %>
+              <% end %>
+            </td>
+            <td><%= link_to item.name, item.url %></td>
+          </tr>
+          <% end %>
+        <% else %>
+          <% @outdoors_items.each do |outdoors_item| %>
+            <tr>
+              <td>
+                <%= link_to outdoors_item.url do %>
+                  <%= image_tag (outdoors_item.medium_image_urls[0]), class: "rakuten-img" %>
+                <% end %>
+              </td>
+              <td><%= link_to outdoors_item.name, outdoors_item.url %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
