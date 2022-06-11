@@ -143,7 +143,7 @@ main {
   font-weight: bold;
 }
 
-.about-text {
+.about-text,.rakuten-text {
   color: #2f4f4f;
   font-weight: bold;
   background: linear-gradient(transparent 50%, #ffff66 0%);
@@ -667,8 +667,8 @@ main {
   background-color: #fffff0;
 }
 
-.rakuten-form {
-  display: flex;
+.rakuten-img {
+  border-radius: 10px;
 }
 
 /* ページネーションのデザイン */
@@ -725,6 +725,14 @@ header, footer{
 
 .footer-text {
   color: #2f4f4f;
+}
+
+.rakuten-link {
+  color: #2f4f4f;
+}
+
+.rakuten-link:hover {
+  color: #ff0000;
 }
 
 /* ローディング */
