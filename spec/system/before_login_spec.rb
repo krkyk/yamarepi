@@ -233,8 +233,12 @@ describe '[STEP1] ユーザログイン前のテスト' do
         new_recipe_link = find_all('a')[3].native.inner_text
         expect(new_recipe_link).to match(/レシピ作成/)
       end
-      it 'ログアウトリンクが表示される: 左上から5番目のリンクが「ログアウト」である' do
-        logout_link = find_all('a')[4].native.inner_text
+      it '掲示板リンクが表示される: 左上から5番目のリンクが「掲示板」である' do
+        forums_link = find_all('a')[4].native.inner_text
+        expect(forums_link).to match(/掲示板/)
+      end
+      it 'ログアウトリンクが表示される: 左上から6番目のリンクが「ログアウト」である' do
+        logout_link = find_all('a')[5].native.inner_text
         expect(logout_link).to match(/ログアウト/)
       end
     end
@@ -248,7 +252,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       fill_in 'customer[email]', with: customer.email
       fill_in 'customer[password]', with: customer.password
       click_button 'ログイン'
-      logout_link = find_all('a')[4].native.inner_text
+      logout_link = find_all('a')[5].native.inner_text
       logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
       click_link logout_link
     end
