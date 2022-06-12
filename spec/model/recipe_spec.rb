@@ -31,32 +31,32 @@ RSpec.describe 'Recipeモデルのテスト', type: :model do
       end
     end
     context 'Stepモデルとの関係' do
-      it 'N:1となっている' do
+      it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:steps).macro).to eq :has_many
       end
     end
     context 'Tagモデルとの関係' do
-      it 'N:1となっている' do
+      it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:tags).macro).to eq :has_many
       end
     end
     context 'RecipeTagモデルとの関係' do
-      it 'N:1となっている' do
+      it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:recipe_tags).macro).to eq :has_many
       end
     end
     context 'Favoriteモデルとの関係' do
-      it 'N:1となっている' do
+      it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:favorites).macro).to eq :has_many
       end
     end
     context 'Commentモデルとの関係' do
-      it 'N:1となっている' do
+      it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:comments).macro).to eq :has_many
       end
     end
     context 'Reportモデルとの関係' do
-      it 'N:1となっている' do
+      it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:reports).macro).to eq :has_many
       end
     end
