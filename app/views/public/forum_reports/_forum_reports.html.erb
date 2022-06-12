@@ -1,0 +1,9 @@
+<%if forum.forum_reported_by?(current_customer)%>
+  <%= link_to forum_forum_reports_path(forum),method: :delete,remote: true,class: "btn btn-blue my-5" do %>
+    <i class="fas fa-exclamation-circle"></i> 通報を解除する
+  <% end %>
+<%else%>
+  <%= link_to forum_forum_reports_path(forum),method: :post,remote: true,class: "btn btn-red my-5" do %>
+    <i class="fas fa-exclamation-circle"></i> 通報する
+  <% end %>
+<%end%>

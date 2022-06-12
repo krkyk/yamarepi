@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        掲示板
+      </h5>
+    </div>
+  </div>
+  <% if customer_signed_in? %>
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-10 mx-auto">
+        <% if @customer.name != "ゲストユーザー" %>
+          <div class="text-right">
+            <%= link_to new_forum_path, class: "btn btn-forums" do %>
+              <i class="fas fa-plus"></i> 投稿
+            <% end %>
+          </div>
+        <% end %>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <%= link_to forums_path(latest: true) ,class: "nav-link blue-nav mb-2" do %>
+              <i class="fas fa-star"></i> 新着順
+            <% end %>
+          </li>
+          <li class="nav-item px-2">
+            <%= link_to forums_path(attention: true) ,class: "nav-link yellow-nav mb-2" do %>
+              <i class="fas fa-crown"></i> 注目順
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to forums_path(week_attention: true) ,class: "nav-link green-nav mb-2" do %>
+              <i class="fas fa-crown"></i> 週間注目順
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-12 col-md-12 col-lg-10 mx-auto">
+      <%=render"forums",forums: @forums%>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="mx-auto"><%= paginate @forums %></div>
+  </div>
+</div>

@@ -8,6 +8,10 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :forums, dependent: :destroy
+  has_many :attentions, dependent: :destroy
+  has_many :forum_comments, dependent: :destroy
+  has_many :forum_reports, dependent: :destroy
 
   validates :name, length: { in: 2..20 }, uniqueness: true
 

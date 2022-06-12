@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi2 pl-3 pr-4 mt-5">
+        トピック詳細
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-12 mx-auto">
+      <h5 class="forum-title mt-2"><%= @forum.forum_title %></h5>
+      <h5 class="forum-content p-3"><%= @forum.forum_content %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-12 mx-auto forum-item">
+      <%= link_to admin_customer_path(@forum.customer) do %>
+        <%= image_tag @forum.customer.get_customer_image(100,100),class: "recipe-customer-image" %>
+        <span class="name-link mr-2"><%= @forum.customer.name%></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-12 mx-auto text-right">
+      <%= link_to admin_forum_path(@forum),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-red my-5" do %>
+        <i class="fas fa-trash-alt"></i> トピック削除
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-12 mx-auto">
+      <p class="forum-comment-heading">コメント</p>
+        <div id="forum_comment_list">
+          <% if @forum.forum_comments.present? %>
+            <%= render"admin/forum_comments/forum_comment_list", forum_comments: @forum_comments %>
+          <% else %>
+            <p class="ml-5 my-5">〜コメントはありません〜</p>
+          <% end %>
+        </div>
+        <div class="row my-3">
+          <div class="mx-auto"><%= paginate @forum_comments %></div>
+        </div>
+    </div>
+  </div>
+</div>

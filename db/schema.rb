@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_19_051514) do
+ActiveRecord::Schema.define(version: 2022_06_05_083044) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 2022_05_19_051514) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "attentions", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "forum_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "recipe_id"
@@ -77,6 +84,29 @@ ActiveRecord::Schema.define(version: 2022_05_19_051514) do
   create_table "favorites", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "recipe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "forum_comments", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "forum_id"
+    t.string "forum_comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "forum_reports", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "forum_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "forum_title"
+    t.string "forum_content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

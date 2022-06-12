@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="midashi pl-3 pr-4 mt-5">
+        マイ掲示板
+      </h5>
+    </div>
+  </div>
+  <% if @customer.attentions.present? || @customer.forums.present? %>
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-10 mx-auto my-3">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <%= link_to my_forums_path(my_forum: true) ,class: "nav-link blue-nav mr-2" do %>
+              マイトピック
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to my_forums_path(attention: true) ,class: "nav-link yellow-nav" do %>
+              注目中のトピック
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-10 mx-auto">
+        <%=render"public/forums/forums",forums: @forums%>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-12 col-lg-6">
+      <p class="ml-3 my-3">マイトピックや注目中のトピックはありません。</p>
+      <p class="ml-3 my-3"><%= link_to"こちら", new_forum_path %>からトピックの投稿をしてみましょう！</p>
+      </div>
+      <div class="col-10 col-lg-6 mx-auto mb-3">
+        <%= image_tag"mountain3.jpg" ,class: "nosearch-image"%>
+      </div>
+    </div>
+  <% end %>
+  <div class="row my-3">
+    <div class="mx-auto"><%= paginate @forums %></div>
+  </div>
+</div>

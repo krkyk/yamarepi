@@ -1,0 +1,22 @@
+<% forum_comments.each do |comment| %>
+  <table class="table table-borderless">
+    <tbody>
+      <tr class="row d-flex align-items-center">
+        <td class="col-8 col-md-8 col-lg-8"><%= comment.forum_comment %></td>
+        <td class="col-2 col-md-3 col-lg-3 text-right">
+          <%= link_to admin_customer_path(comment.customer) do %>
+            <small>
+              <%= image_tag comment.customer.get_customer_image(100,100),class: "comment-customer-image" %>
+              <span class="name-link"><%= comment.customer.name %></span>
+            </small>
+          <% end %>
+        </td>
+        <td class="col-2 col-md-1 col-lg-1 text-right">
+            <%= link_to admin_forum_forum_comment_path(comment.forum, comment), method: :delete,"data-confirm"=>"本当に削除しますか？", remote: true, class: "btn btn-red btn-circle btn-sm m-1" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
