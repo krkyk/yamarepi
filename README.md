@@ -35,22 +35,24 @@
 
 ## 設計書
 
-- UI Flow
-  <img width="926" alt="スクリーンショット 2022-05-29 10 31 11" src="https://user-images.githubusercontent.com/100661771/170848302-4db5ec0c-a0a3-48fe-a0d0-1fba40b0009d.png">
-  <img width="988" alt="スクリーンショット 2022-05-29 10 31 45" src="https://user-images.githubusercontent.com/100661771/170848316-360879ea-828e-4fd5-993c-c8cc1eeabfc3.png">
+- UI Flow(会員側)
+  <img width="962" alt="スクリーンショット 2022-06-12 17 17 14" src="https://user-images.githubusercontent.com/100661771/173224088-212c2db2-1917-4e27-bf30-07c0be1e01e4.png">
+- UI Flow(管理側)
+  <img width="961" alt="スクリーンショット 2022-06-12 17 18 33" src="https://user-images.githubusercontent.com/100661771/173224115-244efafa-0778-4ee9-a177-bff55e0d50a0.png">
 - ER 図
-  <img width="1077" alt="スクリーンショット 2022-05-29 10 29 40" src="https://user-images.githubusercontent.com/100661771/170848261-b7ea4916-cab0-4d05-bd7e-36c90b59d8de.png">
+  <img width="1058" alt="スクリーンショット 2022-06-12 17 21 41" src="https://user-images.githubusercontent.com/100661771/173224199-23d379ac-ca1c-44fe-82f4-9469f7fe5a0d.png">
 - テーブル設計書
-  <img width="1001" alt="スクリーンショット 2022-05-29 10 47 16" src="https://user-images.githubusercontent.com/100661771/170848690-48c52f66-c35e-4427-b0c3-e9b516b509f8.png">
-  <img width="999" alt="スクリーンショット 2022-05-29 10 47 55" src="https://user-images.githubusercontent.com/100661771/170848700-e9599d31-3dec-4af4-a4cc-a6f79dc3c857.png">
-  <img width="1001" alt="スクリーンショット 2022-05-29 10 48 15" src="https://user-images.githubusercontent.com/100661771/170848705-bdce6d6d-3433-4406-be5b-32f991e3cfbd.png">
-- アプリケーション詳細設計
-  <img width="1048" alt="スクリーンショット 2022-05-29 10 33 55" src="https://user-images.githubusercontent.com/100661771/170848358-7a394f62-699b-4199-977c-5df868e0bef9.png">
-  <img width="1191" alt="スクリーンショット 2022-05-29 10 34 31" src="https://user-images.githubusercontent.com/100661771/170848380-5c757475-2f8b-4678-afe6-0d86c3d852e9.png">
+  <img width="756" alt="スクリーンショット 2022-06-12 17 28 18" src="https://user-images.githubusercontent.com/100661771/173224631-d3b973f4-efdb-4c42-a98b-b3bafbbac7a7.png">
+  <img width="648" alt="スクリーンショット 2022-06-12 17 30 46" src="https://user-images.githubusercontent.com/100661771/173224646-4a85c0f9-9880-436c-83f0-ce3bfc1661f5.png">
+  <img width="546" alt="スクリーンショット 2022-06-12 17 31 54" src="https://user-images.githubusercontent.com/100661771/173224687-69fafeee-2ed6-4824-8f3e-93fac22d421a.png">
+- アプリケーション詳細設計(会員側)
+  <img width="568" alt="スクリーンショット 2022-06-12 17 36 07" src="https://user-images.githubusercontent.com/100661771/173224805-c1e17ea4-ee9e-42e2-bcae-d260c910453f.png">
+- アプリケーション詳細設計(管理側)
+  <img width="887" alt="スクリーンショット 2022-06-12 17 37 21" src="https://user-images.githubusercontent.com/100661771/173224829-69805c1e-fdd7-4399-a268-6c31c6242aa6.png">
 
 ## 機能一覧
 
-  <img width="640" alt="スクリーンショット 2022-05-29 11 11 39" src="https://user-images.githubusercontent.com/100661771/170849173-623669d8-7faf-4675-bfa9-abaac53ba47d.png">
+  <img width="639" alt="スクリーンショット 2022-06-12 17 42 27" src="https://user-images.githubusercontent.com/100661771/173225004-d5d49447-40ef-46b7-96f6-902be8f97202.png">
 
 ## 開発環境
 
