@@ -1,5 +1,6 @@
 class Public::ForumCommentsController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_customer, only: [:destroy]
 
   def create
     @forum = Forum.find(params[:forum_id])
@@ -21,5 +22,12 @@ class Public::ForumCommentsController < ApplicationController
 
   def forum_comment_params
     params.require(:forum_comment).permit(:forum_comment)
+  end
+
+  def ensure_customer
+    @forum_comment = ForumComment.find(params[:id])
+    unless @forum_comment.customer == current_customer
+      redirect_to root_path, notice: 'その機能は使用できません。'
+    end
   end
 end
