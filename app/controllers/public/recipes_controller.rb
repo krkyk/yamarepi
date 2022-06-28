@@ -1,5 +1,6 @@
 class Public::RecipesController < ApplicationController
   before_action :authenticate_customer!, only: [:new]
+  before_action :ensure_customer, only: [:edit, :update, :destroy]
   before_action :ensure_guest_customer, only: [:new]
 
   def new
@@ -86,5 +87,12 @@ class Public::RecipesController < ApplicationController
   def ensure_guest_customer
     @customer = current_customer
     redirect_to root_path, notice: 'ゲストユーザーはその機能を使用できません。' if @customer.name == 'ゲストユーザー'
+  end
+
+  def ensure_customer
+    @recipe = Recipe.find(params[:id])
+    unless @recipe.customer == current_customer
+      redirect_to recipes_path, notice: 'その機能は使用できません。'
+    end
   end
 end
