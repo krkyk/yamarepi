@@ -1,5 +1,6 @@
 class Public::CommentsController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_customer, only: [:destroy]
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
@@ -25,5 +26,12 @@ class Public::CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:comment, :comment_image)
+  end
+
+  def ensure_customer
+    @comment = Comment.find(params[:id])
+    unless @comment.customer == current_customer
+      redirect_to root_path, notice: 'その機能は使用できません。'
+    end
   end
 end
