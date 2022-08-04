@@ -1,12 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
 
 body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  font-family: 'M PLUS 1p', sans-serif;
 }
 
 main {
